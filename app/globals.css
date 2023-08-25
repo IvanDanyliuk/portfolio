@@ -7,15 +7,20 @@
 
 body {
   font-family: Inter;
+  @apply flex flex-col min-h-screen;
 }
 
 header, main {
-  @apply container mx-auto flex justify-between items-center
+  @apply container mx-auto flex justify-between items-center;
+}
+
+main {
+  @apply flex min-h-full flex-1 flex-col justify-center;
 }
 
 /* Layout */
 .nav-link {
-  @apply relative inline-block font-medium tracking-wide
+  @apply relative inline-block font-medium tracking-wide;
 }
 
 .nav-link:after {
@@ -28,6 +33,13 @@ header, main {
 
 
 /* Home Page */
+.mainHeading {
+  @apply text-3xl md:text-7xl;
+}
+
+.subHeading {
+  @apply text-5xl text-text-secondary mt-3 leading-tight;
+}
 
 /* About Page */
 
