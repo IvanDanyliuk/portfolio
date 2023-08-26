@@ -39,6 +39,13 @@ main {
   @apply flex flex-col w-full justify-center content-between text-3xl;
 }
 
+.btn {
+  @apply px-6 py-2 border-2 border-black rounded-3xl hover:bg-black hover:text-white transition ;
+}
+
+.btn__fixed-length {
+  @apply w-72;
+}
 
 /* Home Page */
 .mainHeading {
@@ -47,6 +54,61 @@ main {
 
 .subHeading {
   @apply text-5xl text-text-secondary mt-3 leading-tight;
+}
+
+.greeting-block {
+  animation-duration: 3s;
+  animation-name: greeting;
+  animation-direction: alternate;
+}
+
+@keyframes greeting {
+  from {
+    margin-left: -100%;
+    width: 100%;
+  }
+
+  to {
+    margin-left: 0;
+    width: 50%;
+  }
+}
+
+.btns-block {
+  animation-duration: 3s;
+  animation-name: buttons;
+  animation-direction: alternate;
+}
+
+@keyframes buttons {
+  from {
+    margin-right: -100%;
+    width: 100%;
+  }
+
+  to {
+    margin-right: 0;
+    width: 50%;
+  }
+}
+
+.social-media {
+  animation-duration: 3s;
+  animation-name: social;
+  animation-direction: alternate;
+}
+
+@keyframes social {
+  from {
+    margin-bottom: -100%;
+  }
+  to {
+    margin-bottom: 0;
+  }
+}
+
+.cta-link {
+  @apply w-72 px-6 py-2 border-2 border-black rounded-3xl hover:bg-black text-center hover:text-white transition ;
 }
 
 /* About Page */
