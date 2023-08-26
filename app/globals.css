@@ -31,6 +31,14 @@ main {
   @apply w-full;
 }
 
+.socialMediaList__horizontal {
+  @apply flex w-full gap-5 justify-between items-center text-3xl;
+}
+
+.socialMediaList__vertical {
+  @apply flex flex-col w-full justify-center content-between text-3xl;
+}
+
 
 /* Home Page */
 .mainHeading {
