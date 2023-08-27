@@ -31,6 +31,14 @@ main {
   @apply w-full;
 }
 
+.nav-link__active {
+  @apply relative inline-block font-medium tracking-wide;
+}
+
+.nav-link__active:after {
+  @apply relative bottom-0 left-0 content-[''] block w-full h-1 bg-black
+}
+
 .socialMediaList__horizontal {
   @apply flex w-full gap-5 justify-between items-center text-3xl;
 }
@@ -49,11 +57,11 @@ main {
 
 /* Home Page */
 .mainHeading {
-  @apply text-3xl md:text-7xl;
+  @apply text-3xl lg:text-6xl;
 }
 
 .subHeading {
-  @apply text-5xl text-text-secondary mt-3 leading-tight;
+  @apply  text-xl lg:text-5xl text-text-secondary mt-3 leading-tight;
 }
 
 .greeting-block {
@@ -64,13 +72,11 @@ main {
 
 @keyframes greeting {
   from {
-    margin-left: -100%;
-    width: 100%;
+    left: -100%;
   }
 
   to {
-    margin-left: 0;
-    width: 50%;
+    left: 0;
   }
 }
 
@@ -83,29 +89,27 @@ main {
 @keyframes buttons {
   from {
     margin-right: -100%;
-    width: 100%;
   }
 
   to {
     margin-right: 0;
-    width: 50%;
   }
 }
 
 .social-media {
-  animation-duration: 3s;
+  /* animation-duration: 3s;
   animation-name: social;
-  animation-direction: alternate;
+  animation-direction: alternate; */
 }
 
-@keyframes social {
+/* @keyframes social {
   from {
-    margin-bottom: -100%;
+    bottom: -100%;
   }
   to {
-    margin-bottom: 0;
+    bottom: 0;
   }
-}
+} */
 
 .cta-link {
   @apply w-72 px-6 py-2 border-2 border-black rounded-3xl hover:bg-black text-center hover:text-white transition ;
