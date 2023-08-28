@@ -120,3 +120,14 @@ main {
 /* Projects Page */
 
 /* Contact Page */
+.field-container {
+  @apply w-full flex flex-col;
+}
+
+.field-label {
+  @apply mb-2 text-text-primary font-medium text-base;
+}
+
+.field {
+  @apply px-3 py-2 border-2 border-gray-100 rounded-md;
+}
