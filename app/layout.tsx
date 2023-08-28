@@ -21,14 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {/* <header className='py-7'>
+        <header className='flex justify-between'>
           <Logo />
           <Navbar />
-        </header> */}
-        <header>
-          <Navbar />
         </header>
-        
         <main>
           {children}
         </main>

@@ -6,7 +6,6 @@ import { Disclosure } from '@headlessui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { v4 as uuid } from 'uuid'
-import Logo from '@/components/Logo'
 import { navLinks } from '@/constants'
 import SocialMediaList from './SocialMediaList'
 
@@ -19,28 +18,24 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <Disclosure as='nav' className='bg-white w-full'>
+    <Disclosure as='nav' className='bg-white'>
       {() => (
         <>
-          <div className='relative w-full h-16 flex items-center justify-between'>
-            <Logo />
-            
-            <div className='hidden sm:ml-6 sm:block'>
-              <ul className='flex justify-between gap-5'>
-                {navLinks.map((item) => (
-                  <li>
-                    <Link
-                      key={uuid()}
-                      href={item.link}
-                      className={item.link === pathname ? 'nav-link__active' : 'nav-link'}
-                      aria-current={true ? 'page' : undefined}
-                    >
-                      {item.label}
-                  </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className='relative h-20 flex items-center justify-between'>
+            <ul className='md:flex justify-between gap-5 hidden '>
+              {navLinks.map((item) => (
+                <li>
+                  <Link
+                    key={uuid()}
+                    href={item.link}
+                    className={item.link === pathname ? 'nav-link__active' : 'nav-link'}
+                    aria-current={true ? 'page' : undefined}
+                  >
+                    {item.label}
+                </Link>
+                </li>
+              ))}
+            </ul>
 
             <div className='absolute inset-y-0 right-0 flex items-center sm:hidden'>
               {/* Mobile menu button*/}
