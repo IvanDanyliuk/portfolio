@@ -11,17 +11,18 @@ body {
 }
 
 header, main {
-  @apply container mx-auto flex justify-between items-center px-2 lg:px-0;
+  @apply container mx-auto px-2 lg:px-0 bg-white;
+}
+
+header {
+  @apply flex justify-between items-center;
 }
 
 main {
-  @apply flex min-h-full flex-1 flex-col justify-center;
+  @apply relative flex min-h-full flex-1 flex-col justify-center;
 }
 
 /* Layout */
-.nav-menu-mobile {
-  @apply animate-from-top;
-}
 
 .nav-link {
   @apply relative inline-block font-medium tracking-wide;
@@ -44,11 +45,11 @@ main {
 }
 
 .socialMediaList__horizontal {
-  @apply flex w-full gap-5 justify-between items-center text-5xl md:text-3xl;
+  @apply flex w-full gap-5 justify-between items-center text-4xl md:text-3xl;
 }
 
 .socialMediaList__vertical {
-  @apply flex flex-col w-full justify-center content-between text-5xl md:text-3xl;
+  @apply flex flex-col w-full justify-center content-between text-4xl md:text-3xl;
 }
 
 .btn {

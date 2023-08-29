@@ -39,8 +39,12 @@ const config: Config = {
           '100%': { width: '100%' },
         },
         fromTop: {
-          '0%': { top: '-100' },
+          '0%': { top: '-100%' },
           '100%': { top: '0' },
+        },
+        toTop: {
+          '0%': { top: '0' },
+          '100%': { top: '-100%' },
         },
         pulseFromCenter: {
           '0%': { 'box-shadow': '0 0 0 0px rgba(0, 0, 0, 0.2)' },
@@ -51,7 +55,8 @@ const config: Config = {
         'from-center': 'fromCenter 1.25s ease forwards',
         'from-left': 'fromLeft 3s alternate',
         'from-right': 'fromRight 3s alternate',
-        'from-top': 'fromTop 3s ease',
+        'from-top': 'fromTop 1.25s ease',
+        'to-top': 'toTop 1.25s ease',
         'pulse': 'pulseFromCenter 2s infinite',
       },
       
