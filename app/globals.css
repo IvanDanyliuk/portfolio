@@ -36,7 +36,7 @@ main {
 }
 
 .nav-link__active:after {
-  @apply relative bottom-0 left-0 content-[''] block w-full h-1 bg-black
+  @apply relative bottom-0 left-0 content-[''] block w-full h-1 bg-black;
 }
 
 .socialMediaList__horizontal {
@@ -130,4 +130,17 @@ main {
 
 .field {
   @apply px-3 py-2 border-2 border-gray-100 rounded-md;
+}
+
+.pulse {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 50px rgba(0, 0, 0, 0);
+  }
 }

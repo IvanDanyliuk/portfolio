@@ -22,11 +22,10 @@ export default function Header() {
       {() => (
         <>
           <div className='relative h-20 flex items-center justify-between'>
-            <ul className='md:flex justify-between gap-5 hidden '>
+            <ul className='md:flex justify-between gap-5 hidden'>
               {navLinks.map((item) => (
-                <li>
+                <li key={uuid()}>
                   <Link
-                    key={uuid()}
                     href={item.link}
                     className={item.link === pathname ? 'nav-link__active' : 'nav-link'}
                     aria-current={true ? 'page' : undefined}
