@@ -11,7 +11,7 @@ export default function Home() {
           <h1 className='mainHeading'>Hi! I am <strong className='font-bold'>Ivan Danyliuk</strong>.</h1>
           <h2 className='subHeading'>I am a creative frontend developer based in Ukraine</h2>
         </div>
-        <div className='w-full md:w-1/2 flex grow flex-col gap-5 items-center justify-center btns-block'>
+        <div className='relative w-full md:w-1/2 flex grow flex-col gap-5 items-center justify-center btns-block'>
           <Link 
             href='/projects' 
             className='cta-link'

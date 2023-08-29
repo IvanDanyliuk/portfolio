@@ -38,20 +38,20 @@ export default function Header() {
 
             <div className='absolute inset-y-0 right-0 flex items-center sm:hidden'>
               {/* Mobile menu button*/}
-              <Disclosure.Button className='relative inline-flex items-center justify-center p-2 text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'>
+              <Disclosure.Button className='relative inline-flex items-center justify-center p-2 text-2xl text-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'>
                 <FontAwesomeIcon icon={faBars} />
               </Disclosure.Button>
             </div>
           </div>
 
-          <Disclosure.Panel className='sm:hidden absolute top-0 left-0 w-full h-full z-10 bg-white'>
-            <div className='p-3'>
-              <div className='w-full flex justify-end'>
-                <Disclosure.Button className='text-xl p-2'>
+          <Disclosure.Panel className='sm:hidden absolute top-0 left-0 w-full h-full z-10 bg-white nav-menu-mobile'>
+            <div className='px-2'>
+              <div className='w-full h-20 flex justify-end items-center'>
+                <Disclosure.Button className='text-2xl p-2'>
                   <FontAwesomeIcon icon={faXmark} />
                 </Disclosure.Button>
               </div>
-              <ul className='space-y-1 px-2 pb-3 pt-2'>
+              <ul className='space-y-5 px-2 pb-3 pt-2'>
                 {navLinks.map((item) => (
                   <li key={uuid()}>
                     <Disclosure.Button
@@ -68,8 +68,8 @@ export default function Header() {
                   </li>
                 ))}
               </ul>
-              <hr className='my-7 bg-gray-100' />
-              <div className='px-10'>
+              {/* <hr className='my-7 bg-gray-100' /> */}
+              <div className='px-5 py-5 w-full absolute left-0 bottom-3'>
                 <SocialMediaList orientation='horizontal' />
               </div>
             </div>

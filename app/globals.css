@@ -19,6 +19,10 @@ main {
 }
 
 /* Layout */
+.nav-menu-mobile {
+  @apply animate-from-top;
+}
+
 .nav-link {
   @apply relative inline-block font-medium tracking-wide;
 }
@@ -40,11 +44,11 @@ main {
 }
 
 .socialMediaList__horizontal {
-  @apply flex w-full gap-5 justify-between items-center text-3xl;
+  @apply flex w-full gap-5 justify-between items-center text-5xl md:text-3xl;
 }
 
 .socialMediaList__vertical {
-  @apply flex flex-col w-full justify-center content-between text-3xl;
+  @apply flex flex-col w-full justify-center content-between text-5xl md:text-3xl;
 }
 
 .btn {
@@ -54,6 +58,19 @@ main {
 .btn__fixed-length {
   @apply w-72;
 }
+
+.field-container {
+  @apply w-full flex flex-col;
+}
+
+.field-label {
+  @apply mb-2 text-text-primary font-medium text-base;
+}
+
+.field {
+  @apply px-3 py-2 border-2 border-gray-100 rounded-md;
+}
+
 
 /* Home Page */
 .mainHeading {
@@ -65,35 +82,11 @@ main {
 }
 
 .greeting-block {
-  animation-duration: 3s;
-  animation-name: greeting;
-  animation-direction: alternate;
-}
-
-@keyframes greeting {
-  from {
-    left: -100%;
-  }
-
-  to {
-    left: 0;
-  }
+  @apply animate-from-left
 }
 
 .btns-block {
-  animation-duration: 3s;
-  animation-name: buttons;
-  animation-direction: alternate;
-}
-
-@keyframes buttons {
-  from {
-    margin-right: -100%;
-  }
-
-  to {
-    margin-right: 0;
-  }
+  @apply animate-from-right
 }
 
 .social-media {
@@ -115,32 +108,34 @@ main {
   @apply w-72 px-6 py-2 border-2 border-black rounded-3xl hover:bg-black text-center hover:text-white transition ;
 }
 
+
 /* About Page */
+
 
 /* Projects Page */
 
+
 /* Contact Page */
-.field-container {
-  @apply w-full flex flex-col;
-}
-
-.field-label {
-  @apply mb-2 text-text-primary font-medium text-base;
-}
-
-.field {
-  @apply px-3 py-2 border-2 border-gray-100 rounded-md;
-}
-
 .pulse {
-  animation: pulse-animation 2s infinite;
+  @apply animate-pulse;
 }
 
-@keyframes pulse-animation {
-  0% {
-    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+.heading-block {
+  animation-duration: 3s;
+  animation-name: greeting;
+  animation-direction: alternate;
+}
+
+@keyframes heading {
+  from {
+    margin-bottom: -100%;
   }
-  100% {
-    box-shadow: 0 0 0 50px rgba(0, 0, 0, 0);
+
+  to {
+    margin-bottom: 0;
   }
+}
+
+.line {
+  @apply my-10 w-0 h-[2px] mx-auto animate-from-center
 }
