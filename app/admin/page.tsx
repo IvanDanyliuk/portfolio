@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 const Index = () => {
   const router = useRouter();
 
-  const isLogged = false;
+  const isLogged = true;
 
   useEffect(() => {
     if(!isLogged) {

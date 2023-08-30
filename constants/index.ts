@@ -8,6 +8,13 @@ export const navLinks = [
   { label: 'ABOUT', link: '/about' },
   { label: 'PROJECTS', link: '/projects' },
   { label: 'CONTACT', link: '/contact' },
+];
+
+export const adminPanelLinks = [
+  { label: 'Biography & Skills', link: '/admin/biography' },
+  { label: 'Certifications', link: '/admin/certifications' },
+  { label: 'Projects', link: '/admin/projects' },
+  { label: 'Summary', link: '/admin' },
 ]
 
 export const socialMediaLinks = [
