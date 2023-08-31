@@ -19,12 +19,6 @@ const config: Config = {
       transitionProperty: {
         'width': 'width',
       },
-      margin: {
-        // 'mr-100': '100%',
-        // 'ml-100': '100%',
-        // 'mt-100': '100%',
-        // 'mb-100': '100%',
-      },
       keyframes: {
         fromLeft: {
           '0%': { left: '-100%' },
