@@ -44,6 +44,14 @@ main {
   @apply relative bottom-0 left-0 content-[''] block w-full h-1 bg-black;
 }
 
+.admin-nav-link {
+  @apply p-3 block bg-gray-200;
+}
+
+.admin-nav-link__active {
+  @apply p-3 block bg-gray-300;
+}
+
 .socialMediaList__horizontal {
   @apply flex w-full gap-5 justify-between items-center text-4xl md:text-3xl;
 }

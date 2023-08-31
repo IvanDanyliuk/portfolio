@@ -11,10 +11,11 @@ export const navLinks = [
 ];
 
 export const adminPanelLinks = [
+  { label: 'Summary', link: '/admin' },
   { label: 'Biography & Skills', link: '/admin/biography' },
   { label: 'Certifications', link: '/admin/certifications' },
   { label: 'Projects', link: '/admin/projects' },
-  { label: 'Summary', link: '/admin' },
+  
 ]
 
 export const socialMediaLinks = [
