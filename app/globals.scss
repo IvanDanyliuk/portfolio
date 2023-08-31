@@ -26,22 +26,22 @@ main {
 
 .nav-link {
   @apply relative inline-block font-medium tracking-wide;
-}
 
-.nav-link:after {
-  @apply relative bottom-0 left-0 content-[''] block w-0 h-1 bg-black transition-[width] duration-300 ease-in-out;
-}
+  &:after {
+    @apply relative bottom-0 left-0 content-[''] block w-0 h-1 bg-black transition-[width] duration-300 ease-in-out;
+  }
 
-.nav-link:hover:after {
-  @apply w-full;
+  &:hover:after {
+    @apply w-full;
+  }
 }
 
 .nav-link__active {
   @apply relative inline-block font-medium tracking-wide;
-}
 
-.nav-link__active:after {
-  @apply relative bottom-0 left-0 content-[''] block w-full h-1 bg-black;
+  &:after {
+    @apply relative bottom-0 left-0 content-[''] block w-full h-1 bg-black;
+  }
 }
 
 .admin-nav-link {
@@ -68,16 +68,22 @@ main {
   @apply w-72;
 }
 
-.field-container {
-  @apply w-full flex flex-col;
-}
-
-.field-label {
-  @apply mb-2 text-text-primary font-medium text-base;
-}
-
 .field {
-  @apply px-3 py-2 border-2 border-gray-100 rounded-md;
+  @apply w-full flex flex-col;
+
+  label {
+    @apply mb-2 text-text-primary font-medium text-base;
+  }
+
+  input, textarea {
+    @apply px-3 py-2 border-2 border-gray-100 rounded-md;
+  }
+}
+
+.form {
+  button {
+    @apply mt-6;
+  }
 }
 
 
@@ -98,20 +104,6 @@ main {
   @apply animate-from-right
 }
 
-.social-media {
-  /* animation-duration: 3s;
-  animation-name: social;
-  animation-direction: alternate; */
-}
-
-/* @keyframes social {
-  from {
-    bottom: -100%;
-  }
-  to {
-    bottom: 0;
-  }
-} */
 
 .cta-link {
   @apply w-72 px-6 py-2 border-2 border-black rounded-3xl hover:bg-black text-center hover:text-white transition ;

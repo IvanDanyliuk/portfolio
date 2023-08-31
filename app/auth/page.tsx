@@ -14,7 +14,6 @@ const page = () => {
   const { 
     register, 
     handleSubmit, 
-    control, 
     formState: { errors }, 
     reset 
   } = useForm<Credentials>();
@@ -28,7 +27,7 @@ const page = () => {
   return (
     <div className='flex flex-col grow justify-center items-center'>
       <h2 className='mb-3 text-3xl font-bold'>Login</h2>
-      <form action="" onSubmit={login} className='w-full md:w-[350px] flex flex-col gap-3 items-center'>
+      <form action="" onSubmit={handleSubmit(login)} className='w-full md:w-[350px] flex flex-col gap-3 items-center form'>
         <Input 
           name='keyword' 
           label='Keyword' 
