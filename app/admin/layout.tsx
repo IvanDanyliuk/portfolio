@@ -17,7 +17,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
   return (
     <div className='py-3 flex flex-col md:flex-row grow gap-7'>
       <AdminNavbar />
-      <div className='flex-1'>
+      <div className='flex-1 pb-10'>
         {children}
       </div>
     </div>

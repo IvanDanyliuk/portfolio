@@ -6,6 +6,8 @@ import Input from '@/components/Input'
 import Editor from '@/components/Editor'
 import Button from '@/components/Button'
 import Chip from '@/components/Chip'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
 
 interface FormState {
   greeting: string;
@@ -15,6 +17,19 @@ interface FormState {
 const techSkills = [
   'JavaScript', 'TypeScript', 'React', 'Next.js', 'Redux/ReduxToolkit',
   'HTML', 'CSS/SASS/SCSS', 'Node.js', 'MongoDB', 'MaterialUI', 'TailwindCSS'
+]
+
+const education = [
+  {
+    period: '2021-2022',
+    place: 'SoftServe IT Academy',
+    degree: '',
+  },
+  {
+    period: '2008-2014',
+    place: 'Donetsk State University of Management',
+    degree: 'Master of Management',
+  }
 ]
 
 const Biography = () => {
@@ -86,7 +101,30 @@ const Biography = () => {
       </section>
       <div className='my-10 w-full h-[1px] bg-gray-100' />
       <section>
-        <h3 className='mb-3 text-xl font-semibold'>Education</h3>
+        <div className='w-full flex justify-between items-center'>
+          <h3 className='mb-3 text-xl font-semibold'>Education</h3>
+          <button>Add</button>
+        </div>
+        <table className='w-full'>
+          <tbody className='w-full'>
+            {education.map(item => (
+              <tr key={uuid()} className='relative w-full border-b-2'>
+                <td className='w-2/12 py-4'>
+                  {item.period}
+                </td>
+                <td className='w-5/12 py-4'>
+                  {item.place}
+                </td>
+                <td className='w-4/12 py-4'>
+                  {item.degree}
+                </td>
+                <td className='w-1/12 py-4'>
+                  <FontAwesomeIcon icon={faXmark} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </section>
     </div>
   )
