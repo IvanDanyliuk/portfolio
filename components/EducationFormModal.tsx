@@ -6,19 +6,21 @@ import { useForm } from 'react-hook-form'
 import Button from './Button';
 import Input from './Input';
 
-interface SkillItem {
-  title: string;
-  isAdditional: boolean;
+interface EducationItem {
+  institution: string;
+  qualification?: string;
+  periodFrom: string;
+  periodTo: string;
 }
 
-const SkillFormModal: React.FC = () => {
+const EducationFormModal: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { 
     register, 
     handleSubmit, 
     formState: { errors }, 
     reset 
-  } = useForm<SkillItem>();
+  } = useForm<EducationItem>();
 
   const handleModalOpen = () => {
     setIsOpen(!isOpen);
@@ -67,21 +69,36 @@ const SkillFormModal: React.FC = () => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Add a new skill
+                    Add a new institution
                   </Dialog.Title>
                   <form onSubmit={handleSubmit(handleAddSkill)} className='mt-3 form flex flex-col items-center gap-3'>
                     <Input 
-                      name='title' 
-                      label='Title' 
+                      name='institution' 
+                      label='University/Courses' 
                       register={register} 
-                      registerOptions={{ required: 'Title is required!' }} 
-                      error={errors.title}
+                      registerOptions={{ required: 'This field is required!' }} 
+                      error={errors.institution}
                     />
                     <Input 
-                      type='checkbox'
-                      name='isAdditional' 
-                      label='is additional' 
+                      name='degree' 
+                      label='Degree (optional)' 
+                      register={register}  
+                    />
+                    <Input 
+                      type='number'
+                      name='periodFrom' 
+                      label='From' 
                       register={register} 
+                      registerOptions={{ required: 'This field is required!' }} 
+                      error={errors.institution}
+                    />
+                    <Input 
+                      type='number'
+                      name='periodTo' 
+                      label='To' 
+                      register={register} 
+                      registerOptions={{ required: 'This field is required!' }} 
+                      error={errors.institution}
                     />
                     <Button type='submit' title='Add' onClick={handleAddSkill} />
                   </form>
@@ -95,4 +112,4 @@ const SkillFormModal: React.FC = () => {
   )
 }
 
-export default SkillFormModal
+export default EducationFormModal

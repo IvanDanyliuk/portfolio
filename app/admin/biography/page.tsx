@@ -9,6 +9,7 @@ import Chip from '@/components/Chip'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import SkillFormModal from '@/components/SkillFormModal'
+import EducationFormModal from '@/components/EducationFormModal'
 
 interface FormState {
   greeting: string;
@@ -104,7 +105,8 @@ const Biography = () => {
       <section>
         <div className='w-full flex justify-between items-center'>
           <h3 className='mb-3 text-xl font-semibold'>Education</h3>
-          <button>Add</button>
+          {/* <button>Add</button> */}
+          <EducationFormModal />
         </div>
         <table className='w-full'>
           <tbody className='w-full'>

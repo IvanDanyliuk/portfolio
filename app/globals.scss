@@ -22,7 +22,7 @@ main {
   @apply relative flex min-h-full flex-1 flex-col justify-center;
 }
 
-/* Layout */
+// Layout
 
 .nav-link {
   @apply relative inline-block font-medium tracking-wide;
@@ -95,7 +95,7 @@ main {
 }
 
 
-/* Home Page */
+// Home Page
 .mainHeading {
   @apply text-3xl lg:text-6xl;
 }
@@ -118,13 +118,13 @@ main {
 }
 
 
-/* About Page */
+// About Page
 
 
-/* Projects Page */
+// Projects Page
 
 
-/* Contact Page */
+// Contact Page
 .pulse {
   @apply animate-pulse;
 }
@@ -147,4 +147,10 @@ main {
 
 .line {
   @apply my-10 w-0 h-[2px] mx-auto animate-from-center
+}
+
+
+// Admin Panel
+.period {
+  
 }
