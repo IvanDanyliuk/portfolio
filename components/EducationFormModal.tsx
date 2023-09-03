@@ -26,7 +26,7 @@ const EducationFormModal: React.FC = () => {
     setIsOpen(!isOpen);
   }
 
-  const handleAddSkill = async (skill: any) => {
+  const handleAddEducationItem = async (skill: any) => {
     if(skill.title && skill.title.trim()) {
       console.log(skill)
 
@@ -71,7 +71,7 @@ const EducationFormModal: React.FC = () => {
                   >
                     Add a new institution
                   </Dialog.Title>
-                  <form onSubmit={handleSubmit(handleAddSkill)} className='mt-3 form flex flex-col items-center gap-3'>
+                  <form onSubmit={handleSubmit(handleAddEducationItem)} className='mt-3 form flex flex-col items-center gap-3'>
                     <Input 
                       name='institution' 
                       label='University/Courses' 
@@ -100,7 +100,7 @@ const EducationFormModal: React.FC = () => {
                       registerOptions={{ required: 'This field is required!' }} 
                       error={errors.institution}
                     />
-                    <Button type='submit' title='Add' onClick={handleAddSkill} />
+                    <Button type='submit' title='Add' />
                   </form>
                 </Dialog.Panel>
               </Transition.Child>

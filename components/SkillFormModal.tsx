@@ -28,7 +28,7 @@ const SkillFormModal: React.FC = () => {
     if(skill.title && skill.title.trim()) {
       console.log(skill)
 
-      // reset();
+      reset();
       setIsOpen(false);
     }
   }
@@ -83,7 +83,7 @@ const SkillFormModal: React.FC = () => {
                       label='is additional' 
                       register={register} 
                     />
-                    <Button type='submit' title='Add' onClick={handleAddSkill} />
+                    <Button type='submit' title='Add' />
                   </form>
                 </Dialog.Panel>
               </Transition.Child>
