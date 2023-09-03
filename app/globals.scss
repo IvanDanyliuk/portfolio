@@ -80,6 +80,14 @@ main {
   }
 }
 
+.checkbox {
+  @apply flex flex-row-reverse justify-end;
+
+  label {
+    @apply ml-2
+  }
+}
+
 .form {
   button {
     @apply mt-6;

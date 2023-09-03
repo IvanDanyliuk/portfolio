@@ -1,7 +1,7 @@
 interface ButtonProps {
   title: string;
   type?: 'button' | 'submit' | 'reset';
-  onClick?: () => void;
+  onClick?: (arg?: any) => void;
 }
 
 const Button: React.FC<ButtonProps> = ({ title, type, onClick }) => {

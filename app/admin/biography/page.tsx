@@ -8,6 +8,7 @@ import Button from '@/components/Button'
 import Chip from '@/components/Chip'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import SkillFormModal from '@/components/SkillFormModal'
 
 interface FormState {
   greeting: string;
@@ -74,7 +75,7 @@ const Biography = () => {
       <section className='flex flex-col'>
         <div className='w-full flex justify-between items-center'>
           <h3 className='mb-3 text-xl font-semibold'>Skills</h3>
-          <button>Add</button>
+          <SkillFormModal />
         </div>
         <div className='flex gap-3'>
           <div className='w-2/3'>

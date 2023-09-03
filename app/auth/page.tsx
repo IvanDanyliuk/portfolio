@@ -1,9 +1,9 @@
 'use client'
 
-import Button from '@/components/Button';
-import Input from '@/components/Input'
 import React, { FormEventHandler, SyntheticEvent } from 'react'
 import { useForm } from 'react-hook-form'
+import Button from '@/components/Button';
+import Input from '@/components/Input'
 
 interface Credentials {
   keyword: string;

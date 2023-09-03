@@ -20,7 +20,7 @@ const Input = ({
   ...props 
 }: InputProps) => {
   return (
-    <div className='field'>
+    <div className={type === 'checkbox' ? 'checkbox' : 'field'}>
       <label htmlFor={name}>
         {error ? error.message : label}
       </label>
