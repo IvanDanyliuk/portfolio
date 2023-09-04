@@ -4,9 +4,9 @@ import { redirect } from 'next/navigation'
 import { useAuth } from '@clerk/nextjs'
 
 const Index = () => {
-  const { isLoaded, userId, sessionId, getToken } = useAuth();
+  const { isLoaded, userId, getToken } = useAuth();
 
-  if (!isLoaded || !userId) {
+  if ((!isLoaded || !userId) && (userId !== process.env.CLERK_USER_ID)) {
     redirect('/sign-in');
   }
   
