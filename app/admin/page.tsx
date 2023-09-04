@@ -1,18 +1,14 @@
 'use client'
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import { redirect } from 'next/navigation'
+import { useAuth } from '@clerk/nextjs'
 
 const Index = () => {
-  const router = useRouter();
+  const { isLoaded, userId, sessionId, getToken } = useAuth();
 
-  const isLogged = true;
-
-  useEffect(() => {
-    if(!isLogged) {
-      router.push('/auth');
-    } 
-  }, []);
+  if (!isLoaded || !userId) {
+    redirect('/sign-in');
+  }
   
   return (
     <div>
