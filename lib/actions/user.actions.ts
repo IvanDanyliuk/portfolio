@@ -62,6 +62,13 @@ export const updateUser = async ({
   }
 };
 
+export const deleteSkill = async (userId: string, skillTitle: string) => {
+  console.log('Skill Delete', { userId, skillTitle })
+  const user = await User.findOne({ userId });
+  user.skills = user.skills.filter((skill: any) => skill.title !== skillTitle);
+  await user.save();
+} 
+
 export const fetchUser = async () => {
   try {
     connectToDB();

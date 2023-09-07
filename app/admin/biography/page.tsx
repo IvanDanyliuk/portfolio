@@ -49,11 +49,11 @@ const Biography: React.FC = async () => {
         <div className='flex gap-3'>
           <div className='w-2/3'>
             <h4 className='mb-3 text-lg font-semibold'>Technical</h4>
-            <SkillsList skills={techSkills} />
+            <SkillsList userId={user.userId} skills={techSkills} />
           </div>
           <div className='w-1/3'>
             <h4 className='mb-3 text-lg font-semibold'>Additional</h4>
-            <SkillsList skills={additionalSkills} />
+            <SkillsList userId={user.userId} skills={additionalSkills} />
           </div>
         </div>
       </section>
