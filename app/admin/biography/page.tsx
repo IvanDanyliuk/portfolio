@@ -30,7 +30,6 @@ const education = [
 const Biography: React.FC = async () => {
   const userData = await fetchUserData();
   const user = JSON.parse(JSON.stringify(userData))
-  console.log('User Data', user)
   const techSkills = user.skills ? user.skills.filter((skill: any) => !skill.isAdditional) : [];
   const additionalSkills = user.skills ? user.skills.filter((skill: any) => skill.isAdditional) : [];
 
@@ -45,16 +44,16 @@ const Biography: React.FC = async () => {
       <section className='flex flex-col'>
         <div className='w-full flex justify-between items-center'>
           <h3 className='mb-3 text-xl font-semibold'>Skills</h3>
-          <SkillFormModal user={user} />
+          <SkillFormModal />
         </div>
         <div className='flex gap-3'>
           <div className='w-2/3'>
             <h4 className='mb-3 text-lg font-semibold'>Technical</h4>
-            <SkillsList userId={user.userId} skills={techSkills} />
+            <SkillsList skills={techSkills} />
           </div>
           <div className='w-1/3'>
             <h4 className='mb-3 text-lg font-semibold'>Additional</h4>
-            <SkillsList userId={user.userId} skills={additionalSkills} />
+            <SkillsList skills={additionalSkills} />
           </div>
         </div>
       </section>

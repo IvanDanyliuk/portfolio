@@ -1,21 +1,23 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { v4 as uuid } from 'uuid';
 import Chip from './Chip';
-// import { deleteSkill } from '@/lib/actions/user.actions';
+import { deleteSkill } from '@/lib/actions/skills.actions';
 
 interface SkillsListProps {
-  userId: string;
   skills: {
+    _id: string;
     title: string;
     isAdditional: boolean;
   }[];
 }
 
-const SkillsList = ({ userId, skills }: SkillsListProps) => {
+const SkillsList = ({ skills }: SkillsListProps) => {
+  const pathname = usePathname();
 
-  const handleSkillsDelete = async (title: string) => {
-    // await deleteSkill(userId, title);
+  const handleSkillsDelete = async (id: string) => {
+    await deleteSkill({id, pathname});
   }
 
   return (
@@ -24,7 +26,7 @@ const SkillsList = ({ userId, skills }: SkillsListProps) => {
         <li key={uuid()}>
           <Chip 
             title={skill.title} 
-            onClose={() => console.log(skill.title)} 
+            onClose={() => handleSkillsDelete(skill._id)} 
           />
         </li>
       ))}

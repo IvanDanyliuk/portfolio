@@ -4,22 +4,13 @@ import { Fragment, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Dialog, Transition } from '@headlessui/react'
 import { useForm } from 'react-hook-form'
-import { v4 as uuid } from 'uuid';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-// import { updateUser } from '@/lib/actions/user.actions';
-import { User } from '@/common.types';
+import { Skill } from '@/common.types';
+import { addSkill } from '@/lib/actions/skills.actions'
 
-interface SkillModalProps {
-  user: User;
-}
 
-interface SkillItem {
-  title: string;
-  isAdditional: boolean;
-}
-
-const SkillFormModal: React.FC<SkillModalProps> = ({ user }) => {
+const SkillFormModal: React.FC = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const { 
@@ -27,7 +18,7 @@ const SkillFormModal: React.FC<SkillModalProps> = ({ user }) => {
     handleSubmit, 
     formState: { errors }, 
     reset 
-  } = useForm<SkillItem>();
+  } = useForm<Skill>();
 
   const handleModalOpen = () => {
     setIsOpen(!isOpen);
@@ -35,16 +26,11 @@ const SkillFormModal: React.FC<SkillModalProps> = ({ user }) => {
 
   const handleAddSkill = async (skill: any) => {
     if(skill.title && skill.title.trim()) {
-      // await updateUser({
-      //   userId: user.userId,
-      //   pathname,
-      //   biography: user.biography,
-      //   photoUrl: user.photoUrl,
-      //   skills: [...user.skills, skill],
-      //   certifications: user.certifications,
-      //   education: user.education,
-      //   experience: user.experience
-      // });
+      await addSkill({
+        skill,
+        pathname
+      });
+      
       reset();
       setIsOpen(false);
     }

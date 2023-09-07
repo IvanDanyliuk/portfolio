@@ -20,3 +20,8 @@ export interface User {
     verificationUrl: string;
   }[];
 }
+
+export interface Skill {
+  title: string;
+  isAdditional: boolean;
+}
