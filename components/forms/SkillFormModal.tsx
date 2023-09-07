@@ -1,6 +1,7 @@
 'use client'
 
 import { Fragment, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { Dialog, Transition } from '@headlessui/react'
 import { useForm } from 'react-hook-form'
 import Button from '@/components/ui/Button';
@@ -9,7 +10,7 @@ import { updateUser } from '@/lib/actions/user.actions';
 import { User } from '@/common.types';
 
 interface SkillModalProps {
-  user: User
+  user: User;
 }
 
 interface SkillItem {
@@ -18,7 +19,7 @@ interface SkillItem {
 }
 
 const SkillFormModal: React.FC<SkillModalProps> = ({ user }) => {
-  
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const { 
     register, 
@@ -33,9 +34,18 @@ const SkillFormModal: React.FC<SkillModalProps> = ({ user }) => {
 
   const handleAddSkill = async (skill: any) => {
     if(skill.title && skill.title.trim()) {
-      // await updateUser({ ...user, skills: [...user.skills, skill] })
-      // reset();
-      // setIsOpen(false);
+      await updateUser({
+        userId: user.userId,
+        pathname,
+        biography: user.biography,
+        photoUrl: user.photoUrl,
+        skills: [...user.skills, skill],
+        certifications: user.certifications,
+        education: user.education,
+        experience: user.experience
+      });
+      reset();
+      setIsOpen(false);
     }
   }
 
