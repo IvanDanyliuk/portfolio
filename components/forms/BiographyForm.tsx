@@ -5,18 +5,21 @@ import { usePathname } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import Editor from '@/components/ui/Editor'
 import Button from '@/components/ui/Button'
-import { updateUser } from '@/lib/actions/user.actions'
-import { User } from '@/common.types'
+import { updateGeneralData } from '@/lib/actions/user.actions'
 
 interface BiographyFormProps {
-  user: User;
+  data: {
+    userId: string;
+    biography: string;
+    photoUrl: string;
+  }
 }
 
 interface FormState {
   biography: string;
 }
 
-const BiographyForm: React.FC<BiographyFormProps> = ({ user }) => {
+const BiographyForm: React.FC<BiographyFormProps> = ({ data }) => {
   const pathname = usePathname();
   const { 
     register,
@@ -26,23 +29,19 @@ const BiographyForm: React.FC<BiographyFormProps> = ({ user }) => {
     reset
   } = useForm<FormState>();
 
-  const handleBiographySubmit = async (data: any) => {
-    await updateUser({ 
-      userId: user.userId,
-      pathname,
-      biography: data.biography,
-      photoUrl: user.photoUrl,
-      skills: user.skills,
-      education: user.education,
-      certifications: user.certifications,
-      experience: user.experience
+  const handleBiographySubmit = async (formData: any) => {
+    await updateGeneralData({ 
+      userId: data.userId, 
+      photoUrl: data.photoUrl, 
+      biography: formData.biography, 
+      pathname 
     });
     reset();
   }
 
   useEffect(() => {
     reset({
-      biography: user.biography
+      biography: data ? data.biography : ''
     })
   }, []);
 

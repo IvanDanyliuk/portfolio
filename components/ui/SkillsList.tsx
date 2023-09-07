@@ -2,7 +2,7 @@
 
 import { v4 as uuid } from 'uuid';
 import Chip from './Chip';
-import { deleteSkill } from '@/lib/actions/user.actions';
+// import { deleteSkill } from '@/lib/actions/user.actions';
 
 interface SkillsListProps {
   userId: string;
@@ -15,7 +15,7 @@ interface SkillsListProps {
 const SkillsList = ({ userId, skills }: SkillsListProps) => {
 
   const handleSkillsDelete = async (title: string) => {
-    await deleteSkill(userId, title);
+    // await deleteSkill(userId, title);
   }
 
   return (
@@ -24,7 +24,7 @@ const SkillsList = ({ userId, skills }: SkillsListProps) => {
         <li key={uuid()}>
           <Chip 
             title={skill.title} 
-            onClose={() => handleSkillsDelete(skill.title)} 
+            onClose={() => console.log(skill.title)} 
           />
         </li>
       ))}

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import SkillFormModal from '@/components/forms/SkillFormModal'
 import EducationFormModal from '@/components/forms/EducationFormModal'
-import { fetchUser } from '@/lib/actions/user.actions'
+import { fetchUserData } from '@/lib/actions/user.actions'
 import BiographyForm from '@/components/forms/BiographyForm'
 import SkillsList from '@/components/ui/SkillsList'
 
@@ -28,8 +28,9 @@ const education = [
 ]
 
 const Biography: React.FC = async () => {
-  const userData = await fetchUser();
+  const userData = await fetchUserData();
   const user = JSON.parse(JSON.stringify(userData))
+  console.log('User Data', user)
   const techSkills = user.skills ? user.skills.filter((skill: any) => !skill.isAdditional) : [];
   const additionalSkills = user.skills ? user.skills.filter((skill: any) => skill.isAdditional) : [];
 
@@ -38,7 +39,7 @@ const Biography: React.FC = async () => {
     <div>
       <section>
         <h3 className='mb-3 text-xl font-semibold'>Biography</h3>
-        <BiographyForm user={user} />
+        <BiographyForm data={user.generalData} />
       </section>
       <div className='my-10 w-full h-[1px] bg-gray-100' />
       <section className='flex flex-col'>
@@ -61,7 +62,7 @@ const Biography: React.FC = async () => {
       <section>
         <div className='w-full flex justify-between items-center'>
           <h3 className='mb-3 text-xl font-semibold'>Education</h3>
-          {/* <EducationFormModal /> */}
+          {/* <EducationFormModal user={user} /> */}
         </div>
         <table className='w-full'>
           <tbody className='w-full'>

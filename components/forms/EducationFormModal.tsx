@@ -1,10 +1,17 @@
 'use client'
 
 import { Fragment, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { Dialog, Transition } from '@headlessui/react'
 import { useForm } from 'react-hook-form'
 import Button from '../ui/Button';
 import Input from '../ui/Input';
+import { User } from '@/common.types';
+// import { updateUser } from '@/lib/actions/user.actions';
+
+interface EducationFormModalProps {
+  user: User;
+}
 
 interface EducationItem {
   institution: string;
@@ -13,7 +20,8 @@ interface EducationItem {
   periodTo: string;
 }
 
-const EducationFormModal: React.FC = () => {
+const EducationFormModal: React.FC<EducationFormModalProps> = ({ user }) => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const { 
     register, 
@@ -26,11 +34,19 @@ const EducationFormModal: React.FC = () => {
     setIsOpen(!isOpen);
   }
 
-  const handleAddEducationItem = async (skill: any) => {
-    if(skill.title && skill.title.trim()) {
-      console.log(skill)
-
-      // reset();
+  const handleAddEducationItem = async (data: any) => {
+    if(data.institution && data.institution.trim()) {
+      // await updateUser({
+      //   userId: user.userId,
+      //   pathname,
+      //   biography: user.biography,
+      //   photoUrl: user.photoUrl,
+      //   skills: user.skills,
+      //   certifications: user.certifications,
+      //   experience: user.experience,
+      //   education: [...user.education, data]
+      // })
+      reset();
       setIsOpen(false);
     }
   }

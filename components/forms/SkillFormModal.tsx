@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 import { v4 as uuid } from 'uuid';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { updateUser } from '@/lib/actions/user.actions';
+// import { updateUser } from '@/lib/actions/user.actions';
 import { User } from '@/common.types';
 
 interface SkillModalProps {
@@ -35,16 +35,16 @@ const SkillFormModal: React.FC<SkillModalProps> = ({ user }) => {
 
   const handleAddSkill = async (skill: any) => {
     if(skill.title && skill.title.trim()) {
-      await updateUser({
-        userId: user.userId,
-        pathname,
-        biography: user.biography,
-        photoUrl: user.photoUrl,
-        skills: [...user.skills, skill],
-        certifications: user.certifications,
-        education: user.education,
-        experience: user.experience
-      });
+      // await updateUser({
+      //   userId: user.userId,
+      //   pathname,
+      //   biography: user.biography,
+      //   photoUrl: user.photoUrl,
+      //   skills: [...user.skills, skill],
+      //   certifications: user.certifications,
+      //   education: user.education,
+      //   experience: user.experience
+      // });
       reset();
       setIsOpen(false);
     }
