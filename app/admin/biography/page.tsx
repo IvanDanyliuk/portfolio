@@ -1,11 +1,9 @@
-import { v4 as uuid } from 'uuid'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import SkillFormModal from '@/components/forms/SkillFormModal'
 import EducationFormModal from '@/components/forms/EducationFormModal'
 import { fetchUserData } from '@/lib/actions/user.actions'
 import BiographyForm from '@/components/forms/BiographyForm'
 import SkillsList from '@/components/ui/SkillsList'
+import EducationList from '@/components/ui/EducationList'
 
 // const techSkills = [
 //   { id: '1', title: 'JavaScript' }, { id: '2', title: 'TypeScript' }, { id: '3', title: 'React' }, 
@@ -61,28 +59,9 @@ const Biography: React.FC = async () => {
       <section>
         <div className='w-full flex justify-between items-center'>
           <h3 className='mb-3 text-xl font-semibold'>Education</h3>
-          {/* <EducationFormModal user={user} /> */}
+          <EducationFormModal />
         </div>
-        <table className='w-full'>
-          <tbody className='w-full'>
-            {education.map(item => (
-              <tr key={uuid()} className='relative w-full border-b-2'>
-                <td className='w-2/12 py-4'>
-                  {item.period}
-                </td>
-                <td className='w-5/12 py-4'>
-                  {item.place}
-                </td>
-                <td className='w-4/12 py-4'>
-                  {item.degree}
-                </td>
-                <td className='w-1/12 py-4'>
-                  <FontAwesomeIcon icon={faXmark} />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <EducationList data={user.education} />
       </section>
     </div>
   )

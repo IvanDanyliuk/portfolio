@@ -25,3 +25,10 @@ export interface Skill {
   title: string;
   isAdditional: boolean;
 }
+
+export interface EducationItem {
+  institution: string;
+  degree?: string;
+  periodFrom: string;
+  periodTo: string;
+}

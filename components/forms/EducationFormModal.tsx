@@ -7,11 +7,8 @@ import { useForm } from 'react-hook-form'
 import Button from '../ui/Button';
 import Input from '../ui/Input';
 import { User } from '@/common.types';
-// import { updateUser } from '@/lib/actions/user.actions';
+import { addEducationItem } from '@/lib/actions/education.actions'
 
-interface EducationFormModalProps {
-  user: User;
-}
 
 interface EducationItem {
   institution: string;
@@ -20,7 +17,7 @@ interface EducationItem {
   periodTo: string;
 }
 
-const EducationFormModal: React.FC<EducationFormModalProps> = ({ user }) => {
+const EducationFormModal: React.FC = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const { 
@@ -34,8 +31,8 @@ const EducationFormModal: React.FC<EducationFormModalProps> = ({ user }) => {
     setIsOpen(!isOpen);
   }
 
-  const handleAddEducationItem = async (data: any) => {
-    if(data.institution && data.institution.trim()) {
+  const handleAddEducationItem = async (educationItem: any) => {
+    if(educationItem.institution && educationItem.institution.trim()) {
       // await updateUser({
       //   userId: user.userId,
       //   pathname,
@@ -46,6 +43,8 @@ const EducationFormModal: React.FC<EducationFormModalProps> = ({ user }) => {
       //   experience: user.experience,
       //   education: [...user.education, data]
       // })
+      await addEducationItem({ educationItem, pathname });
+      // console.log('Education Form', { educationItem, pathname })
       reset();
       setIsOpen(false);
     }
