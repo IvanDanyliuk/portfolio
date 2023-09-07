@@ -1,4 +1,4 @@
-import AdminNavbar from '@/components/AdminNavbar'
+import AdminNavbar from '@/components/navigation/AdminNavbar'
 
 interface AdminLayoutProps {
   children: React.ReactNode;

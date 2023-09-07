@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { v4 as uuid } from 'uuid'
 import { navLinks } from '@/constants'
-import SocialMediaList from './SocialMediaList'
+import SocialMediaList from '../ui/SocialMediaList'
 
 
 function classNames(...classes: any[]) {

@@ -3,35 +3,39 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { useForm } from 'react-hook-form'
-import Button from './Button';
-import Input from './Input';
+import Button from '@/components/ui/Button';
+import Input from '@/components/ui/Input';
+import { updateUser } from '@/lib/actions/user.actions';
+import { User } from '@/common.types';
 
-interface EducationItem {
-  institution: string;
-  qualification?: string;
-  periodFrom: string;
-  periodTo: string;
+interface SkillModalProps {
+  user: User
 }
 
-const EducationFormModal: React.FC = () => {
+interface SkillItem {
+  title: string;
+  isAdditional: boolean;
+}
+
+const SkillFormModal: React.FC<SkillModalProps> = ({ user }) => {
+  
   const [isOpen, setIsOpen] = useState(false);
   const { 
     register, 
     handleSubmit, 
     formState: { errors }, 
     reset 
-  } = useForm<EducationItem>();
+  } = useForm<SkillItem>();
 
   const handleModalOpen = () => {
     setIsOpen(!isOpen);
   }
 
-  const handleAddEducationItem = async (skill: any) => {
+  const handleAddSkill = async (skill: any) => {
     if(skill.title && skill.title.trim()) {
-      console.log(skill)
-
+      // await updateUser({ ...user, skills: [...user.skills, skill] })
       // reset();
-      setIsOpen(false);
+      // setIsOpen(false);
     }
   }
 
@@ -69,36 +73,21 @@ const EducationFormModal: React.FC = () => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Add a new institution
+                    Add a new skill
                   </Dialog.Title>
-                  <form onSubmit={handleSubmit(handleAddEducationItem)} className='mt-3 form flex flex-col items-center gap-3'>
+                  <form onSubmit={handleSubmit(handleAddSkill)} className='mt-3 form flex flex-col items-center gap-3'>
                     <Input 
-                      name='institution' 
-                      label='University/Courses' 
+                      name='title' 
+                      label='Title' 
                       register={register} 
-                      registerOptions={{ required: 'This field is required!' }} 
-                      error={errors.institution}
+                      registerOptions={{ required: 'Title is required!' }} 
+                      error={errors.title}
                     />
                     <Input 
-                      name='degree' 
-                      label='Degree (optional)' 
-                      register={register}  
-                    />
-                    <Input 
-                      type='number'
-                      name='periodFrom' 
-                      label='From' 
+                      type='checkbox'
+                      name='isAdditional' 
+                      label='is additional' 
                       register={register} 
-                      registerOptions={{ required: 'This field is required!' }} 
-                      error={errors.institution}
-                    />
-                    <Input 
-                      type='number'
-                      name='periodTo' 
-                      label='To' 
-                      register={register} 
-                      registerOptions={{ required: 'This field is required!' }} 
-                      error={errors.institution}
                     />
                     <Button type='submit' title='Add' />
                   </form>
@@ -112,4 +101,4 @@ const EducationFormModal: React.FC = () => {
   )
 }
 
-export default EducationFormModal
+export default SkillFormModal

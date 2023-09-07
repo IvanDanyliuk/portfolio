@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link';
-import SocialMediaList from '@/components/SocialMediaList';
+import SocialMediaList from '@/components/ui/SocialMediaList';
 
 export default function Home() {
   return (

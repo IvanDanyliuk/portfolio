@@ -6,9 +6,9 @@ import User from '../models/user.model';
 
 interface UserData {
   userId: string;
-  path: string;
-  greeting: string;
-  bio: string;
+  pathname: string;
+  biography: string;
+  photoUrl: string;
   skills: { title: string }[];
   education: {
     institution: string;
@@ -30,9 +30,9 @@ interface UserData {
 
 export const updateUser = async ({ 
   userId,
-  path,
-  greeting, 
-  bio, 
+  pathname,
+  biography, 
+  photoUrl,
   skills, 
   education, 
   certifications, 
@@ -42,10 +42,10 @@ export const updateUser = async ({
     connectToDB();
 
     await User.findOneAndUpdate(
-      { id: userId },
+      { userId },
       {
-        greeting, 
-        bio, 
+        biography, 
+        photoUrl,
         skills, 
         education, 
         certifications, 
@@ -54,8 +54,8 @@ export const updateUser = async ({
       { upsert: true }
     );
 
-    if(path === '/admin/biography') {
-      revalidatePath(path);
+    if(pathname === '/admin/biography') {
+      revalidatePath(pathname);
     }
   } catch (error: any) {
     throw new Error(`Failed to update user data: ${error.message}`);
@@ -65,7 +65,7 @@ export const updateUser = async ({
 export const fetchUser = async () => {
   try {
     connectToDB();
-    return await User.findOne({}).populate('skills').populate('certifications');
+    return await User.findOne({})
   } catch (error: any) {
     throw new Error(`User noit found: ${error.message}`);
   }

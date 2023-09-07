@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import dynamic from 'next/dynamic'
 import { Control, Controller, FieldError, RegisterOptions, UseFormRegister } from 'react-hook-form'
@@ -7,7 +7,7 @@ import 'react-quill/dist/quill.snow.css'
 
 interface EditorProps {
   name: string;
-  label: string;
+  label?: string;
   control: Control<any>;
   register: UseFormRegister<any>;
   registerOptions?: RegisterOptions;
@@ -35,7 +35,7 @@ const Editor: React.FC<EditorProps> = ({ name, label, control, register, registe
   
   return (
     <div>
-      <label className='field-label'>{label}</label>
+      {label && <label className='field-label'>{label}</label>}
       <Controller
         name={name}
         control={control}

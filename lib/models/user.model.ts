@@ -1,10 +1,13 @@
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
-  id: { type: String, required: true },
-  greeting: { type: String, required: true },
-  bio: { type: String, required: true },
-  skills: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Technology' }],
+  userId: { type: String, required: true },
+  biography: { type: String, required: true },
+  photUrl: { type: String },
+  skills: [{ 
+    title: { type: String, required: true },
+    isAdditional: { type: Boolean }
+  }],
   education: [{
     institution: { type: String, required: true },
     degree: { type: String },

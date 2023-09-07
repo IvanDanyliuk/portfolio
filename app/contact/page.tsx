@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import SocialMediaList from '@/components/SocialMediaList';
+import SocialMediaList from '@/components/ui/SocialMediaList';
 
 export default function Contact() {
   return (

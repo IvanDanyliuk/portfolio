@@ -1,38 +1,23 @@
 'use client'
 
+import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { useForm } from 'react-hook-form'
-import Input from '@/components/Input'
-import Editor from '@/components/Editor'
-import Button from '@/components/Button'
+import Editor from '@/components/ui/Editor'
+import Button from '@/components/ui/Button'
+import { updateUser } from '@/lib/actions/user.actions'
+import { User } from '@/common.types'
+
+interface BiographyFormProps {
+  user: User;
+}
 
 interface FormState {
-  greeting: string;
   biography: string;
 }
 
-interface User {
-  greeting: string;
-  bio: string;
-  skills: { title: string }[];
-  education: {
-    institution: string;
-    degree?: string;
-    periodFrom: string;
-    periodTo: string;
-  }[];
-  experience: {
-    company: string;
-    position: string;
-    periodFrom: string;
-    periodTo: string;
-  }[];
-  certifications: {
-    imageUrl: string;
-    verificationUrl: string;
-  }[];
-}
-
-const BiographyForm = ({ user }: { user: User }) => {
+const BiographyForm: React.FC<BiographyFormProps> = ({ user }) => {
+  const pathname = usePathname();
   const { 
     register,
     control, 
@@ -41,25 +26,33 @@ const BiographyForm = ({ user }: { user: User }) => {
     reset
   } = useForm<FormState>();
 
-  const handleBiographySubmit = (data: any) => {
-    console.log(data)
+  const handleBiographySubmit = async (data: any) => {
+    await updateUser({ 
+      userId: user.userId,
+      pathname,
+      biography: data.biography,
+      photoUrl: user.photoUrl,
+      skills: user.skills,
+      education: user.education,
+      certifications: user.certifications,
+      experience: user.experience
+    });
+    reset();
   }
+
+  useEffect(() => {
+    reset({
+      biography: user.biography
+    })
+  }, []);
 
   return (
     <form 
       onSubmit={handleSubmit(handleBiographySubmit)} 
       className='relative w-full flex flex-col gap-3 form'
     >
-      <Input 
-        name='greeting' 
-        label='Greeting'
-        register={register} 
-        registerOptions={{ required: 'Greeting is required!' }} 
-        error={errors.greeting}
-      />
       <Editor 
         name='biography' 
-        label='Biography'
         control={control} 
         register={register} 
         error={errors.biography} 
