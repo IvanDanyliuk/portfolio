@@ -32,3 +32,10 @@ export interface EducationItem {
   periodFrom: string;
   periodTo: string;
 }
+
+export interface ExperienceItem {
+  company: string;
+  position: string;
+  periodFrom: string;
+  periodTo: string;
+}

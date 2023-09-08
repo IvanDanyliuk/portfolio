@@ -4,6 +4,8 @@ import { fetchUserData } from '@/lib/actions/user.actions'
 import BiographyForm from '@/components/forms/BiographyForm'
 import SkillsList from '@/components/ui/SkillsList'
 import EducationList from '@/components/ui/EducationList'
+import ExperienceFormModal from '@/components/forms/ExperienceFormModal'
+import ExperienceList from '@/components/ui/ExperienceList'
 
 const Biography: React.FC = async () => {
   const userData = await fetchUserData();
@@ -42,6 +44,14 @@ const Biography: React.FC = async () => {
           <EducationFormModal />
         </div>
         <EducationList data={user.education} />
+      </section>
+      <div className='my-10 w-full h-[1px] bg-gray-100' />
+      <section>
+        <div className='w-full flex justify-between items-center'>
+          <h3 className='mb-3 text-xl font-semibold'>Experience</h3>
+          <ExperienceFormModal />
+        </div>
+        <ExperienceList data={user.experience} />
       </section>
     </div>
   )

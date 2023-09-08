@@ -6,10 +6,10 @@ import { Dialog, Transition } from '@headlessui/react'
 import { useForm } from 'react-hook-form'
 import Button from '../ui/Button';
 import Input from '../ui/Input';
-import { addEducationItem } from '@/lib/actions/education.actions'
-import { EducationItem } from '@/common.types'
+import { ExperienceItem } from '@/common.types'
+import { addExperienceItem } from '@/lib/actions/experience.actions'
 
-const EducationFormModal: React.FC = () => {
+const ExperienceFormModal: React.FC = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const { 
@@ -17,15 +17,15 @@ const EducationFormModal: React.FC = () => {
     handleSubmit, 
     formState: { errors }, 
     reset 
-  } = useForm<EducationItem>();
+  } = useForm<ExperienceItem>();
 
   const handleModalOpen = () => {
     setIsOpen(!isOpen);
   }
 
-  const handleAddEducationItem = async (educationItem: any) => {
-    if(educationItem.institution && educationItem.institution.trim()) {
-      await addEducationItem({ educationItem, pathname });
+  const handleAddExperienceItem = async (experience: any) => {
+    if(experience.company && experience.company.trim()) {
+      await addExperienceItem({ experience, pathname });
       reset();
       setIsOpen(false);
     }
@@ -67,18 +67,20 @@ const EducationFormModal: React.FC = () => {
                   >
                     Add a new institution
                   </Dialog.Title>
-                  <form onSubmit={handleSubmit(handleAddEducationItem)} className='mt-3 form flex flex-col items-center gap-3'>
+                  <form onSubmit={handleSubmit(handleAddExperienceItem)} className='mt-3 form flex flex-col items-center gap-3'>
                     <Input 
-                      name='institution' 
-                      label='University/Courses' 
+                      name='company' 
+                      label='Company' 
                       register={register} 
                       registerOptions={{ required: 'This field is required!' }} 
-                      error={errors.institution}
+                      error={errors.company}
                     />
                     <Input 
-                      name='degree' 
-                      label='Degree (optional)' 
-                      register={register}  
+                      name='position' 
+                      label='Position' 
+                      register={register} 
+                      registerOptions={{ required: 'This field is required!' }} 
+                      error={errors.position}
                     />
                     <Input 
                       type='number'
@@ -108,4 +110,4 @@ const EducationFormModal: React.FC = () => {
   )
 }
 
-export default EducationFormModal
+export default ExperienceFormModal
