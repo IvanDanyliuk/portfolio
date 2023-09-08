@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { v4 as uuid } from 'uuid';
 import Chip from './Chip';
 import { deleteSkill } from '@/lib/actions/skills.actions';
+import NoDataMessage from './NoDataMessage';
 
 interface SkillsListProps {
   skills: {
@@ -21,16 +22,22 @@ const SkillsList = ({ skills }: SkillsListProps) => {
   }
 
   return (
-    <ul className='flex flex-wrap gap-3'>
-      {skills.map(skill => (
-        <li key={uuid()}>
-          <Chip 
-            title={skill.title} 
-            onClose={() => handleSkillsDelete(skill._id)} 
-          />
-        </li>
-      ))}
-    </ul>
+    <>
+      {skills.length > 0 ? (
+        <ul className='flex flex-wrap gap-3'>
+          {skills.map(skill => (
+            <li key={uuid()}>
+              <Chip 
+                title={skill.title} 
+                onClose={() => handleSkillsDelete(skill._id)} 
+              />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <NoDataMessage message='Add your skills' />
+      )}
+    </>
   )
 }
 
