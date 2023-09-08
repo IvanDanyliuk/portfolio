@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { deleteExperienceItem } from '@/lib/actions/experience.actions'
 import NoDataMessage from './NoDataMessage'
+import { formatDate } from '@/lib/helpers/heplers'
 
 interface ExperienceListProps {
   data: {
@@ -32,7 +33,7 @@ const ExperienceList: React.FC<ExperienceListProps> = ({ data }) => {
             {data.map((item: any) => (
               <tr key={uuid()} className='relative w-full border-b-2'>
                 <td className='w-2/12 py-4'>
-                  {`${item.periodFrom}-${item.periodTo}`}
+                {`${formatDate(item.periodFrom, 'month/year')} - ${formatDate(item.periodTo, 'month/year')}`}
                 </td>
                 <td className='w-5/12 py-4'>
                   {item.company}

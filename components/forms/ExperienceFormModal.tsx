@@ -8,12 +8,14 @@ import Button from '../ui/Button';
 import Input from '../ui/Input';
 import { ExperienceItem } from '@/common.types'
 import { addExperienceItem } from '@/lib/actions/experience.actions'
+import DatePicker from '../ui/DatePicker'
 
 const ExperienceFormModal: React.FC = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const { 
     register, 
+    control,
     handleSubmit, 
     formState: { errors }, 
     reset 
@@ -82,21 +84,21 @@ const ExperienceFormModal: React.FC = () => {
                       registerOptions={{ required: 'This field is required!' }} 
                       error={errors.position}
                     />
-                    <Input 
-                      type='number'
+                    <DatePicker 
                       name='periodFrom' 
                       label='From' 
+                      control={control}
                       register={register} 
                       registerOptions={{ required: 'This field is required!' }} 
-                      error={errors.periodFrom}
+                      error={errors.periodFrom} 
                     />
-                    <Input 
-                      type='number'
+                    <DatePicker 
                       name='periodTo' 
                       label='To' 
+                      control={control}
                       register={register} 
                       registerOptions={{ required: 'This field is required!' }} 
-                      error={errors.periodTo}
+                      error={errors.periodTo} 
                     />
                     <Button type='submit' title='Add' />
                   </form>

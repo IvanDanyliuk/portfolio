@@ -8,11 +8,13 @@ import Button from '../ui/Button';
 import Input from '../ui/Input';
 import { addEducationItem } from '@/lib/actions/education.actions'
 import { EducationItem } from '@/common.types'
+import DatePicker from '../ui/DatePicker'
 
 const EducationFormModal: React.FC = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const { 
+    control, 
     register, 
     handleSubmit, 
     formState: { errors }, 
@@ -80,21 +82,21 @@ const EducationFormModal: React.FC = () => {
                       label='Degree (optional)' 
                       register={register}  
                     />
-                    <Input 
-                      type='number'
+                    <DatePicker 
                       name='periodFrom' 
                       label='From' 
+                      control={control}
                       register={register} 
                       registerOptions={{ required: 'This field is required!' }} 
-                      error={errors.periodFrom}
+                      error={errors.periodFrom} 
                     />
-                    <Input 
-                      type='number'
+                    <DatePicker 
                       name='periodTo' 
                       label='To' 
+                      control={control}
                       register={register} 
                       registerOptions={{ required: 'This field is required!' }} 
-                      error={errors.periodTo}
+                      error={errors.periodTo} 
                     />
                     <Button type='submit' title='Add' />
                   </form>
