@@ -1,6 +1,7 @@
 'use client'
 
 import { ChangeEvent, Fragment, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { Dialog, Transition } from '@headlessui/react'
 import { useForm } from 'react-hook-form'
 import Button from '../ui/Button';
@@ -13,6 +14,7 @@ interface CertificationFormData {
 }
 
 const CertificationFormModal: React.FC = () => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [imagePath, setImagePath] = useState<string | null>(null);
   const { 
@@ -50,7 +52,8 @@ const CertificationFormModal: React.FC = () => {
     if(imagePath) {
       await addCertification({ 
         imageUrl: imagePath, 
-        verificationUrl: data.verificationUrl
+        verificationUrl: data.verificationUrl,
+        pathname
       });
     }
     reset();
