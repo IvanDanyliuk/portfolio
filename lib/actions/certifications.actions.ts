@@ -10,11 +10,11 @@ export const addCertification = async ({ imageUrl, verificationUrl, pathname }: 
     connectToDB();
 
     const uploadedImageUrl = await uploadImage(imageUrl, pathname);
-
-    console.log('certification.actions addCertification', uploadedImageUrl)
     
     await Certification.create({ imageUrl: uploadedImageUrl!.url!, verificationUrl });
 
+    // in case of having an error on production/deploying, delete the conditional 
+    // statement below to turn off path revalidation (probably this is a Vercel bug)
     if(pathname === '/admin/certifications') {
       revalidatePath(pathname)
     }
