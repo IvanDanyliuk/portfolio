@@ -7,7 +7,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-export async function POST(request: Request) {
+export const POST = async (request: Request) => {
   const { imageUrl } = await request.json();
 
   if(!imageUrl) {
@@ -22,8 +22,6 @@ export async function POST(request: Request) {
     };
 
     const result = await cloudinary.uploader.upload(imageUrl, options);
-
-    
 
     return NextResponse.json(result, { status: 200 });
   } catch (error: any) {

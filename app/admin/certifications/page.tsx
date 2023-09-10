@@ -7,8 +7,6 @@ const Certifications = async () => {
 
   const certifications = data.map(item => JSON.parse(JSON.stringify(item)));
 
-  console.log('Certifications', certifications)
-
   return (
     <div>
       <div className='w-full flex justify-between items-center'>

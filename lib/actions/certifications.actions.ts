@@ -1,7 +1,7 @@
 'use server'
 
 import { connectToDB } from "../mongoose";
-import { revalidateTag, revalidatePath } from "next/cache";
+import { revalidatePath } from "next/cache";
 import Certification from "../models/certification.model";
 import { uploadImage } from "./common.actions";
 
@@ -9,12 +9,14 @@ export const addCertification = async ({ imageUrl, verificationUrl, pathname }: 
   try {
     connectToDB();
 
-    const uploadedImageUrl = await uploadImage(imageUrl);
+    const uploadedImageUrl = await uploadImage(imageUrl, pathname);
 
-    await Certification.create({ imageUrl: uploadedImageUrl.url, verificationUrl });
+    console.log('certification.actions addCertification', uploadedImageUrl)
+    
+    await Certification.create({ imageUrl: uploadedImageUrl!.url!, verificationUrl });
 
     if(pathname === '/admin/certifications') {
-      revalidateTag(pathname);
+      revalidatePath(pathname)
     }
   } catch (error: any) {
     throw new Error(`Cannot create a new certification: ${error.message}`);
