@@ -36,3 +36,9 @@ export const socialMediaLinks = [
     url: 'https://www.instagram.com/daniliuk.ivan/'
   }
 ];
+
+export const projectCategories = [
+  { label: 'Frontend', value: 'frontend' },
+  { label: 'Backend', value: 'backend' },
+  { label: 'Fullstack', value: 'fullstack' },
+];

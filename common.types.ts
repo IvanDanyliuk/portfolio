@@ -39,3 +39,19 @@ export interface ExperienceItem {
   periodFrom: string;
   periodTo: string;
 }
+
+export interface Project {
+  name: string;
+  summary: string;
+  category: string[];
+  technologies: string[];
+  features: {
+    title: string;
+    description: string;
+    imageUrl: string;
+  }[];
+  credentials: {
+    title: string;
+    description: string;
+  }[];
+}
