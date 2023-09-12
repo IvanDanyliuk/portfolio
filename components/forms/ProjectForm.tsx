@@ -9,6 +9,7 @@ import Textarea from '../ui/Textarea';
 import { projectCategories } from '@/constants';
 import Button from '../ui/Button';
 import Select from '../ui/Select';
+import FileUploadField from '../ui/FileUploadField';
 
 interface ProjectFormProps {
   projectToUpdate?: {
@@ -29,6 +30,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ projectToUpdate }) => {
   const { 
     register,
     handleSubmit, 
+    setValue,
     setError,
     control, 
     formState: { errors },
@@ -41,14 +43,15 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ projectToUpdate }) => {
 
   useEffect(() => {
     if(projectToUpdate) {
-      reset({
-
-      })
+      reset()
     }
   }, []);
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)} className='relative w-full flex flex-col gap-3 form'>
+    <form 
+      onSubmit={handleSubmit(handleFormSubmit)} 
+      className='relative w-full flex flex-col gap-3 form'
+    >
       <Input 
         name='name' 
         label='Name' 
@@ -65,8 +68,19 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ projectToUpdate }) => {
         maxLength={1500}
         error={errors.summary}
       />
-      <Select name='category' label='Category' control={control} options={projectCategories} />
-
+      <Select 
+        name='category' 
+        label='Category' 
+        control={control} 
+        options={projectCategories} 
+      />
+      <FileUploadField 
+        name='imageUrl'
+        label='Project Image'
+        control={control}
+        setValue={setValue}
+        setError={setError}
+      />
       <Button type='submit' title='Create' />
     </form>
   )
