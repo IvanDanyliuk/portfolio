@@ -6,9 +6,9 @@ import { useForm } from 'react-hook-form';
 import { Project } from '@/common.types';
 import Input from '../ui/Input';
 import Textarea from '../ui/Textarea';
-import Select from '../ui/Select';
 import { projectCategories } from '@/constants';
 import Button from '../ui/Button';
+import Select from '../ui/Select';
 
 interface ProjectFormProps {
   projectToUpdate?: {
@@ -65,15 +65,8 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ projectToUpdate }) => {
         maxLength={1500}
         error={errors.summary}
       />
-      <Select 
-        name='category' 
-        label='Category' 
-        register={register} 
-        control={control} 
-        registerOptions={{ required: 'Category is required!' }} 
-        error={errors.category} 
-        options={projectCategories} 
-      />
+      <Select name='category' label='Category' control={control} options={projectCategories} />
+
       <Button type='submit' title='Create' />
     </form>
   )

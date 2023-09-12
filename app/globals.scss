@@ -78,6 +78,16 @@ main {
   input, textarea {
     @apply px-3 py-2 border-2 border-gray-100 rounded-md;
   }
+
+  select {
+    @apply px-3 py-3 border-2 border-gray-100 rounded-md;
+
+    option {
+      @apply py-6
+    }
+  }
+
+  
 }
 
 .checkbox {
@@ -89,7 +99,7 @@ main {
 }
 
 .form {
-  button {
+  .custom-btn {
     @apply mt-6;
   }
 }

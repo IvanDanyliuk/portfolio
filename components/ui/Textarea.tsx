@@ -24,15 +24,14 @@ const Textarea = ({
   ...props 
 }: TextareaProps) => {
   return (
-    <div className='field-container'>
-      <label htmlFor={name} className='field-label'>
+    <div className='field'>
+      <label htmlFor={name}>
         {error ? error.message : label}
       </label>
       <textarea 
         id={name} 
         {...props} 
         {...register(name, registerOptions)} 
-        className='field'
       />
     </div>
   )

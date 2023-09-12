@@ -38,7 +38,7 @@ export const socialMediaLinks = [
 ];
 
 export const projectCategories = [
-  { label: 'Frontend', value: 'frontend' },
-  { label: 'Backend', value: 'backend' },
-  { label: 'Fullstack', value: 'fullstack' },
+  { label: 'Frontend', value: 'Frontend' },
+  { label: 'Backend', value: 'Backend' },
+  { label: 'Fullstack', value: 'Fullstack' },
 ];
