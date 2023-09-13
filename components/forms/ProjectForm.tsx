@@ -10,6 +10,7 @@ import { projectCategories } from '@/constants';
 import Button from '../ui/Button';
 import Select from '../ui/Select';
 import FileUploadField from '../ui/FileUploadField';
+import MultiSelect from '../ui/MultiSelect';
 
 interface ProjectFormProps {
   projectToUpdate?: {
@@ -22,7 +23,16 @@ interface ProjectForm {
   name: string;
   summary: string;
   category: string;
+  features: string[];
 }
+
+const technologies = [
+  { label: 'JavaScript', value: 'JavaScript' },
+  { label: 'React', value: 'React' },
+  { label: 'Redux', value: 'Redux' },
+  { label: 'TypeScript', value: 'TypeScript' },
+  { label: 'Next.js', value: 'TypeScript' },
+]
 
 const ProjectForm: React.FC<ProjectFormProps> = ({ projectToUpdate }) => {
   const pathname = usePathname();
@@ -80,6 +90,12 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ projectToUpdate }) => {
         control={control}
         setValue={setValue}
         setError={setError}
+      />
+      <MultiSelect 
+        name='technologies' 
+        label='Technologies' 
+        control={control} 
+        options={technologies} 
       />
       <Button type='submit' title='Create' />
     </form>

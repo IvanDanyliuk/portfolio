@@ -31,7 +31,7 @@ const FileUploadField: React.FC<FileUploadFieldProps> = ({ name, label, control,
   }
 
   return (
-    <div>
+    <div className='field'>
       <label htmlFor='input'>
         {label}
       </label>
