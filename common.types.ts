@@ -49,7 +49,7 @@ export interface Project {
   features: {
     title: string;
     description: string;
-    imageUrl: string;
+    featureImageUrl: string;
   }[];
   credentials: {
     title: string;

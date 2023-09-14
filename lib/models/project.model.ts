@@ -8,7 +8,7 @@ const projectSchema = new mongoose.Schema({
   features: [{
     title: { type: String, required: true },
     description: { type: String, required: true },
-    imageUrl: { type: String, required: true },
+    featureImageUrl: { type: String, required: true },
   }],
   credentials: [{
     title: { type: String, required: true },
