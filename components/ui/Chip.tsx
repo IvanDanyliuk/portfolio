@@ -11,7 +11,7 @@ const Chip: React.FC<ChipProps> = ({ title, maxLength, onClose }) => {
   return (
     <div className='px-5 py-2 flex items-center gap-3 bg-black text-sm text-white rounded-full'>
       <span>
-        {maxLength ? `${title.slice(0, maxLength)}${title.length > maxLength && '...'}` : title}
+        {maxLength ? `${title.slice(0, maxLength)}${title.length > maxLength ? '...' : ''}` : title}
       </span>
       {onClose && (
         <button onClick={onClose}>

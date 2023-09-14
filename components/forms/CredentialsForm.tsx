@@ -1,32 +1,27 @@
 import { useForm } from 'react-hook-form';
 import Input from '../ui/Input';
 import Textarea from '../ui/Textarea';
-import FileUploadField from '../ui/FileUploadField';
 import Button from '../ui/Button';
 
-interface FeatureFormProps {
-  setFeatures: (newFeature: any) => void;
+interface CredentialsFormProps {
+  setCredentials: (newFeature: any) => void;
 }
 
-interface Feature {
+interface Credential {
   title: string;
   description: string;
-  featureImageUrl: string;
 }
 
-const FeatureForm: React.FC<FeatureFormProps> = ({ setFeatures }) => {
+const CredentialsForm: React.FC<CredentialsFormProps> = ({ setCredentials }) => {
   const { 
     register,
     handleSubmit, 
-    setValue, 
-    setError,
-    control, 
     formState: { errors },
     reset 
-  } = useForm<Feature>();
+  } = useForm<Credential>();
 
   const handleFormSubmit = async (data: any) => {
-    setFeatures(data)
+    setCredentials(data)
     reset();
   }
 
@@ -35,7 +30,7 @@ const FeatureForm: React.FC<FeatureFormProps> = ({ setFeatures }) => {
       onSubmit={handleSubmit(handleFormSubmit)} 
       className='relative px-3 py-4 w-full h-fit flex flex-col gap-3 border border-gray-100 rounded form'
     >
-      <label className='text-base font-semibold'>Add a new project feature</label>
+      <label className='text-base font-semibold'>Add credentials</label>
       <Input 
         name='title' 
         label='Title' 
@@ -52,16 +47,9 @@ const FeatureForm: React.FC<FeatureFormProps> = ({ setFeatures }) => {
         maxLength={1500}
         error={errors.description}
       />
-      <FileUploadField 
-        name='featureImageUrl'
-        label='Feature Image'
-        control={control}
-        setValue={setValue}
-        setError={setError}
-      />
       <Button type='submit' title='Add' />
     </form>
   )
 }
 
-export default FeatureForm
+export default CredentialsForm

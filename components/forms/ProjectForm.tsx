@@ -15,6 +15,7 @@ import MultiSelect from '../ui/MultiSelect';
 import FeatureForm from './FeatureForm';
 import Chip from '../ui/Chip';
 import NoDataMessage from '../ui/NoDataMessage';
+import CredentialsForm from './CredentialsForm';
 
 interface ProjectFormProps {
   projectToUpdate?: {
@@ -33,12 +34,21 @@ interface ProjectForm {
     description: string;
     featureImageUrl: string;
   }[];
+  credentials: {
+    title: string;
+    description: string;
+  }[];
 }
 
 interface Feature {
   title: string;
   description: string;
   featureImageUrl: string;
+}
+
+interface Credential {
+  title: string;
+  description: string;
 }
 
 const technologies = [
@@ -64,6 +74,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ projectToUpdate }) => {
   } = useForm<ProjectForm>();
 
   const [features, setFeatures] = useState<Feature[]>([]);
+  const [credentials, setCredentials] = useState<Credential[]>([]);
 
   const handleAddFeature = (newFeature: any) => {
     const addedFeatures = getValues().features;
@@ -78,13 +89,31 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ projectToUpdate }) => {
     setFeatures(updatedFeaturesList);
   }
 
+  const handleAddCredential = (newCredential: any) => {
+    const addedCredentials = getValues().credentials;
+    setValue('credentials', [...addedCredentials, newCredential]);
+    setCredentials([...credentials, newCredential]);
+  }
+
+  const handleCredentialsDelete = (title: string) => {
+    const addedCredentials = getValues().credentials;
+    const updatedCredentialsList = addedCredentials.filter(credential => credential.title !== title);
+    setValue('credentials', updatedCredentialsList);
+    setCredentials(updatedCredentialsList);
+  }
+
   const handleFormSubmit = async (data: any) => {
     console.log(data)
+    reset();
+    setFeatures([]);
+    setCredentials([]);
   }
 
   useEffect(() => {
     register('features');
+    register('credentials');
     setValue('features', []);
+    setValue('credentials', []);
     if(projectToUpdate) {
       reset()
     }
@@ -147,9 +176,28 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ projectToUpdate }) => {
             )}
           </div>
         </fieldset>
+        <fieldset>
+          <label>Credentials</label>
+          <div className='pt-2 w-full flex flex-wrap gap-3'>
+            {credentials.length > 0 ? credentials.map(credential => (
+              <div key={uuid()}>
+                <Chip 
+                  title={credential.title} 
+                  maxLength={20}
+                  onClose={() => handleCredentialsDelete(credential.title)} 
+                />
+              </div>
+            )) : (
+              <NoDataMessage message='No available credentials' />
+            )}
+          </div>
+        </fieldset>
         <Button type='submit' title='Create' />
       </form>
-      <FeatureForm setFeatures={handleAddFeature} />
+      <div className='py-3 flex flex-col gap-3'>
+        <FeatureForm setFeatures={handleAddFeature} />
+        <CredentialsForm setCredentials={handleAddCredential} />
+      </div>
     </div>
   )
 }
