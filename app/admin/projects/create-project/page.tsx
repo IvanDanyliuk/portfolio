@@ -7,6 +7,7 @@ import React from 'react'
 
 const CreateProject = async () => {
   const technologies = await fetchTechnologies();
+  
   return (
     <div>
       <div className='mb-3 w-full flex justify-between items-center'>

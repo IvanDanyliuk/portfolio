@@ -5,9 +5,9 @@ import { usePathname } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { v4 as uuid } from 'uuid';
 import { Project } from '@/common.types';
+import { projectCategories } from '@/constants';
 import Input from '../ui/Input';
 import Textarea from '../ui/Textarea';
-import { projectCategories } from '@/constants';
 import Button from '../ui/Button';
 import Select from '../ui/Select';
 import FileUploadField from '../ui/FileUploadField';
@@ -16,6 +16,7 @@ import FeatureForm from './FeatureForm';
 import Chip from '../ui/Chip';
 import NoDataMessage from '../ui/NoDataMessage';
 import CredentialsForm from './CredentialsForm';
+import { createProject } from '@/lib/actions/project.actions';
 
 interface ProjectFormProps {
   technologies: any[];
@@ -28,6 +29,7 @@ interface ProjectFormProps {
 interface ProjectForm {
   name: string;
   summary: string;
+  imageUrl: string;
   category: string;
   technologies: string[];
   features: {
@@ -51,14 +53,6 @@ interface Credential {
   title: string;
   description: string;
 }
-
-const technologies = [
-  { label: 'JavaScript', value: 'JavaScript' },
-  { label: 'React', value: 'React' },
-  { label: 'Redux', value: 'Redux' },
-  { label: 'TypeScript', value: 'TypeScript' },
-  { label: 'Next.js', value: 'TypeScript' },
-]
 
 const ProjectForm: React.FC<ProjectFormProps> = ({ technologies, projectToUpdate }) => {
   const pathname = usePathname();
@@ -107,6 +101,16 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ technologies, projectToUpdate
 
   const handleFormSubmit = async (data: any) => {
     console.log(data)
+    await createProject({
+      name: data.name,
+      summary: data.summary,
+      imageUrl: data.imageUrl,
+      category: data.category,
+      technologies: data.technologies,
+      features: data.features,
+      credentials: data.credentials,
+      pathname
+    })
     reset();
     setFeatures([]);
     setCredentials([]);
