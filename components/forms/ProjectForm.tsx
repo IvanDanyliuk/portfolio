@@ -18,10 +18,11 @@ import NoDataMessage from '../ui/NoDataMessage';
 import CredentialsForm from './CredentialsForm';
 
 interface ProjectFormProps {
+  technologies: any[];
   projectToUpdate?: {
     id: string;
     data: Project
-  }
+  };
 }
 
 interface ProjectForm {
@@ -59,8 +60,10 @@ const technologies = [
   { label: 'Next.js', value: 'TypeScript' },
 ]
 
-const ProjectForm: React.FC<ProjectFormProps> = ({ projectToUpdate }) => {
+const ProjectForm: React.FC<ProjectFormProps> = ({ technologies, projectToUpdate }) => {
   const pathname = usePathname();
+
+  const technologiesList = technologies.map(tech => ({ label: tech.title, value: tech.title }));
 
   const { 
     register,
@@ -158,7 +161,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ projectToUpdate }) => {
           name='technologies' 
           label='Technologies' 
           control={control} 
-          options={technologies} 
+          options={technologiesList} 
         />
         <fieldset>
           <label>Features</label>
