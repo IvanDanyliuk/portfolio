@@ -56,3 +56,7 @@ export interface Project {
     description: string;
   }[];
 }
+
+export interface Technology {
+  title: string;
+}

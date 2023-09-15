@@ -1,21 +1,23 @@
-'use client'
+import TechnologyForm from '@/components/forms/TechnologyForm';
+import { fetchTechnologies } from '@/lib/actions/technologies.actions';
+import TechnologiesList from '@/components/ui/TechnologiesList';
 
-import { redirect } from 'next/navigation'
-import { useAuth } from '@clerk/nextjs'
-
-const Index = () => {
-  const { isLoaded, userId, getToken } = useAuth();
-
-  if ((!isLoaded || !userId) && (userId !== process.env.CLERK_USER_ID)) {
-    redirect('/sign-in');
-  }
+const Index = async () => {
+  const technologies = await fetchTechnologies();
   
   return (
-    <div>
-      <div>Summary</div>
-      <div>Number of views</div>
-      <div>CV downloads count</div>
-      <div>Other additional information...</div>
+    <div className='flex flex-col gap-3'>
+      <section>Summary</section>
+      <section>Number of views</section>
+      <section>CV downloads count</section>
+      <section>Other additional information...</section>
+      <section>
+        <div className='flex justify-between'>
+          <h3 className='mb-3 text-xl font-semibold'>Technologies</h3>
+          <TechnologyForm />
+        </div>
+        <TechnologiesList technologies={technologies} />
+      </section>
     </div>
   )
 }
