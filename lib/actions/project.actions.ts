@@ -4,6 +4,7 @@ import { connectToDB } from '../mongoose';
 import ProjectModel from '../models/project.model';
 import { revalidatePath } from 'next/cache';
 import { uploadImage } from './common.actions';
+import { Project } from '@/common.types';
 
 interface CreateProjectQuery {
   name: string;
@@ -21,6 +22,25 @@ interface CreateProjectQuery {
     description: string;
   }[];
   pathname: string;
+}
+
+export const fetchProjects = async () => {
+  try {
+    connectToDB();
+    return await ProjectModel.find({});
+  } catch (error: any) {
+    throw new Error(`Cannot find available projects: ${error.message}`);
+  }
+};
+
+export const fetchProject = async (id: string) => {
+  try {
+    connectToDB();
+
+    return await ProjectModel.findById(id);
+  } catch (error: any) {
+    throw new Error(`Cannot fetch a project with id ${id}: ${error.message}`);
+  }
 }
 
 export const createProject = async ({ 
@@ -63,14 +83,15 @@ export const createProject = async ({
   }
 };
 
-export const fetchProjects = async () => {
+export const updateProject = async ({ id, data, pathname }: { id: string, data: Project, pathname: string }) => {
   try {
     connectToDB();
-    return await ProjectModel.find({});
+    await ProjectModel.findByIdAndUpdate(id, data);
+    revalidatePath(pathname);
   } catch (error: any) {
-    throw new Error(`Cannot find available projects: ${error.message}`);
+    throw new Error(`Cannot update a project with id ${id}: ${error.message}`);
   }
-};
+}
 
 export const deleteProject = async ({ id, pathname }: { id: string, pathname: string }) => {
   try {

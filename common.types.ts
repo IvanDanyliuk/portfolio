@@ -43,7 +43,7 @@ export interface ExperienceItem {
 export interface Project {
   name: string;
   summary: string;
-  category: string[];
+  category: string;
   imageUrl: string;
   technologies: string[];
   features: Feature[];

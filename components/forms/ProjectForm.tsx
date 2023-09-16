@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { v4 as uuid } from 'uuid';
-import { Project } from '@/common.types';
 import { projectCategories } from '@/constants';
 import Input from '../ui/Input';
 import Textarea from '../ui/Textarea';
@@ -16,13 +15,26 @@ import FeatureForm from './FeatureForm';
 import Chip from '../ui/Chip';
 import NoDataMessage from '../ui/NoDataMessage';
 import CredentialsForm from './CredentialsForm';
-import { createProject } from '@/lib/actions/project.actions';
+import { createProject, updateProject } from '@/lib/actions/project.actions';
 
 interface ProjectFormProps {
   technologies: any[];
   projectToUpdate?: {
-    id: string;
-    data: Project
+    _id: string;
+    name: string;
+    summary: string;
+    imageUrl: string;
+    category: string;
+    technologies: string[];
+    features: {
+      title: string;
+      description: string;
+      featureImageUrl: string;
+    }[];
+    credentials: {
+      title: string;
+      description: string;
+    }[];
   };
 }
 
@@ -100,17 +112,25 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ technologies, projectToUpdate
   }
 
   const handleFormSubmit = async (data: any) => {
-    console.log(data)
-    await createProject({
-      name: data.name,
-      summary: data.summary,
-      imageUrl: data.imageUrl,
-      category: data.category,
-      technologies: data.technologies,
-      features: data.features,
-      credentials: data.credentials,
-      pathname
-    })
+    if(projectToUpdate) {
+      await updateProject({ 
+        id: projectToUpdate._id, 
+        data, 
+        pathname 
+      });
+    } else {
+      await createProject({
+        name: data.name,
+        summary: data.summary,
+        imageUrl: data.imageUrl,
+        category: data.category,
+        technologies: data.technologies,
+        features: data.features,
+        credentials: data.credentials,
+        pathname
+      })
+    }
+
     reset();
     setFeatures([]);
     setCredentials([]);
@@ -121,8 +141,18 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ technologies, projectToUpdate
     register('credentials');
     setValue('features', []);
     setValue('credentials', []);
+    
     if(projectToUpdate) {
-      reset()
+      reset({
+        name: projectToUpdate.name,
+        summary: projectToUpdate.summary,
+        category: projectToUpdate.category,
+        technologies: projectToUpdate.technologies,
+        features: projectToUpdate.features,
+        credentials: projectToUpdate.credentials
+      });
+      setFeatures(projectToUpdate.features);
+      setCredentials(projectToUpdate.credentials);
     }
   }, []);
 
@@ -199,7 +229,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ technologies, projectToUpdate
             )}
           </div>
         </fieldset>
-        <Button type='submit' title='Create' />
+        <Button type='submit' title={projectToUpdate ? 'Update' : 'Create'} />
       </form>
       <div className='py-3 flex flex-col gap-3'>
         <FeatureForm setFeatures={handleAddFeature} />

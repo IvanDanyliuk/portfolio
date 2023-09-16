@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { v4 as uuid } from 'uuid'
 import { Credential, Feature, Technology } from '@/common.types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -24,10 +24,15 @@ interface ProjectsTableProps {
 
 const ProjectsTable: React.FC<ProjectsTableProps> = ({ projects }) => {
   const pathname = usePathname();
+  const router = useRouter();
 
   const handleProjectDelete = async (id: string) => {
     await deleteProject({ id, pathname });
   };
+
+  const navigateToEditPage = (id: string) => {
+    router.push(`/admin/projects/edit-project/${id}`);
+  }
 
   return (
     <table className='relative w-full'>
@@ -48,7 +53,7 @@ const ProjectsTable: React.FC<ProjectsTableProps> = ({ projects }) => {
               {project.technologies.join(', ')}
             </td>
             <td className='py-2 flex justify-center gap-6'>
-              <button className='round-btn'>
+              <button className='round-btn' onClick={() => navigateToEditPage(project._id)}>
                 <FontAwesomeIcon icon={faPen} />
               </button>
               <ConfirmAction 
