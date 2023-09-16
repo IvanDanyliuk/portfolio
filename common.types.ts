@@ -46,17 +46,21 @@ export interface Project {
   category: string[];
   imageUrl: string;
   technologies: string[];
-  features: {
-    title: string;
-    description: string;
-    featureImageUrl: string;
-  }[];
-  credentials: {
-    title: string;
-    description: string;
-  }[];
+  features: Feature[];
+  credentials: Credential[];
 }
 
 export interface Technology {
   title: string;
+}
+
+export interface Feature {
+  title: string;
+  description: string;
+  featureImageUrl: string;
+}
+
+export interface Credential {
+  title: string;
+  description: string;
 }

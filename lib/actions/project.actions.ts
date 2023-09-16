@@ -61,4 +61,26 @@ export const createProject = async ({
   } catch (error: any) {
     throw new Error(`Cannot create a new project: ${error.message}`)
   }
-}
+};
+
+export const fetchProjects = async () => {
+  try {
+    connectToDB();
+    return await ProjectModel.find({});
+  } catch (error: any) {
+    throw new Error(`Cannot find available projects: ${error.message}`);
+  }
+};
+
+export const deleteProject = async ({ id, pathname }: { id: string, pathname: string }) => {
+  try {
+    connectToDB();
+    await ProjectModel.findByIdAndDelete(id);
+
+    if(pathname === '/admin/projects') {
+      revalidatePath(pathname);
+    }
+  } catch (error: any) {
+    throw new Error(`Cannot delete the project: ${error.message}`);
+  }
+};
