@@ -1,6 +1,7 @@
 import TechnologyForm from '@/components/forms/TechnologyForm';
 import { fetchTechnologies } from '@/lib/actions/technologies.actions';
 import TechnologiesList from '@/components/ui/TechnologiesList';
+import SectionTitle from '@/components/ui/SectionTitle';
 
 const Index = async () => {
   const technologies = await fetchTechnologies();
@@ -12,10 +13,9 @@ const Index = async () => {
       <section>CV downloads count</section>
       <section>Other additional information...</section>
       <section>
-        <div className='flex justify-between'>
-          <h3 className='mb-3 text-xl font-semibold'>Technologies</h3>
+        <SectionTitle title='Technologies'>
           <TechnologyForm />
-        </div>
+        </SectionTitle>
         <TechnologiesList technologies={technologies} />
       </section>
     </div>

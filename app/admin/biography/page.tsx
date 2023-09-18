@@ -6,6 +6,7 @@ import SkillsList from '@/components/ui/SkillsList'
 import EducationList from '@/components/ui/EducationList'
 import ExperienceFormModal from '@/components/forms/ExperienceFormModal'
 import ExperienceList from '@/components/ui/ExperienceList'
+import SectionTitle from '@/components/ui/SectionTitle'
 
 const Biography: React.FC = async () => {
   const userData = await fetchUserData();
@@ -17,15 +18,14 @@ const Biography: React.FC = async () => {
   return (
     <div>
       <section>
-        <h3 className='mb-3 text-xl font-semibold'>Biography</h3>
+        <SectionTitle title='Biography' />
         <BiographyForm data={user.generalData} />
       </section>
       <div className='my-10 w-full h-[1px] bg-gray-100' />
       <section className='flex flex-col'>
-        <div className='w-full flex justify-between items-center'>
-          <h3 className='mb-3 text-xl font-semibold'>Skills</h3>
+        <SectionTitle title='Skills'>
           <SkillFormModal />
-        </div>
+        </SectionTitle>
         <div className='flex gap-3'>
           <div className='w-2/3'>
             <h4 className='mb-3 text-lg font-semibold'>Technical</h4>
@@ -39,18 +39,16 @@ const Biography: React.FC = async () => {
       </section>
       <div className='my-10 w-full h-[1px] bg-gray-100' />
       <section>
-        <div className='w-full flex justify-between items-center'>
-          <h3 className='mb-3 text-xl font-semibold'>Education</h3>
+        <SectionTitle title='Education'>
           <EducationFormModal />
-        </div>
+        </SectionTitle>
         <EducationList data={user.education} />
       </section>
       <div className='my-10 w-full h-[1px] bg-gray-100' />
       <section>
-        <div className='w-full flex justify-between items-center'>
-          <h3 className='mb-3 text-xl font-semibold'>Experience</h3>
+        <SectionTitle title='Experience'>
           <ExperienceFormModal />
-        </div>
+        </SectionTitle>
         <ExperienceList data={user.experience} />
       </section>
     </div>

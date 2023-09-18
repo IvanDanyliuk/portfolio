@@ -1,5 +1,6 @@
 import CertificationFormModal from "@/components/forms/CertificationFormModal"
 import CertificationsList from "@/components/ui/CertificationsList";
+import SectionTitle from "@/components/ui/SectionTitle";
 import { fetchCertifications } from "@/lib/actions/certifications.actions"
 
 const Certifications = async () => {
@@ -9,10 +10,9 @@ const Certifications = async () => {
 
   return (
     <div>
-      <div className='w-full flex justify-between items-center'>
-        <h3 className='mb-3 text-xl font-semibold'>Certifications</h3>
+      <SectionTitle title='Certifications'>
         <CertificationFormModal />
-      </div>
+      </SectionTitle>
       <CertificationsList certifications={certifications} />
     </div>
   )

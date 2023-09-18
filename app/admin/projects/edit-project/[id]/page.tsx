@@ -1,4 +1,5 @@
 import ProjectForm from '@/components/forms/ProjectForm';
+import SectionTitle from '@/components/ui/SectionTitle';
 import { fetchProject } from '@/lib/actions/project.actions';
 import { fetchTechnologies } from '@/lib/actions/technologies.actions';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +14,7 @@ const EditProject = async ({ params }: { params: { id: string } }) => {
   return (
     <div>
       <div className='mb-3 w-full flex justify-between items-center'>
-        <h3 className='text-xl font-semibold'>Create a new project</h3>
+        <SectionTitle title='Create a new project' />
         <Link href='/admin/projects' className='btn'>
           <FontAwesomeIcon icon={faArrowLeft} />
           <span className='ml-3'>Go back</span>

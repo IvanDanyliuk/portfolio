@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import ProjectsTable from '@/components/ui/ProjectsTable';
 import { fetchProjects } from '@/lib/actions/project.actions'
+import SectionTitle from '@/components/ui/SectionTitle';
 
 const Projects = async () => {
   const availablePojects = await fetchProjects();
@@ -8,10 +9,9 @@ const Projects = async () => {
 
   return (
     <div>
-      <div className='w-full flex justify-between items-center'>
-        <h3 className='mb-3 text-xl font-semibold'>Projects</h3>
+      <SectionTitle title='Projects'>
         <Link href='/admin/projects/create-project' className='btn'>New Project</Link>
-      </div>
+      </SectionTitle>
       <ProjectsTable projects={projects} />
     </div>
   )

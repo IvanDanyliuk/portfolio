@@ -11,7 +11,7 @@ const CreateProject = async () => {
   return (
     <div>
       <div className='mb-3 w-full flex justify-between items-center'>
-        <h3 className='text-xl font-semibold'>Create a new project</h3>
+        <h3 className='text-lg md:text-xl font-semibold'>Create a new project</h3>
         <Link href='/admin/projects' className='btn'>
           <FontAwesomeIcon icon={faArrowLeft} />
           <span className='ml-3'>Go back</span>
