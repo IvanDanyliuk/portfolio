@@ -9,7 +9,6 @@ import Input from '@/components/ui/Input';
 import { Skill } from '@/common.types';
 import { addSkill } from '@/lib/actions/skills.actions'
 
-
 const SkillFormModal: React.FC = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);

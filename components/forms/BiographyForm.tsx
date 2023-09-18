@@ -48,7 +48,7 @@ const BiographyForm: React.FC<BiographyFormProps> = ({ data }) => {
   return (
     <form 
       onSubmit={handleSubmit(handleBiographySubmit)} 
-      className='relative w-full flex flex-col gap-3 form'
+      className='mt-3 relative w-full flex flex-col gap-3 form'
     >
       <Editor 
         name='biography' 

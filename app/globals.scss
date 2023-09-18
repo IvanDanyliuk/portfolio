@@ -19,7 +19,7 @@ header {
 }
 
 main {
-  @apply relative flex min-h-full flex-1 flex-col justify-center;
+  @apply relative flex min-h-full flex-1 flex-col justify-center text-sm md:text-base;
 }
 
 // Layout

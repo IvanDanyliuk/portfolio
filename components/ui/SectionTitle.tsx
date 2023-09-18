@@ -8,7 +8,7 @@ interface SectionTitleProps {
 const SectionTitle: React.FC<SectionTitleProps> = ({ title, children }) => {
   return (
     <div className='flex justify-between items-center'>
-      <h3 className='mb-3 text-lg md:text-xl font-semibold'>
+      <h3 className='text-lg md:text-xl font-semibold'>
         {title}
       </h3>
       {children}

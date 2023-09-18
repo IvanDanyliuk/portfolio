@@ -24,7 +24,7 @@ const CertificationsList: React.FC<CertificationListProps> = ({ certifications }
   }
 
   return (
-    <div className='mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8'>
+    <div className='mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8'>
       {certifications.map(item => (
         <div key={uuid()} className='group relative border border-slate-500'>
           <button onClick={() => handleCertificateDelete(item._id)} className='absolute top-3 right-4'>

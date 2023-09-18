@@ -29,9 +29,9 @@ const EducationList: React.FC<EducationListProps> = ({ data }) => {
     <>
       {data.length > 0 ? (
         <table className='w-full'>
-          <tbody className='w-full'>
-            {data.map((item: any) => (
-              <tr key={uuid()} className='relative w-full border-b-2'>
+          <tbody className='relative w-full'>
+            {data.map((item: any, i: number) => (
+              <tr key={uuid()} className='relative w-full'>
                 <td className='w-2/12 py-4'>
                   {`${formatDate(item.periodFrom, 'year')} - ${formatDate(item.periodTo, 'year')}`}
                 </td>

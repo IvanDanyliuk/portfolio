@@ -9,12 +9,12 @@ const Certifications = async () => {
   const certifications = data.map(item => JSON.parse(JSON.stringify(item)));
 
   return (
-    <div>
+    <>
       <SectionTitle title='Certifications'>
         <CertificationFormModal />
       </SectionTitle>
       <CertificationsList certifications={certifications} />
-    </div>
+    </>
   )
 }
 
