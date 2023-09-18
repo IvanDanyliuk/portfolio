@@ -35,7 +35,7 @@ const ProjectsTable: React.FC<ProjectsTableProps> = ({ projects }) => {
   }
 
   return (
-    <table className='relative w-full'>
+    <table className='relative w-full text-xs md:text-base'>
       <thead className='w-full'>
         <tr>
           <th className='py-3 text-start'>Name</th>

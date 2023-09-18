@@ -28,7 +28,7 @@ const ExperienceList: React.FC<ExperienceListProps> = ({ data }) => {
   return (
     <>
       {data.length > 0 ? (
-        <table className='w-full'>
+        <table className='w-full text-xs md:text-base'>
           <tbody className='w-full'>
             {data.map((item: any) => (
               <tr key={uuid()} className='relative w-full border-b-2'>

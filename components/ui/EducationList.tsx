@@ -28,7 +28,7 @@ const EducationList: React.FC<EducationListProps> = ({ data }) => {
   return (
     <>
       {data.length > 0 ? (
-        <table className='w-full'>
+        <table className='w-full text-xs md:text-base'>
           <tbody className='relative w-full'>
             {data.map((item: any, i: number) => (
               <tr key={uuid()} className='relative w-full'>
