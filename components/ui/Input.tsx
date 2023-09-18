@@ -20,8 +20,8 @@ const Input = ({
   ...props 
 }: InputProps) => {
   return (
-    <div className='field-container'>
-      <label htmlFor={name} className='field-label'>
+    <div className={type === 'checkbox' ? 'checkbox' : 'field'}>
+      <label htmlFor={name}>
         {error ? error.message : label}
       </label>
       <input 
@@ -29,7 +29,6 @@ const Input = ({
         type={type ? type : 'text'} 
         {...props} 
         {...register(name, registerOptions)} 
-        className='field'
       />
     </div>
   )

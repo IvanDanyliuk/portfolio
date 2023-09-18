@@ -19,29 +19,37 @@ header {
 }
 
 main {
-  @apply relative flex min-h-full flex-1 flex-col justify-center;
+  @apply relative flex min-h-full flex-1 flex-col justify-center text-sm md:text-base;
 }
 
-/* Layout */
+// Layout
 
 .nav-link {
   @apply relative inline-block font-medium tracking-wide;
-}
 
-.nav-link:after {
-  @apply relative bottom-0 left-0 content-[''] block w-0 h-1 bg-black transition-[width] duration-300 ease-in-out;
-}
+  &:after {
+    @apply relative bottom-0 left-0 content-[''] block w-0 h-1 bg-black transition-[width] duration-300 ease-in-out;
+  }
 
-.nav-link:hover:after {
-  @apply w-full;
+  &:hover:after {
+    @apply w-full;
+  }
 }
 
 .nav-link__active {
   @apply relative inline-block font-medium tracking-wide;
+
+  &:after {
+    @apply relative bottom-0 left-0 content-[''] block w-full h-1 bg-black;
+  }
 }
 
-.nav-link__active:after {
-  @apply relative bottom-0 left-0 content-[''] block w-full h-1 bg-black;
+.admin-nav-link {
+  @apply p-3 block bg-gray-200;
+}
+
+.admin-nav-link__active {
+  @apply p-3 block bg-gray-300;
 }
 
 .socialMediaList__horizontal {
@@ -60,20 +68,46 @@ main {
   @apply w-72;
 }
 
-.field-container {
-  @apply w-full flex flex-col;
-}
-
-.field-label {
-  @apply mb-2 text-text-primary font-medium text-base;
-}
-
 .field {
-  @apply px-3 py-2 border-2 border-gray-100 rounded-md;
+  @apply w-full flex flex-col;
+
+  label {
+    @apply mb-2 text-text-primary font-medium text-base;
+  }
+
+  input, textarea {
+    @apply px-3 py-2 border-2 border-gray-100 rounded-md;
+  }
+
+  select {
+    @apply px-3 py-3 border-2 border-gray-100 rounded-md;
+
+    option {
+      @apply py-6
+    }
+  }
+}
+
+.checkbox {
+  @apply flex flex-row-reverse justify-end;
+
+  label {
+    @apply ml-2
+  }
+}
+
+.form {
+  .custom-btn {
+    @apply mt-6;
+  }
+}
+
+.round-btn {
+  @apply w-10 h-10 bg-black text-white rounded-full border border-black hover:bg-white hover:text-black transition;
 }
 
 
-/* Home Page */
+// Home Page
 .mainHeading {
   @apply text-3xl lg:text-6xl;
 }
@@ -90,33 +124,19 @@ main {
   @apply animate-from-right
 }
 
-.social-media {
-  /* animation-duration: 3s;
-  animation-name: social;
-  animation-direction: alternate; */
-}
-
-/* @keyframes social {
-  from {
-    bottom: -100%;
-  }
-  to {
-    bottom: 0;
-  }
-} */
 
 .cta-link {
   @apply w-72 px-6 py-2 border-2 border-black rounded-3xl hover:bg-black text-center hover:text-white transition ;
 }
 
 
-/* About Page */
+// About Page
 
 
-/* Projects Page */
+// Projects Page
 
 
-/* Contact Page */
+// Contact Page
 .pulse {
   @apply animate-pulse;
 }
@@ -139,4 +159,16 @@ main {
 
 .line {
   @apply my-10 w-0 h-[2px] mx-auto animate-from-center
+}
+
+
+// Admin Panel
+.period {
+  
+}
+
+.project-form {
+  form {
+    @apply w-1/2
+  }
 }

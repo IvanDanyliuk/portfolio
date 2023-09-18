@@ -3,11 +3,12 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Disclosure, Transition } from '@headlessui/react'
+import { UserButton } from '@clerk/nextjs'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { v4 as uuid } from 'uuid'
 import { navLinks } from '@/constants'
-import SocialMediaList from './SocialMediaList'
+import SocialMediaList from '../ui/SocialMediaList'
 
 
 function classNames(...classes: any[]) {
@@ -34,6 +35,9 @@ export default function Header() {
                 </Link>
                 </li>
               ))}
+              <li>
+                <UserButton afterSignOutUrl="/"/>
+              </li>
             </ul>
 
             <div className='absolute inset-y-0 right-0 flex items-center sm:hidden'>
