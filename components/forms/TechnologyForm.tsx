@@ -35,7 +35,7 @@ const TechnologyForm: React.FC = () => {
   }
   return (
     <>
-      <Button type='button' title='Add' onClick={handleModalOpen} />
+      <Button type='button' width='auto' title='Add' onClick={handleModalOpen} />
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as='div' className='relative w-1/3 z-10' onClose={handleModalOpen}>
