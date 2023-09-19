@@ -9,6 +9,7 @@ import Input from '../ui/Input';
 import { ExperienceItem } from '@/common.types'
 import { addExperienceItem } from '@/lib/actions/experience.actions'
 import DatePicker from '../ui/DatePicker'
+import Editor from '../ui/Editor'
 
 const ExperienceFormModal: React.FC = () => {
   const pathname = usePathname();
@@ -83,6 +84,12 @@ const ExperienceFormModal: React.FC = () => {
                       register={register} 
                       registerOptions={{ required: 'This field is required!' }} 
                       error={errors.position}
+                    />
+                    <Editor 
+                      name='responsibilities' 
+                      control={control} 
+                      register={register} 
+                      error={errors.responsibilities} 
                     />
                     <DatePicker 
                       name='periodFrom' 

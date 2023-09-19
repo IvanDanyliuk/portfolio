@@ -21,6 +21,7 @@ const About = async () => {
         <SocialMediaList orientation='vertical' />
       </section>
       <section>
+        <h3>Experience</h3>
         
       </section>
       <section>

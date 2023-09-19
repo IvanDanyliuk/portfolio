@@ -12,6 +12,7 @@ export interface User {
   experience: {
     company: string;
     position: string;
+    responsibilities: string;
     periodFrom: string;
     periodTo: string;
   }[];
@@ -36,6 +37,7 @@ export interface EducationItem {
 export interface ExperienceItem {
   company: string;
   position: string;
+  responsibilities: string;
   periodFrom: string;
   periodTo: string;
 }
