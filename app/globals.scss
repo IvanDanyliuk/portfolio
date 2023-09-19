@@ -57,7 +57,7 @@ main {
 }
 
 .socialMediaList__vertical {
-  @apply flex flex-col w-full justify-center content-between text-4xl md:text-3xl;
+  @apply flex flex-col justify-center content-between gap-10 text-4xl md:text-3xl;
 }
 
 .btn {
