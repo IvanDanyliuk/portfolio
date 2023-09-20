@@ -1,12 +1,12 @@
 'use client'
 
-import { deleteCertification } from '@/lib/actions/certifications.actions';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { v4 as uuid } from 'uuid'
+import { deleteCertification } from '@/lib/actions/certifications.actions';
 
 interface CertificationListProps {
   certifications: {

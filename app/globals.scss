@@ -152,6 +152,10 @@ main {
   }
 }
 
+.certificate-cta-btn {
+  @apply absolute top-6 border border-black rounded-full bg-white hover:bg-black text-black hover:text-white transition;
+}
+
 // Projects Page
 
 

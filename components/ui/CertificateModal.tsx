@@ -1,11 +1,11 @@
 'use client'
 
-import { Fragment, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { Fragment, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { Dialog, Transition } from '@headlessui/react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 interface CertificationMoalProps {
   imageUrl: string;
@@ -18,8 +18,6 @@ const CertificateModal: React.FC<CertificationMoalProps> = ({ imageUrl, verifica
   const handleModalOpen = () => {
     setIsOpen(!isOpen);
   }
-
-
 
   return (
     <>
@@ -57,8 +55,11 @@ const CertificateModal: React.FC<CertificationMoalProps> = ({ imageUrl, verifica
               >
                 <Dialog.Panel className='transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>
                   {verificationUrl && (
-                    <Link href={verificationUrl} className='absolute top-6 left-6 px-6 py-2 border border-black rounded-full bg-white hover:bg-black text-black hover:text-white transition cursor-pointer'>Verify</Link>
+                    <Link href={verificationUrl} className='certificate-cta-btn left-6 py-2 px-5 cursor-pointer'>Verify</Link>
                   )}
+                  <button onClick={handleModalOpen} className='certificate-cta-btn right-6 w-10 h-10'>
+                    <FontAwesomeIcon icon={faXmark} />
+                  </button>
                   <Image src={imageUrl} alt='certificate' width={1000} height={600} />
                 </Dialog.Panel>
               </Transition.Child>

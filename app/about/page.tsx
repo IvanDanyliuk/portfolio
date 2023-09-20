@@ -15,7 +15,7 @@ const About = async () => {
 
   return (
     <div>
-      <section className='w-full flex gap-x-6 border-b-[1px] border-gray-100'>
+      <section className='pt-3 w-full flex gap-x-6 border-b-[1px] border-gray-100'>
         <div className='flex border-r-[1px] border-gray-100'>
           <div>
             <h2 className='mb-7 text-4xl'>Hi! My name is <strong className='font-bold'>Ivan Danyliuk</strong></h2>
@@ -25,7 +25,7 @@ const About = async () => {
         </div>
         <SocialMediaList orientation='vertical' />
       </section>
-      <section className='py-10 border-b-[1px]'>
+      <section className='py-14 border-b-[1px]'>
         <h3 className='mb-6 text-4xl text-center font-semibold'>Experience</h3>
         <ul>
           {userInfo.experience.map(item => (
@@ -43,9 +43,9 @@ const About = async () => {
           ))}
         </ul>
       </section>
-      <section className='py-10 flex justify-between gap-6 border-b-[1px]'>
+      <section className='py-14 flex justify-between gap-6 border-b-[1px]'>
         <div>
-          <h3 className='mb-6 text-3xl text-center font-semibold'>Technical Skills</h3>
+          <h3 className='mb-6 text-3xl text-center md:text-start font-semibold'>Technical Skills</h3>
           <ul className='flex flex-wrap gap-3'>
             {technicalSkills.map(skill => (
               <li key={uuid()} className='px-5 py-2 border-none rounded-full bg-gray-100'>
@@ -55,7 +55,7 @@ const About = async () => {
           </ul>
         </div>
         <div>
-          <h3 className='mb-6 text-3xl text-center font-semibold'>Additional Skills</h3>
+          <h3 className='mb-6 text-3xl text-center md:text-start font-semibold'>Additional Skills</h3>
           <ul className='flex flex-wrap gap-3'>
             {additionalSkills.map(skill => (
               <li key={uuid()} className='px-5 py-2 border-none rounded-full bg-gray-100'>
@@ -65,7 +65,7 @@ const About = async () => {
           </ul>
         </div>
         <div>
-          <h3 className='mb-6 text-3xl text-center font-semibold'>Education</h3>
+          <h3 className='mb-6 text-3xl text-center md:text-start font-semibold'>Education</h3>
           <ul>
             {userInfo.education.map(item => (
               <li key={uuid()} className='mb-3 flex gap-x-10'>
@@ -81,7 +81,7 @@ const About = async () => {
           </ul>
         </div>
       </section>
-      <section className='py-10 border-b-[1px]'>
+      <section className='py-14 border-b-[1px]'>
         <h3 className='mb-6 text-4xl text-center font-semibold'>Courses & Certifications</h3>
         <p className='px-10 md:px-52 text-center'>From the first day when I first got into front-end development until now, I have completed plenty of courses and learning programs. I gained a solid understanding of web development standards and principles.</p>
         <ul className='py-12 flex flex-wrap gap-6'>
