@@ -106,6 +106,13 @@ main {
   @apply w-10 h-10 bg-black text-white rounded-full border border-black hover:bg-white hover:text-black transition;
 }
 
+.content-list {
+  @apply text-sm text-gray-700;
+  ul {
+    @apply pl-5 list-disc
+  }
+}
+
 
 // Home Page
 .mainHeading {
@@ -131,7 +138,19 @@ main {
 
 
 // About Page
+.certificate-list-item {
+  @apply relative w-full text-3xl transition cursor-pointer;
 
+  .backdrop {
+    @apply hidden absolute top-0 right-0 bottom-0 left-0 justify-center items-center bg-gray-300 opacity-50 text-black;
+  }
+
+  &:hover {
+    .backdrop {
+      @apply flex ease-in;
+    }
+  }
+}
 
 // Projects Page
 

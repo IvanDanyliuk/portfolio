@@ -33,7 +33,7 @@ const ExperienceList: React.FC<ExperienceListProps> = ({ data }) => {
             {data.map((item: any) => (
               <tr key={uuid()} className='relative w-full border-b-2'>
                 <td className='w-2/12 py-4'>
-                {`${formatDate(item.periodFrom, 'month/year')} - ${formatDate(item.periodTo, 'month/year')}`}
+                  {`${formatDate(item.periodFrom, 'month/year')} - ${formatDate(item.periodTo, 'month/year')}`}
                 </td>
                 <td className='w-5/12 py-4'>
                   {item.company}
