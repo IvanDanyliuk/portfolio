@@ -38,8 +38,4 @@ export const socialMediaLinks = [
   }
 ];
 
-export const projectCategories = [
-  { label: 'Frontend', value: 'Frontend' },
-  { label: 'Backend', value: 'Backend' },
-  { label: 'Fullstack', value: 'Fullstack' },
-];
+export const projectCategories = ['Frontend', 'Backend', 'Fullstack'];

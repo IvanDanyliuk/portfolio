@@ -24,10 +24,22 @@ interface CreateProjectQuery {
   pathname: string;
 }
 
-export const fetchProjects = async () => {
+interface FetchProjectsQuery {
+  categories?: string | null;
+  technologies?: string | null;
+}
+
+export const fetchProjects = async (categories?: string | null, technologies?: string | null) => {
   try {
+    const categorySearchParams = categories ? categories.split(';') : null;
+    const technologySearchParams = technologies ? technologies.split(';') : null;
+
     connectToDB();
-    return await ProjectModel.find({});
+    if(categories || technologies) {
+      return await ProjectModel.find({  });
+    } else {
+      return await ProjectModel.find({});
+    }
   } catch (error: any) {
     throw new Error(`Cannot find available projects: ${error.message}`);
   }
