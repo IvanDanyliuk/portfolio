@@ -7,7 +7,7 @@ interface CheckboxProps {
 const Checkbox: React.FC<CheckboxProps> = ({ label, checked, onChange }) => {
   return (
     <div className='flex justify-between'>
-      <label htmlFor={label} className='font-semibold'>
+      <label htmlFor={label} className='py-1.5'>
         {label}
       </label>
       <input id={label} type='checkbox' checked={checked} onChange={onChange} />
