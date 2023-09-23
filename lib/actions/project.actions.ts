@@ -24,19 +24,15 @@ interface CreateProjectQuery {
   pathname: string;
 }
 
-interface FetchProjectsQuery {
-  categories?: string | null;
-  technologies?: string | null;
-}
-
 export const fetchProjects = async (categories?: string | null, technologies?: string | null) => {
   try {
     const categorySearchParams = categories ? categories.split(';') : null;
     const technologySearchParams = technologies ? technologies.split(';') : null;
 
     connectToDB();
+    
     if(categories || technologies) {
-      return await ProjectModel.find({  });
+      return await ProjectModel.find({ $or: [{ category: { $in: categorySearchParams } }, { technologies: { $in: technologySearchParams } }] });
     } else {
       return await ProjectModel.find({});
     }

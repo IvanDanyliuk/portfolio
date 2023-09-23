@@ -21,8 +21,6 @@ const Projects = async ({ searchParams: { categories, technologies } }: Props) =
   const projects = JSON.parse(JSON.stringify(data));
   const technologiesData = await fetchTechnologies();
 
-  console.log('Search Params', { categories, technologies, technologiesData });
-
   return (
     <div className='relative w-full flex gap-6'>
       <ProjectFilters 
