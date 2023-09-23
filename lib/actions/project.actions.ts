@@ -21,6 +21,9 @@ interface CreateProjectQuery {
     title: string;
     description: string;
   }[];
+  previewUrl?: string;
+  repoFrontend?: string;
+  repoBackend?: string;
   pathname: string;
 }
 
@@ -30,9 +33,14 @@ export const fetchProjects = async (categories?: string | null, technologies?: s
     const technologySearchParams = technologies ? technologies.split(';') : null;
 
     connectToDB();
-    
+
     if(categories || technologies) {
-      return await ProjectModel.find({ $or: [{ category: { $in: categorySearchParams } }, { technologies: { $in: technologySearchParams } }] });
+      return await ProjectModel.find({ 
+        $or: [
+          { category: { $in: categorySearchParams } }, 
+          { technologies: { $in: technologySearchParams } }
+        ] 
+      });
     } else {
       return await ProjectModel.find({});
     }
@@ -59,6 +67,9 @@ export const createProject = async ({
   technologies, 
   features, 
   credentials, 
+  previewUrl, 
+  repoFrontend, 
+  repoBackend, 
   pathname 
 }: CreateProjectQuery) => {
   try {
@@ -80,7 +91,10 @@ export const createProject = async ({
       category, 
       technologies, 
       features: modifiedFeatures, 
-      credentials
+      credentials,
+      previewUrl, 
+      repoFrontend, 
+      repoBackend
     });
 
     if(pathname === '/admin/projects/create-project') {

@@ -11,12 +11,15 @@ interface ProjectListProps {
     technologies: string[];
     features: Feature[];
     credentials: Credential[];
+    previewUrl?: string;
+    repoFrontend?: string;
+    repoBackend?: string;
   }[];
 }
 
 const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
   return (
-    <div className='flex-1 bg-slate-400'>
+    <div className='flex-1'>
       {projects.map(project => (
         <div key={uuid()}>
           {project._id}

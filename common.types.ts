@@ -50,6 +50,9 @@ export interface Project {
   technologies: string[];
   features: Feature[];
   credentials: Credential[];
+  previewUrl?: string;
+  repoFrontend?: string;
+  repoBackend?: string;
 }
 
 export interface Technology {

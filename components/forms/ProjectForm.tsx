@@ -35,6 +35,9 @@ interface ProjectFormProps {
       title: string;
       description: string;
     }[];
+    previewUrl?: string;
+    repoFrontend?: string;
+    repoBackend?: string;
   };
 }
 
@@ -53,6 +56,9 @@ interface ProjectForm {
     title: string;
     description: string;
   }[];
+  previewUrl?: string;
+  repoFrontend?: string;
+  repoBackend?: string;
 }
 
 interface Feature {
@@ -127,6 +133,9 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ technologies, projectToUpdate
         technologies: data.technologies,
         features: data.features,
         credentials: data.credentials,
+        previewUrl: data.previewUrl,
+        repoFrontend: data.repoFrontend,
+        repoBackend: data.repoBackend,
         pathname
       })
     }
@@ -149,7 +158,10 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ technologies, projectToUpdate
         category: projectToUpdate.category,
         technologies: projectToUpdate.technologies,
         features: projectToUpdate.features,
-        credentials: projectToUpdate.credentials
+        credentials: projectToUpdate.credentials,
+        previewUrl: projectToUpdate.previewUrl,
+        repoFrontend: projectToUpdate.repoFrontend,
+        repoBackend: projectToUpdate.repoBackend
       });
       setFeatures(projectToUpdate.features);
       setCredentials(projectToUpdate.credentials);
@@ -196,6 +208,24 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ technologies, projectToUpdate
           label='Technologies' 
           control={control} 
           options={technologiesList} 
+        />
+        <Input 
+          name='previewUrl' 
+          label='Preview link' 
+          register={register}  
+          error={errors.previewUrl} 
+        />
+        <Input 
+          name='repoFrontend' 
+          label='Frontend repository link' 
+          register={register}  
+          error={errors.repoFrontend} 
+        />
+        <Input 
+          name='repoBackend' 
+          label='Backend repository link' 
+          register={register}  
+          error={errors.repoBackend} 
         />
         <fieldset>
           <label>Features</label>
