@@ -14,7 +14,10 @@ const projectSchema = new mongoose.Schema({
   credentials: [{
     title: { type: String, required: true },
     description: { type: String, required: true },
-  }]
+  }],
+  previewUrl: { type: String },
+  repoFrontend: { type: String },
+  repoBackend: { type: String },
 })
 
 const Project = mongoose.models.Project || mongoose.model('Project', projectSchema);

@@ -12,14 +12,11 @@ interface SelectProps {
   name: string;
   label: string;
   control: Control<any>,
-  options: {
-    label: string;
-    value: string;
-  }[]
+  options: string[]
 }
 
 const Select: React.FC<SelectProps> = ({ name, label, control, options }) => {
-  const [selected, setSelected] = useState(options[0].label)
+  const [selected, setSelected] = useState(options[0]);
 
   return (
     <div className='field'>
@@ -29,7 +26,7 @@ const Select: React.FC<SelectProps> = ({ name, label, control, options }) => {
       <Controller
         name={name}
         control={control}
-        defaultValue={options[0].value}
+        defaultValue={options[0]}
         render={({ field: { onChange } }) => (
           <Listbox value={selected} onChange={(e: any) => {
             onChange(e);
@@ -55,16 +52,16 @@ const Select: React.FC<SelectProps> = ({ name, label, control, options }) => {
                     leaveTo="opacity-0"
                   >
                     <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                      {options.map(({ label, value }) => (
+                      {options.map(option => (
                         <Listbox.Option
-                          key={value}
+                          key={option}
                           className={({ active }) =>
                             classNames(
                               active ? 'bg-gray-300' : 'text-gray-900',
                               'relative cursor-default select-none py-3 pl-3 pr-9'
                             )
                           }
-                          value={value}
+                          value={option}
                         >
                           {({ selected, active }) => (
                             <>
@@ -72,7 +69,7 @@ const Select: React.FC<SelectProps> = ({ name, label, control, options }) => {
                                 <span
                                   className={classNames(selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate')}
                                 >
-                                  {label}
+                                  {option}
                                 </span>
                               </div>
 

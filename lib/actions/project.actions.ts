@@ -21,13 +21,29 @@ interface CreateProjectQuery {
     title: string;
     description: string;
   }[];
+  previewUrl?: string;
+  repoFrontend?: string;
+  repoBackend?: string;
   pathname: string;
 }
 
-export const fetchProjects = async () => {
+export const fetchProjects = async (categories?: string | null, technologies?: string | null) => {
   try {
+    const categorySearchParams = categories ? categories.split(';') : null;
+    const technologySearchParams = technologies ? technologies.split(';') : null;
+
     connectToDB();
-    return await ProjectModel.find({});
+
+    if(categories || technologies) {
+      return await ProjectModel.find({ 
+        $or: [
+          { category: { $in: categorySearchParams } }, 
+          { technologies: { $in: technologySearchParams } }
+        ] 
+      });
+    } else {
+      return await ProjectModel.find({});
+    }
   } catch (error: any) {
     throw new Error(`Cannot find available projects: ${error.message}`);
   }
@@ -51,6 +67,9 @@ export const createProject = async ({
   technologies, 
   features, 
   credentials, 
+  previewUrl, 
+  repoFrontend, 
+  repoBackend, 
   pathname 
 }: CreateProjectQuery) => {
   try {
@@ -72,7 +91,10 @@ export const createProject = async ({
       category, 
       technologies, 
       features: modifiedFeatures, 
-      credentials
+      credentials,
+      previewUrl, 
+      repoFrontend, 
+      repoBackend
     });
 
     if(pathname === '/admin/projects/create-project') {
