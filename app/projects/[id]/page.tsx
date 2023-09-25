@@ -4,7 +4,7 @@ import Chip from '@/components/ui/Chip';
 import { fetchProject } from '@/lib/actions/project.actions';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import Image from 'next/image';
 
@@ -14,7 +14,6 @@ const Project = async ({ params }: { params: { id: string } }) => {
   return (
     <div className='relative w-full flex flex-auto flex-col md:flex-row gap-6'>
       <div className='pr-5 w-1/4 flex md:flex-col gap-7 border-r border-gray-100'>
-        <h2 className='text-3xl font-bold '>{project.name}</h2>
         <section className='pb-6 flex justify-between items-center border-b border-gray-100'>  
           <h3 className='text-lg font-semibold text-gray-400'>Category</h3>
           <Chip title={project.category} />
@@ -92,6 +91,13 @@ const Project = async ({ params }: { params: { id: string } }) => {
         )}
       </div>
       <div className='flex-1'>
+        <div className='pb-6 w-full flex justify-between items-center'>
+          <h2 className='text-4xl font-bold '>{project.name}</h2>
+          <Link href='/projects' className='btn'>
+            <FontAwesomeIcon icon={faArrowLeft} />
+            <span className='ml-3'>Go back</span>
+          </Link>
+        </div>
         <section className='flex justify-between'>
           <div>
             <h4 className='mb-3 text-xl font-semibold '>Common Information</h4>
