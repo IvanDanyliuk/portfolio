@@ -1,12 +1,12 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { v4 as uuid } from 'uuid';
 import { Project } from '@/common.types';
 import Chip from '@/components/ui/Chip';
 import { fetchProject } from '@/lib/actions/project.actions';
-import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import Image from 'next/image';
 
 const Project = async ({ params }: { params: { id: string } }) => {
   const project: Project = await fetchProject(params.id);
