@@ -91,7 +91,7 @@ const Project = async ({ params }: { params: { id: string } }) => {
         )}
       </div>
       <div className='flex-1'>
-        <div className='pb-6 w-full flex justify-between items-center'>
+        <div className='mb-6 pb-6 w-full flex justify-between items-center border-b border-b-gray-100'>
           <h2 className='text-4xl font-bold '>{project.name}</h2>
           <Link href='/projects' className='btn'>
             <FontAwesomeIcon icon={faArrowLeft} />
