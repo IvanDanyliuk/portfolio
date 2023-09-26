@@ -13,7 +13,7 @@ const Project = async ({ params }: { params: { id: string } }) => {
 
   return (
     <div className='relative w-full flex flex-auto flex-col-reverse md:flex-row gap-10 md:gap-6'>
-      <div className='md:pr-5 w-full md:w-1/4 flex flex-col gap-7 md:border-r md:border-gray-100'>
+      <div className='md:pr-5 w-full md:w-1/5 flex flex-col gap-7 md:border-r md:border-gray-100'>
         <section className='pb-6 flex justify-between items-center border-b border-gray-100'>  
           <h3 className='text-lg font-semibold text-gray-400'>Category</h3>
           <Chip title={project.category} />
@@ -91,7 +91,7 @@ const Project = async ({ params }: { params: { id: string } }) => {
         )}
       </div>
       <div className='flex-1'>
-        <div className='mb-6 pb-6 w-full flex justify-between items-center border-b border-b-gray-100'>
+        <div className='mb-6 pb-6 w-full flex justify-between items-center'>
           <h2 className='text-4xl font-bold '>{project.name}</h2>
           <Link href='/projects' className='btn'>
             <FontAwesomeIcon icon={faArrowLeft} />
