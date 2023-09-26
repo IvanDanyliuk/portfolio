@@ -12,8 +12,8 @@ const Project = async ({ params }: { params: { id: string } }) => {
   const project: Project = await fetchProject(params.id);
 
   return (
-    <div className='relative w-full flex flex-auto flex-col md:flex-row gap-6'>
-      <div className='pr-5 w-1/4 flex md:flex-col gap-7 border-r border-gray-100'>
+    <div className='relative w-full flex flex-auto flex-col-reverse md:flex-row gap-10 md:gap-6'>
+      <div className='md:pr-5 w-full md:w-1/4 flex flex-col gap-7 md:border-r md:border-gray-100'>
         <section className='pb-6 flex justify-between items-center border-b border-gray-100'>  
           <h3 className='text-lg font-semibold text-gray-400'>Category</h3>
           <Chip title={project.category} />
@@ -98,8 +98,8 @@ const Project = async ({ params }: { params: { id: string } }) => {
             <span className='ml-3'>Go back</span>
           </Link>
         </div>
-        <section className='flex justify-between'>
-          <div>
+        <section className='flex flex-col md:flex-row md:justify-between'>
+          <div className='mb-6 md:mb-0'>
             <h4 className='mb-3 text-xl font-semibold '>Common Information</h4>
             <p>{project.summary}</p>
           </div>
