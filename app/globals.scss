@@ -116,11 +116,11 @@ main {
 
 // Home Page
 .mainHeading {
-  @apply text-3xl lg:text-6xl;
+  @apply text-3xl lg:text-7xl text-center md:text-start;
 }
 
 .subHeading {
-  @apply  text-xl lg:text-5xl text-text-secondary mt-3 leading-tight;
+  @apply text-xl lg:text-5xl text-text-secondary mt-3 leading-tight text-center md:text-start;
 }
 
 .greeting-block {
