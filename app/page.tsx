@@ -5,32 +5,39 @@ import SocialMediaList from '@/components/ui/SocialMediaList';
 
 export default function Home() {
   return (
-    <div className='flex w-full relative flex-col grow justify-between overflow-hidden'>
-      <div className='h-full flex flex-col md:flex-row grow justify-center md:justify-between items-center'>
-        <div className='relative w-auto pb-10 md:pb-0 md:h-auto greeting-block'>
-          <h1 className='mainHeading'>Hi! I am <strong className='font-bold'>Ivan Danyliuk</strong>.</h1>
-          <h2 className='subHeading'>I am a creative frontend developer based in Ukraine</h2>
+    <div className='relative w-full h-full flex flex-col md:flex-row grow justify-center items-center gap-6'>
+      <div className='relative w-full md:w-2/3 flex flex-col justify-center items-center'>
+        <div className='relative w-full md:h-72 lg:h-56 overflow-hidden border-b-4 border-gray-900'>
+          <div className='py-5 absolute top-block'>
+            <h1 className='text-5xl md:text-7xl'>Hi! I am <strong className='font-bold'>Ivan Danyliuk</strong>.</h1>
+            <h2 className='mt-5 text-xl md:text-3xl text-gray-400'>I am a creative frontend developer based in Ukraine</h2>
+          </div>
         </div>
-        <div className='relative w-full md:w-1/2 flex flex-col gap-5 items-center justify-center btns-block'>
-          <Link 
-            href='/projects' 
-            className='cta-link'
-          >
-            See my projects
-          </Link>
-          <Link 
-            href='/assets/Ivan_Danyliuk_CV.pdf' 
-            download='Ivan_Danyliuk_CV.pdf'
-            target='_blank'
-            rel='noreferrer'
-            className='cta-link'
-          >
-            Download CV
-          </Link>
+        <div className='relative w-full h-24 md:h-72 lg:h-56 overflow-hidden'>
+          <div className='py-5 absolute left-0 top-0 bottom-block'>
+            <div className=''>
+              <SocialMediaList orientation='horizontal' />
+            </div>
+          </div>
         </div>
       </div>
-      <div className='w-full md:w-1/6 h-20 px-7 md:px-0 flex justify-between items-center'>
-        <SocialMediaList orientation='horizontal' />
+
+      <div className='md:h-full flex md:flex-1 flex-col justify-center items-center gap-6'>
+        <Link 
+          href='/projects' 
+          className='cta-link'
+        >
+          See my projects
+        </Link>
+        <Link 
+          href='/assets/Ivan_Danyliuk_CV.pdf' 
+          download='Ivan_Danyliuk_CV.pdf'
+          target='_blank'
+          rel='noreferrer'
+          className='cta-link'
+        >
+          Download CV
+        </Link>
       </div>
     </div>
   )

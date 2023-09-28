@@ -43,6 +43,15 @@ const config: Config = {
         pulseFromCenter: {
           '0%': { 'box-shadow': '0 0 0 0px rgba(0, 0, 0, 0.2)' },
           '100%': { 'box-shadow': '0 0 0 50px rgba(0, 0, 0, 0)' },
+        },
+        mainHeadingTopText: {
+          '0%': { transform: 'translate3d(0, 100%, 0)' },
+          '40%, 60%': { transform: 'translate3d(0, 40%, 0)' },
+          '100%': { transform: 'translate3d(0, 0, 0)' },
+        },
+        mainHeadingBottomText: {
+          '0%': { transform: 'translate3d(0, -100%, 0)' },
+          '100%': { transform: 'translate3d(0, 0, 0)' },
         }
       },
       animation: {
@@ -52,6 +61,8 @@ const config: Config = {
         'from-top': 'fromTop 1.25s ease',
         'to-top': 'toTop 1.25s ease',
         'pulse': 'pulseFromCenter 2s infinite',
+        'main-heading-top-text': 'mainHeadingTopText 1.25s forwards',
+        'main-heading-bottom-text': 'mainHeadingBottomText 1.75s forwards 0.7s'
       },
       
     },

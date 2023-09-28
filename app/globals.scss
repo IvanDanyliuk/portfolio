@@ -133,7 +133,7 @@ main {
 
 
 .cta-link {
-  @apply w-72 px-6 py-2 border-2 border-black rounded-3xl hover:bg-black text-center hover:text-white transition ;
+  @apply w-56 px-6 py-2 border-2 border-black rounded-3xl hover:bg-black text-center hover:text-white transition ;
 }
 
 
@@ -194,4 +194,14 @@ main {
   form {
     @apply w-1/2
   }
+}
+
+
+// Home page
+.top-block {
+  @apply left-0 bottom-0 animate-main-heading-top-text translate-x-0 translate-y-full;
+}
+
+.bottom-block {
+  @apply top-0 left-0 translate-x-0 -translate-y-full animate-main-heading-bottom-text;
 }
