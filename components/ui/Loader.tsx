@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Loader: React.FC = () => {
   return (
     <div className='w-full h-full flex flex-1 grow justify-center items-center overflow-hidden'>
