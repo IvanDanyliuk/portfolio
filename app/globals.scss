@@ -22,8 +22,8 @@ main {
   @apply relative pb-6 flex min-h-full flex-auto flex-col text-sm md:text-base;
 }
 
-// Layout
 
+// Layout
 .nav-link {
   @apply relative inline-block font-medium tracking-wide;
 
@@ -206,7 +206,6 @@ main {
 
 
 // Loader
-
 .loading-container {
   @apply relative w-full max-w-[520px] text-center text-black;
   

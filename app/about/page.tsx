@@ -21,8 +21,8 @@ const About = async () => {
           <h2 className='mb-7 text-4xl'>Hi! My name is <strong className='font-bold'>Ivan Danyliuk</strong></h2>
           <div dangerouslySetInnerHTML={{ __html: userInfo.generalData.biography }} className='pb-6 md:pr-7 text-sm md:text-base' />
         </div>
-        <div className='w-full md:w-1/3 lg:w-1/4 h-full flex md:flex-col-reverse lg:flex-row justify-around md:justify-between md:items-end lg:items-center gap-3'>
-          <Image src={userPhoto} alt='photo' className='bottom-0 w-auto h-auto max-h-[550px] flex border-r border-gray-100' />
+        <div className='w-full md:w-1/3 lg:w-1/4 h-full flex md:flex-col-reverse lg:flex-row justify-end md:justify-between md:items-end lg:items-center gap-3'>
+          <Image src={userPhoto} alt='photo' className='bottom-0 w-auto h-auto max-h-[400px] lg:max-h-[450px] flex border-r border-gray-100' />
           <SocialMediaList orientation='vertical' />
         </div>
       </section>
