@@ -52,7 +52,41 @@ const config: Config = {
         mainHeadingBottomText: {
           '0%': { transform: 'translate3d(0, -100%, 0)' },
           '100%': { transform: 'translate3d(0, 0, 0)' },
-        }
+        },
+        movingLine: {
+          '0%': {
+            opacity: '0',
+            width: '0',
+          },
+          '33.3%, 66%': {
+            opacity: '0.8',
+            width: '100%',
+          },
+          '85%': {
+            width: '0',
+            left: 'initial',
+            right: '0',
+            opacity: '1',
+          },
+          '100%': {
+           opacity: '0',
+           width: '0',
+          },
+        },
+        moveLetters: {
+          '0%': {
+            transform: 'translateX(-15vw)',
+            opacity: '0',
+          },
+          '33.3%, 66%': {
+            transform: 'translateX(0)',
+            opacity: '1',
+          },
+          '100%': {
+            transform: 'translateX(15vw)',
+            opacity: '0',
+          },
+        },
       },
       animation: {
         'from-center': 'fromCenter 1.25s ease forwards',
@@ -62,7 +96,9 @@ const config: Config = {
         'to-top': 'toTop 1.25s ease',
         'pulse': 'pulseFromCenter 2s infinite',
         'main-heading-top-text': 'mainHeadingTopText 1.25s forwards',
-        'main-heading-bottom-text': 'mainHeadingBottomText 1.75s forwards 0.7s'
+        'main-heading-bottom-text': 'mainHeadingBottomText 1.75s forwards 0.7s',
+        'moving-line': 'movingLine 2.4s infinite ease-in-out',
+        'move-letters': 'moveLetters 2.4s infinite ease-in-out'
       },
       
     },

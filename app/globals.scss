@@ -115,6 +115,14 @@ main {
 
 
 // Home Page
+.top-block {
+  @apply left-0 bottom-0 animate-main-heading-top-text translate-x-0 translate-y-full;
+}
+
+.bottom-block {
+  @apply top-0 left-0 translate-x-0 -translate-y-full animate-main-heading-bottom-text;
+}
+
 .mainHeading {
   @apply text-3xl lg:text-7xl text-center md:text-start;
 }
@@ -196,12 +204,25 @@ main {
   }
 }
 
+// Loader
 
-// Home page
-.top-block {
-  @apply left-0 bottom-0 animate-main-heading-top-text translate-x-0 translate-y-full;
+.loading-container {
+  @apply relative w-full max-w-[520px] text-center text-black;
+  
+  &:before {
+    @apply absolute bottom-0 left-0 content-[''] w-full h-[3px] bg-black rounded-lg animate-moving-line;
+  }
 }
 
-.bottom-block {
-  @apply top-0 left-0 translate-x-0 -translate-y-full animate-main-heading-bottom-text;
+.loading-text {
+  @apply mb-12 flex justify-evenly text-xl md:text-3xl leading-7 tracking-wider;
+  span {
+    @apply relative inline-block translate-x-0 opacity-0 animate-move-letters drop-shadow-xl;
+  }
+}
+
+@for $i from 1 through 7 {
+  .loading-text span:nth-child(#{$i}) {
+    animation-delay: $i * 0.1s;
+  }
 }
