@@ -9,11 +9,12 @@ type ListOrientation = 'horizontal' | 'vertical';
 
 interface SocialMediaListProps {
   orientation: ListOrientation;
+  [x: string]: any
 }
 
-const SocialMediaList = ({ orientation }: SocialMediaListProps) => {
+const SocialMediaList = ({ orientation, ...props }: SocialMediaListProps) => {
   return (
-    <ul className={`${orientation === 'horizontal' ? 'socialMediaList__horizontal' : 'socialMediaList__vertical'}`}>
+    <ul className={`${orientation === 'horizontal' ? 'socialMediaList__horizontal' : 'socialMediaList__vertical'} ${props.className}`}>
       {socialMediaLinks.map(({ icon, url }) => (
         <li key={uuid()}>
           <Link href={url} target='_blank'>
