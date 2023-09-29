@@ -28,7 +28,7 @@ main {
   @apply relative inline-block font-medium tracking-wide;
 
   &:after {
-    @apply relative bottom-0 left-0 content-[''] block w-0 h-1 bg-black transition-[width] duration-300 ease-in-out;
+    @apply relative bottom-0 left-0 content-[''] block w-0 h-[2px] bg-black transition-[width] duration-300 ease-in-out;
   }
 
   &:hover:after {
@@ -40,7 +40,7 @@ main {
   @apply relative inline-block font-medium tracking-wide;
 
   &:after {
-    @apply relative bottom-0 left-0 content-[''] block w-full h-1 bg-black;
+    @apply relative bottom-0 left-0 content-[''] block w-full h-[2px] bg-black;
   }
 }
 
