@@ -88,8 +88,8 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({ categories, technologie
   const filterForm = (
     <>
       <h4 className='mb-6 text-xl font-semibold'>Filters</h4>
-      <form onSubmit={handleSubmit((data) => console.log('SUBMIT', data))} className='flex flex-col gap-6'>
-        <fieldset>
+      <form onSubmit={handleSubmit((data) => console.log('SUBMIT', data))}>
+        <fieldset className='mb-7'>
           <legend className='mb-2 text-lg font-semibold'>Categories:</legend>
           {categories.map(category => (
             <Controller 
@@ -106,7 +106,7 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({ categories, technologie
             />
           ))}
         </fieldset>
-        <fieldset>
+        <fieldset className='mb-7'>
           <legend className='mb-2 text-lg font-semibold'>Technologies:</legend>
           {technologies.map(technology => (
             <Controller 
@@ -127,6 +127,10 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({ categories, technologie
       </form>
     </>
   );
+
+  if(!width) {
+    return null;
+  }
 
   return (
     <>
@@ -159,7 +163,7 @@ const ProjectFilters: React.FC<ProjectFiltersProps> = ({ categories, technologie
           </Popover>
         </div>
       ) : (
-        <div className='min-h-full top-0'>
+        <div className='w-1/5 min-h-full top-0'>
           {filterForm}
         </div>
       )}
