@@ -91,7 +91,7 @@ const About = async () => {
         <p className='px-10 md:px-24 lg:px-52 text-xs md:text-base text-center'>From the first day when I first got into front-end development until now, I have completed plenty of courses and learning programs. I gained a solid understanding of web development standards and principles.</p>
         <ul className='py-6 md:py-12 grid grid-cols-1 md:grid-cols-3 gap-5'>
           {certifications.map(certificate => (
-            <li key={uuid()} className='relative border border-gray-100 rounded-lg overflow-hidden'>
+            <li key={uuid()} className='relative border border-gray-100 rounded-lg overflow-hidden shadow-md'>
               <CertificateModal 
                 imageUrl={certificate.imageUrl} 
                 verificationUrl={certificate.verificationUrl} 

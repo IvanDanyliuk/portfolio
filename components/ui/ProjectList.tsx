@@ -37,7 +37,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
     <div className='bg-white mx-auto max-w-2xl lg:max-w-7xl'>
       <div className=' grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8'>
         {projects.map((project) => (
-          <div key={uuid()} className='group relative overflow-hidden rounded-md border border-black cursor-pointer'>
+          <div key={uuid()} className='group relative overflow-hidden rounded-md border cursor-pointer shadow-lg'>
             <div className='w-full' onClick={() => handleNavigate(project._id)}>
               <div className='aspect-h-1 aspect-w-1 w-full overflow-hidden bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80 border-b border-gray-100'>
                 <img
@@ -58,7 +58,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
                   </p>
               </div>
             </div>
-            <div className='bg-black w-full flex justify-center gap-1'>
+            <div className='bg-white w-full flex justify-center gap-1'>
               <IconButton label='More' link={`${pathname}/${project._id}`}>
                 <FontAwesomeIcon icon={faAngleRight} />
               </IconButton>
