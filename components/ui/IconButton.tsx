@@ -18,7 +18,7 @@ const IconButton: React.FC<IconButtonProps> = ({ children, label, link, newTab, 
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       target={newTab ? '_blank' : '_self'}
-      className='flex px-4 py-1 items-center rounded-lg text-lg text-white bg-black'
+      className='flex px-4 py-2 items-center rounded-lg text-lg text-black bg-white'
       {...props}
     >
       <div

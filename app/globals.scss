@@ -22,13 +22,13 @@ main {
   @apply relative pb-6 flex min-h-full flex-auto flex-col text-sm md:text-base;
 }
 
-// Layout
 
+// Layout
 .nav-link {
   @apply relative inline-block font-medium tracking-wide;
 
   &:after {
-    @apply relative bottom-0 left-0 content-[''] block w-0 h-1 bg-black transition-[width] duration-300 ease-in-out;
+    @apply relative bottom-0 left-0 content-[''] block w-0 h-[2px] bg-black transition-[width] duration-300 ease-in-out;
   }
 
   &:hover:after {
@@ -40,7 +40,7 @@ main {
   @apply relative inline-block font-medium tracking-wide;
 
   &:after {
-    @apply relative bottom-0 left-0 content-[''] block w-full h-1 bg-black;
+    @apply relative bottom-0 left-0 content-[''] block w-full h-[2px] bg-black;
   }
 }
 
@@ -61,7 +61,7 @@ main {
 }
 
 .btn {
-  @apply px-6 py-2 border-2 border-black rounded-3xl hover:bg-black hover:text-white transition ;
+  @apply px-5 py-2 border-2 border-black rounded-3xl text-xs md:text-base hover:bg-black hover:text-white transition ;
 }
 
 .btn__fixed-length {
@@ -115,6 +115,14 @@ main {
 
 
 // Home Page
+.top-block {
+  @apply left-0 bottom-0 animate-main-heading-top-text translate-x-0 translate-y-full;
+}
+
+.bottom-block {
+  @apply top-0 left-0 translate-x-0 -translate-y-full animate-main-heading-bottom-text;
+}
+
 .mainHeading {
   @apply text-3xl lg:text-7xl text-center md:text-start;
 }
@@ -133,7 +141,7 @@ main {
 
 
 .cta-link {
-  @apply w-72 px-6 py-2 border-2 border-black rounded-3xl hover:bg-black text-center hover:text-white transition ;
+  @apply w-56 px-6 py-2 border-2 border-black rounded-3xl hover:bg-black text-center hover:text-white transition ;
 }
 
 
@@ -157,7 +165,17 @@ main {
 }
 
 // Projects Page
+.text-overflow {
+  @apply relative max-h-16 overflow-hidden;
 
+  &:before {
+    @apply absolute bottom-0 right-0 content-['...'];
+  }
+
+  &:after {
+    @apply absolute content-[''] right-0 w-[1rem] h-[1rem];
+  }
+}
 
 // Contact Page
 .pulse {
@@ -193,5 +211,28 @@ main {
 .project-form {
   form {
     @apply w-1/2
+  }
+}
+
+
+// Loader
+.loading-container {
+  @apply relative w-full max-w-[520px] text-center text-black;
+  
+  &:before {
+    @apply absolute bottom-0 left-0 content-[''] w-full h-[3px] bg-black rounded-lg animate-moving-line;
+  }
+}
+
+.loading-text {
+  @apply mb-12 flex justify-evenly text-xl md:text-3xl leading-7 tracking-wider;
+  span {
+    @apply relative inline-block translate-x-0 opacity-0 animate-move-letters drop-shadow-xl;
+  }
+}
+
+@for $i from 1 through 7 {
+  .loading-text span:nth-child(#{$i}) {
+    animation-delay: $i * 0.1s;
   }
 }

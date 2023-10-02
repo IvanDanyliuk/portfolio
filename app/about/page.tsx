@@ -16,13 +16,13 @@ const About = async () => {
 
   return (
     <div>
-      <section className='relative pt-3 w-full flex flex-col md:flex-row gap-6 border-b-[1px] border-gray-100'>
-        <div className='w-full md:w-3/4'>
+      <section className='relative pt-3 w-full flex flex-col md:flex-row items-end gap-6 border-b-[1px] border-gray-100'>
+        <div className='w-full md:w-2/3 lg:w-3/4'>
           <h2 className='mb-7 text-4xl'>Hi! My name is <strong className='font-bold'>Ivan Danyliuk</strong></h2>
-          <div dangerouslySetInnerHTML={{ __html: userInfo.generalData.biography }} className='md:pr-7 text-sm md:text-base' />
+          <div dangerouslySetInnerHTML={{ __html: userInfo.generalData.biography }} className='pb-6 md:pr-7 text-sm md:text-base' />
         </div>
-        <div className='w-full md:w-1/4 h-full flex justify-around'>
-          <Image src={userPhoto} alt='photo' className='bottom-0 w-auto h-[450px] flex border-r border-gray-100' />
+        <div className='w-full md:w-1/3 lg:w-1/4 h-full flex md:flex-col-reverse lg:flex-row justify-end md:justify-between md:items-end lg:items-center gap-3'>
+          <Image src={userPhoto} alt='photo' className='bottom-0 w-auto h-auto max-h-[400px] lg:max-h-[450px] flex border-r border-gray-100' />
           <SocialMediaList orientation='vertical' />
         </div>
       </section>
@@ -46,8 +46,8 @@ const About = async () => {
           </tbody>
         </table>
       </section>
-      <section className='py-10 md:py-14 flex flex-col md:flex-row justify-between gap-6 border-b-[1px]'>
-        <div>
+      <section className='relative w-full py-10 md:py-14 flex flex-col md:flex-row justify-between gap-6 border-b-[1px]'>
+        <div className='w-1/3'>
           <h3 className='mb-6 text-xl md:text-3xl text-center md:text-start font-semibold'>Technical Skills</h3>
           <ul className='flex flex-wrap gap-3'>
             {technicalSkills.map((skill: Skill) => (
@@ -57,7 +57,7 @@ const About = async () => {
             ))}
           </ul>
         </div>
-        <div>
+        <div className='w-1/3'>
           <h3 className='mb-6 text-xl md:text-3xl text-center md:text-start font-semibold'>Additional Skills</h3>
           <ul className='flex flex-wrap gap-3'>
             {additionalSkills.map((skill: Skill) => (
@@ -67,7 +67,7 @@ const About = async () => {
             ))}
           </ul>
         </div>
-        <div>
+        <div className='w-1/3'>
           <h3 className='mb-6 text-xl md:text-3xl text-center md:text-start font-semibold'>Education</h3>
           <table>
             <tbody>
@@ -86,12 +86,12 @@ const About = async () => {
           </table>
         </div>
       </section>
-      <section className='py-10 md:py-14 border-b-[1px]'>
+      <section className='pt-10 md:pt-14'>
         <h3 className='mb-6 text-2xl md:text-4xl text-center font-semibold'>Courses & Certifications</h3>
-        <p className='px-10 md:px-52 text-xs md:text-base text-center'>From the first day when I first got into front-end development until now, I have completed plenty of courses and learning programs. I gained a solid understanding of web development standards and principles.</p>
-        <ul className='py-6 md:py-12 flex flex-wrap gap-6'>
-          {certifications.map(certificate => (
-            <li key={uuid()} className='relative border border-gray-100 rounded-lg overflow-hidden'>
+        <p className='px-10 md:px-24 lg:px-52 text-xs md:text-base text-center'>From the first day when I first got into front-end development until now, I have completed plenty of courses and learning programs. I gained a solid understanding of web development standards and principles.</p>
+        <ul className='py-6 md:py-12 grid grid-cols-1 md:grid-cols-3 gap-5'>
+          {certifications.reverse().map(certificate => (
+            <li key={uuid()} className='relative border border-gray-100 rounded-lg overflow-hidden shadow-md'>
               <CertificateModal 
                 imageUrl={certificate.imageUrl} 
                 verificationUrl={certificate.verificationUrl} 

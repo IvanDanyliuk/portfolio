@@ -22,7 +22,7 @@ const Projects = async ({ searchParams: { categories, technologies } }: Props) =
   const technologiesData = await fetchTechnologies();
 
   return (
-    <div className='pb-6 relative w-full flex gap-6'>
+    <div className='py-3 relative w-full flex gap-10'>
       <ProjectFilters 
         categories={projectCategories} 
         technologies={technologiesData} 

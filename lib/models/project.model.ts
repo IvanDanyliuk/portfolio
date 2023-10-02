@@ -18,6 +18,8 @@ const projectSchema = new mongoose.Schema({
   previewUrl: { type: String },
   repoFrontend: { type: String },
   repoBackend: { type: String },
+}, {
+  timestamps: true
 })
 
 const Project = mongoose.models.Project || mongoose.model('Project', projectSchema);

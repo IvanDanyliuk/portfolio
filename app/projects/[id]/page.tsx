@@ -12,8 +12,8 @@ const Project = async ({ params }: { params: { id: string } }) => {
   const project: Project = await fetchProject(params.id);
 
   return (
-    <div className='relative w-full flex flex-auto flex-col-reverse md:flex-row gap-10 md:gap-6'>
-      <div className='md:pr-5 w-full md:w-1/5 flex flex-col gap-7 md:border-r md:border-gray-100'>
+    <div className='relative pb-3 w-full flex flex-auto flex-col-reverse lg:flex-row gap-x-10 md:gap-x-6'>
+      <div className='md:pr-5 w-full lg:w-1/5 flex flex-col gap-7 lg:border-r md:border-gray-100'>
         <section className='pb-6 flex justify-between items-center border-b border-gray-100'>  
           <h3 className='text-lg font-semibold text-gray-400'>Category</h3>
           <Chip title={project.category} />
@@ -81,7 +81,7 @@ const Project = async ({ params }: { params: { id: string } }) => {
             <p className='text-sm text-gray-400'>You can use data below to login and check all the project features</p>
             <ul className='mt-3'>
               {project.credentials.map(credential => (
-                <li key={uuid()} className='text-gray-400'>
+                <li key={uuid()} className='mt-3 text-gray-400'>
                   <h6 className='font-semibold'>{credential.title}</h6>
                   <p className='text-sm'>{credential.description}</p>
                 </li>
@@ -91,14 +91,14 @@ const Project = async ({ params }: { params: { id: string } }) => {
         )}
       </div>
       <div className='flex-1'>
-        <div className='mb-6 pb-6 w-full flex justify-between items-center'>
-          <h2 className='text-4xl font-bold '>{project.name}</h2>
+        <div className='relative mb-6 pb-6 w-full flex justify-between items-center'>
+          <h2 className='w-4/6 text-4xl font-bold '>{project.name}</h2>
           <Link href='/projects' className='btn'>
             <FontAwesomeIcon icon={faArrowLeft} />
             <span className='ml-3'>Go back</span>
           </Link>
         </div>
-        <section className='flex flex-col md:flex-row md:justify-between'>
+        <section className='flex flex-col md:flex-row md:justify-between lg:gap-10'>
           <div className='mb-6 md:mb-0'>
             <h4 className='mb-3 text-xl font-semibold '>Common Information</h4>
             <p>{project.summary}</p>
