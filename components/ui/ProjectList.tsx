@@ -37,7 +37,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
     <div className='bg-white mx-auto max-w-2xl lg:max-w-7xl'>
       <div className=' grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8'>
         {projects.map((project) => (
-          <div key={uuid()} className='group relative overflow-hidden rounded-md border cursor-pointer shadow-lg'>
+          <div key={uuid()} className='group relative flex flex-col justify-between overflow-hidden rounded-md border cursor-pointer shadow-lg'>
             <div className='w-full' onClick={() => handleNavigate(project._id)}>
               <div className='aspect-h-1 aspect-w-1 w-full overflow-hidden bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80 border-b border-gray-100'>
                 <img
@@ -53,9 +53,9 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
                   </h3>
                   <Chip title={project.category} />
                 </div>
-                <p className='mt-2 text-sm text-gray-500'>
-                    {project.summary}
-                  </p>
+                <p className='mt-2 text-sm text-gray-500 truncate'>
+                  {project.summary}
+                </p>
               </div>
             </div>
             <div className='bg-white w-full flex justify-center gap-1'>

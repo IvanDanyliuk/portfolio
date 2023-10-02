@@ -55,7 +55,13 @@ const CertificateModal: React.FC<CertificationMoalProps> = ({ imageUrl, verifica
               >
                 <Dialog.Panel className='transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>
                   {verificationUrl && (
-                    <Link href={verificationUrl} className='certificate-cta-btn left-6 py-2 px-5 cursor-pointer'>Verify</Link>
+                    <Link 
+                      href={verificationUrl} 
+                      target='_blank' 
+                      className='certificate-cta-btn left-6 py-2 px-5 cursor-pointer'
+                    >
+                      Verify
+                    </Link>
                   )}
                   <button onClick={handleModalOpen} className='certificate-cta-btn right-6 w-10 h-10'>
                     <FontAwesomeIcon icon={faXmark} />
