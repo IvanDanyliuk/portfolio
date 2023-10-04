@@ -5,7 +5,7 @@ import SocialMediaList from '@/components/ui/SocialMediaList';
 
 export default function Home() {
   return (
-    <div className='relative w-full h-full flex flex-col md:flex-row grow justify-center items-center gap-6'>
+    <div className='relative w-full h-full flex flex-col md:flex-row grow justify-around md:justify-center items-center gap-6'>
       <div className='relative w-full md:w-2/3 flex flex-col justify-center items-center'>
         <div className='relative w-full h-60 md:h-72 lg:h-56 overflow-hidden border-b-4 border-gray-900'>
           <div className='py-5 absolute top-block'>
@@ -15,7 +15,7 @@ export default function Home() {
         </div>
         <div className='relative w-full h-24 md:h-72 lg:h-56 overflow-hidden'>
           <div className='py-5 absolute left-0 top-0 bottom-block'>
-            <div className=''>
+            <div>
               <SocialMediaList orientation='horizontal' />
             </div>
           </div>
