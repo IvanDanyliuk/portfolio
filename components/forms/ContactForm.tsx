@@ -1,9 +1,9 @@
 'use client'
 
 import { useForm } from 'react-hook-form'
-import Input from '../ui/Input';
-import Textarea from '../ui/Textarea';
-import Button from '../ui/Button';
+import Input from '../ui/common/Input';
+import Textarea from '../ui/common/Textarea';
+import Button from '../ui/common/Button';
 import { sendContactFormData } from '@/lib/actions/common.actions';
 
 interface ContactForm {

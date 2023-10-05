@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { deleteExperienceItem } from '@/lib/actions/experience.actions'
-import NoDataMessage from './NoDataMessage'
+import NoDataMessage from './common/NoDataMessage'
 import { formatDate } from '@/lib/helpers/heplers'
 
 interface ExperienceListProps {

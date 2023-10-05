@@ -1,5 +1,5 @@
 import ProjectForm from '@/components/forms/ProjectForm';
-import SectionTitle from '@/components/ui/SectionTitle';
+import SectionTitle from '@/components/ui/common/SectionTitle';
 import { fetchProject } from '@/lib/actions/project.actions';
 import { fetchTechnologies } from '@/lib/actions/technologies.actions';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';

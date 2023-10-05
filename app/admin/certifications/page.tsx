@@ -1,6 +1,6 @@
 import CertificationFormModal from "@/components/forms/CertificationFormModal"
-import CertificationsList from "@/components/ui/CertificationsList";
-import SectionTitle from "@/components/ui/SectionTitle";
+import CertificationsList from "@/components/ui/certifications/CertificationsList";
+import SectionTitle from "@/components/ui/common/SectionTitle";
 import { fetchCertifications } from "@/lib/actions/certifications.actions"
 
 const Certifications = async () => {

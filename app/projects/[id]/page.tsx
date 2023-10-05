@@ -5,7 +5,7 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { v4 as uuid } from 'uuid';
 import { Project } from '@/common.types';
-import Chip from '@/components/ui/Chip';
+import Chip from '@/components/ui/common/Chip';
 import { fetchProject } from '@/lib/actions/project.actions';
 
 const Project = async ({ params }: { params: { id: string } }) => {

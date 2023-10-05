@@ -5,15 +5,15 @@ import { usePathname } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { v4 as uuid } from 'uuid';
 import { projectCategories } from '@/constants';
-import Input from '../ui/Input';
-import Textarea from '../ui/Textarea';
-import Button from '../ui/Button';
-import Select from '../ui/Select';
-import FileUploadField from '../ui/FileUploadField';
-import MultiSelect from '../ui/MultiSelect';
+import Input from '../ui/common/Input';
+import Textarea from '../ui/common/Textarea';
+import Button from '../ui/common/Button';
+import Select from '../ui/common/Select';
+import FileUploadField from '../ui/common/FileUploadField';
+import MultiSelect from '../ui/common/MultiSelect';
 import FeatureForm from './FeatureForm';
-import Chip from '../ui/Chip';
-import NoDataMessage from '../ui/NoDataMessage';
+import Chip from '../ui/common/Chip';
+import NoDataMessage from '../ui/common/NoDataMessage';
 import CredentialsForm from './CredentialsForm';
 import { createProject, updateProject } from '@/lib/actions/project.actions';
 
@@ -172,7 +172,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ technologies, projectToUpdate
     <div className='relative w-full flex justify-between gap-6'>
       <form 
         onSubmit={handleSubmit(handleFormSubmit)} 
-        className='relative w-full flex flex-col gap-3 form'
+        className='relative w-full flex flex-col items-center gap-3 form'
       >
         <Input 
           name='name' 
@@ -227,7 +227,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ technologies, projectToUpdate
           register={register}  
           error={errors.repoBackend} 
         />
-        <fieldset>
+        <fieldset className='w-full'>
           <label>Features</label>
           <div className='pt-2 w-full flex flex-wrap gap-3'>
             {features.length > 0 ? features.map(feature => (
@@ -243,7 +243,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ technologies, projectToUpdate
             )}
           </div>
         </fieldset>
-        <fieldset>
+        <fieldset className='w-full'>
           <label>Credentials</label>
           <div className='pt-2 w-full flex flex-wrap gap-3'>
             {credentials.length > 0 ? credentials.map(credential => (

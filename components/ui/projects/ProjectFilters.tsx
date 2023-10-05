@@ -7,9 +7,9 @@ import { Popover, Transition } from '@headlessui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { v4 as uuid } from 'uuid';
-import Button from './Button'
+import Button from '../common/Button'
 import { Technology } from '@/common.types'
-import Checkbox from './Checkbox';
+import Checkbox from '../common/Checkbox';
 import { useWindowSize } from '@/hooks/useWindowSize';
 
 interface ProjectFiltersProps {

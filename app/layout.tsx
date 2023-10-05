@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { ClerkProvider } from '@clerk/nextjs'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import Logo from '@/components/ui/Logo'
+import Logo from '@/components/ui/common/Logo'
 
 import Navbar from '@/components/navigation/Navbar'
 

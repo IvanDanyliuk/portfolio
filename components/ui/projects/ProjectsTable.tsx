@@ -6,7 +6,7 @@ import { v4 as uuid } from 'uuid'
 import { Credential, Feature, Technology } from '@/common.types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
-import ConfirmAction from './ConfirmAction'
+import ConfirmAction from '../common/ConfirmAction'
 import { deleteProject } from '@/lib/actions/project.actions'
 
 interface ProjectsTableProps {
@@ -38,15 +38,15 @@ const ProjectsTable: React.FC<ProjectsTableProps> = ({ projects }) => {
     <table className='relative w-full text-xs md:text-base'>
       <thead className='w-full'>
         <tr>
-          <th className='py-3 text-start'>Name</th>
-          <th className='py-3 text-start'>Category</th>
-          <th className='py-3 text-start'>Tech Stack</th>
-          <th className='py-3 text-start'></th>
+          <th className='py-5 text-start'>Name</th>
+          <th className='py-5 text-start'>Category</th>
+          <th className='py-5 text-start'>Tech Stack</th>
+          <th className='py-5 text-start'></th>
         </tr>
       </thead>
       <tbody className='w-full'>
-        {projects.map(project => (
-          <tr key={uuid()}>
+        {projects.map((project, i) => (
+          <tr key={uuid()} className='border-t '>
             <td className='py-2'>{project.name}</td>
             <td className='py-2'>{project.category}</td>
             <td className='py-2'>

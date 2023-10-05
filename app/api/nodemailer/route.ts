@@ -22,7 +22,10 @@ export const POST = async (request: Request) => {
   const { name, subject, email, message } = await request.json();
 
   if(!name || !email || !message) {
-    return NextResponse.json({ message: 'Something went wrong. Try again!' }, { status: 500 });
+    return NextResponse.json(
+      { message: 'Something went wrong. Try again!' }, 
+      { status: 500 }
+    );
   }
 
   try {
@@ -32,6 +35,9 @@ export const POST = async (request: Request) => {
       subject: subject,
     })
   } catch (error: any) {
-    return NextResponse.json({ message: 'Failed to send email' }, { status: 500 });
+    return NextResponse.json(
+      { message: 'Failed to send email' }, 
+      { status: 500 }
+    );
   }
 }

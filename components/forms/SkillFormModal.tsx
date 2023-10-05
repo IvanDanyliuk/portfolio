@@ -4,8 +4,8 @@ import { Fragment, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Dialog, Transition } from '@headlessui/react'
 import { useForm } from 'react-hook-form'
-import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input';
+import Button from '@/components/ui/common/Button';
+import Input from '@/components/ui/common/Input';
 import { Skill } from '@/common.types';
 import { addSkill } from '@/lib/actions/skills.actions'
 

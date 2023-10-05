@@ -3,8 +3,8 @@
 import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { useForm } from 'react-hook-form'
-import Editor from '@/components/ui/Editor'
-import Button from '@/components/ui/Button'
+import Editor from '@/components/ui/common/Editor'
+import Button from '@/components/ui/common/Button'
 import { updateGeneralData } from '@/lib/actions/user.actions'
 
 interface BiographyFormProps {
@@ -48,7 +48,7 @@ const BiographyForm: React.FC<BiographyFormProps> = ({ data }) => {
   return (
     <form 
       onSubmit={handleSubmit(handleBiographySubmit)} 
-      className='mt-3 relative w-full flex flex-col gap-3 form'
+      className='mt-3 relative w-full flex flex-col items-start gap-3 form'
     >
       <Editor 
         name='biography' 
