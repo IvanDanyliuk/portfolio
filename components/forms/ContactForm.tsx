@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import Input from '../ui/Input';
 import Textarea from '../ui/Textarea';
 import Button from '../ui/Button';
-import { sendContactFormData } from '@/lib/actions/sendEmail.actions';
+import { sendContactFormData } from '@/lib/actions/common.actions';
 
 interface ContactForm {
   name: string;

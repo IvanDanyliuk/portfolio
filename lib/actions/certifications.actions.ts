@@ -1,9 +1,9 @@
 'use server'
 
-import { connectToDB } from "../services/mongoose";
-import { revalidatePath } from "next/cache";
-import Certification from "../models/certification.model";
-import { uploadImage } from "./common.actions";
+import { connectToDB } from '../services/mongoose';
+import { revalidatePath } from 'next/cache';
+import Certification from '../models/certification.model';
+import { uploadImage } from './common.actions';
 
 export const addCertification = async ({ imageUrl, verificationUrl, pathname }: { imageUrl: string, verificationUrl?: string, pathname: string }) => {
   try {
