@@ -35,9 +35,9 @@ const DatePicker = ({
             selected={field.value}
             onChange={(e) => field.onChange(e)}
             dateFormat='dd.MM.yyyy'
+            className='w-full'
           />
         )}
-        
       />
     </div>
   )

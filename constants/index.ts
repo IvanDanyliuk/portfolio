@@ -39,3 +39,10 @@ export const socialMediaLinks = [
 ];
 
 export const projectCategories = ['Frontend', 'Backend', 'Fullstack'];
+
+export const contactMessageFields: any = {
+  name: 'Name',
+  email: 'Email',
+  subject: 'Subject',
+  message: 'Message'
+};

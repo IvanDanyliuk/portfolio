@@ -1,7 +1,7 @@
 'use server'
 
 import { revalidatePath } from 'next/cache';
-import { connectToDB } from '../mongoose';
+import { connectToDB } from '../services/mongoose';
 import ExperienceModel from '../models/experience.model';
 import { ExperienceItem } from '@/common.types';
 

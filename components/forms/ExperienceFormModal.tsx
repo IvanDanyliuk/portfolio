@@ -4,12 +4,12 @@ import { Fragment, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Dialog, Transition } from '@headlessui/react'
 import { useForm } from 'react-hook-form'
-import Button from '../ui/Button';
-import Input from '../ui/Input';
+import Button from '../ui/common/Button';
+import Input from '../ui/common/Input';
 import { ExperienceItem } from '@/common.types'
 import { addExperienceItem } from '@/lib/actions/experience.actions'
-import DatePicker from '../ui/DatePicker'
-import Editor from '../ui/Editor'
+import DatePicker from '../ui/common/DatePicker'
+import Editor from '../ui/common/Editor'
 
 const ExperienceFormModal: React.FC = () => {
   const pathname = usePathname();

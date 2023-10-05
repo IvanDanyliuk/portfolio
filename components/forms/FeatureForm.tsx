@@ -1,8 +1,8 @@
 import { useForm } from 'react-hook-form';
-import Input from '../ui/Input';
-import Textarea from '../ui/Textarea';
-import FileUploadField from '../ui/FileUploadField';
-import Button from '../ui/Button';
+import Input from '../ui/common/Input';
+import Textarea from '../ui/common/Textarea';
+import FileUploadField from '../ui/common/FileUploadField';
+import Button from '../ui/common/Button';
 
 interface FeatureFormProps {
   setFeatures: (newFeature: any) => void;
@@ -33,7 +33,7 @@ const FeatureForm: React.FC<FeatureFormProps> = ({ setFeatures }) => {
   return (
     <form 
       onSubmit={handleSubmit(handleFormSubmit)} 
-      className='relative px-3 py-4 w-full h-fit flex flex-col gap-3 border border-gray-100 rounded form'
+      className='relative px-3 py-4 w-full h-fit flex flex-col items-center gap-3 border border-gray-100 rounded form'
     >
       <label className='text-base font-semibold'>Add a new project feature</label>
       <Input 

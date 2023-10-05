@@ -21,3 +21,22 @@ export const uploadImage = async (imageUrl: string, pathname: string) => {
     throw new Error(`Uploading image error: ${error.message}`);
   }
 }
+
+
+
+export const sendContactFormData = async ({ name, subject, email, message }: { name: string, subject: string, email: string, message: string }) => {
+  try {
+    await fetch(`${serverUrl}/api/nodemailer`, {
+      method: 'POST',
+      body: JSON.stringify({
+        name,
+        subject, 
+        email, 
+        message
+      }),
+      cache: 'no-store'
+    });
+  } catch (error: any) {
+    throw new Error(`Cannot send a message: ${error.message}`);
+  }
+}

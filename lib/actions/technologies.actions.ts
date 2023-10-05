@@ -1,7 +1,7 @@
 'use server'
 
 import { revalidatePath } from 'next/cache';
-import { connectToDB } from '../mongoose';
+import { connectToDB } from '../services/mongoose';
 import TechnologyModel from '../models/technology.model';
 import { Technology } from '@/common.types';
 

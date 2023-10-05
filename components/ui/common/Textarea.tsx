@@ -29,7 +29,8 @@ const Textarea = ({
         {error ? error.message : label}
       </label>
       <textarea 
-        id={name} 
+        id={name}
+        rows={rows} 
         {...props} 
         {...register(name, registerOptions)} 
       />

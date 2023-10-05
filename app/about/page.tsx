@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import { v4 as uuid } from 'uuid'
-import SocialMediaList from '@/components/ui/SocialMediaList'
+import SocialMediaList from '@/components/ui/common/SocialMediaList'
 import { fetchUserData } from '@/lib/actions/user.actions'
 import userPhoto from '@/public/assets/photo.png'
 import { formatDate } from '@/lib/helpers/heplers'
 import { fetchCertifications } from '@/lib/actions/certifications.actions'
-import CertificateModal from '@/components/ui/CertificateModal'
+import CertificateModal from '@/components/ui/certifications/CertificateModal'
 import { Skill } from '@/common.types'
 
 const About = async () => {
@@ -19,10 +19,17 @@ const About = async () => {
       <section className='relative pt-3 w-full flex flex-col md:flex-row items-end gap-6 border-b-[1px] border-gray-100'>
         <div className='w-full md:w-2/3 lg:w-3/4'>
           <h2 className='mb-7 text-4xl'>Hi! My name is <strong className='font-bold'>Ivan Danyliuk</strong></h2>
-          <div dangerouslySetInnerHTML={{ __html: userInfo.generalData.biography }} className='pb-6 md:pr-7 text-sm md:text-base' />
+          <div 
+            dangerouslySetInnerHTML={{ __html: userInfo.generalData.biography }} 
+            className='pb-6 md:pr-7 text-sm md:text-base' 
+          />
         </div>
         <div className='w-full md:w-1/3 lg:w-1/4 h-full flex md:flex-col-reverse lg:flex-row justify-end md:justify-between md:items-end lg:items-center gap-3'>
-          <Image src={userPhoto} alt='photo' className='bottom-0 w-auto h-auto max-h-[400px] lg:max-h-[450px] flex border-r border-gray-100' />
+          <Image 
+            src={userPhoto} 
+            alt='photo' 
+            className='bottom-0 w-auto h-auto max-h-[400px] lg:max-h-[450px] flex border-r border-gray-100' 
+          />
           <SocialMediaList orientation='vertical' />
         </div>
       </section>
@@ -36,10 +43,17 @@ const About = async () => {
                   {`${formatDate(item.periodFrom, 'month/year')}-${formatDate(item.periodTo, 'month/year')}`}
                 </td>
                 <td>
-                  <p className='text-sm md:text-lg font-semibold'>{item.position}</p>
-                  <p className='text-xs md:text-base font-semibold'>{item.company}</p>
+                  <p className='text-sm md:text-lg font-semibold'>
+                    {item.position}
+                  </p>
+                  <p className='text-xs md:text-base font-semibold'>
+                    {item.company}
+                  </p>
                   <p className='mt-2 text-xs md:text-base font-semibold italic'>Responsibilities:</p>
-                  <div dangerouslySetInnerHTML={{ __html: item.responsibilities }} className='content-list text-xs md:text-base' />
+                  <div 
+                    dangerouslySetInnerHTML={{ __html: item.responsibilities }} 
+                    className='content-list text-xs md:text-base' 
+                  />
                 </td>
               </tr>
             ))}
@@ -77,8 +91,12 @@ const About = async () => {
                     {`${formatDate(item.periodFrom, 'year')}-${formatDate(item.periodTo, 'year')}`}
                   </td>
                   <td>
-                    <p className='text-sm md:text-lg font-semibold'>{item.institution}</p>
-                    <p className='text-xs md:text-base font-semibold'>{item.degree}</p>
+                    <p className='text-sm md:text-lg font-semibold'>
+                      {item.institution}
+                    </p>
+                    <p className='text-xs md:text-base font-semibold'>
+                      {item.degree}
+                    </p>
                   </td>
                 </tr>
               ))}

@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { v4 as uuid } from 'uuid'
 import { deleteTechnology } from '@/lib/actions/technologies.actions';
-import Chip from './Chip';
+import Chip from './common/Chip';
 
 interface TechnologiesListProps {
   technologies: {

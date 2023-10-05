@@ -1,5 +1,5 @@
-import ProjectFilters from "@/components/ui/ProjectFilters";
-import ProjectList from "@/components/ui/ProjectList";
+import ProjectFilters from "@/components/ui/projects/ProjectFilters";
+import ProjectList from "@/components/ui/projects/ProjectList";
 import { projectCategories } from "@/constants";
 import { fetchProjects } from "@/lib/actions/project.actions";
 import { fetchTechnologies } from "@/lib/actions/technologies.actions";
@@ -22,7 +22,7 @@ const Projects = async ({ searchParams: { categories, technologies } }: Props) =
   const technologiesData = await fetchTechnologies();
 
   return (
-    <div className='py-3 relative w-full flex gap-10'>
+    <div className='py-3 relative w-full flex grow gap-10'>
       <ProjectFilters 
         categories={projectCategories} 
         technologies={technologiesData} 

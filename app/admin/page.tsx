@@ -1,7 +1,7 @@
 import TechnologyForm from '@/components/forms/TechnologyForm';
 import { fetchTechnologies } from '@/lib/actions/technologies.actions';
 import TechnologiesList from '@/components/ui/TechnologiesList';
-import SectionTitle from '@/components/ui/SectionTitle';
+import SectionTitle from '@/components/ui/common/SectionTitle';
 
 const Index = async () => {
   const technologies = await fetchTechnologies();

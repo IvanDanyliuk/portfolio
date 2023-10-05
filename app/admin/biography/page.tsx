@@ -6,7 +6,7 @@ import SkillsList from '@/components/ui/SkillsList'
 import EducationList from '@/components/ui/EducationList'
 import ExperienceFormModal from '@/components/forms/ExperienceFormModal'
 import ExperienceList from '@/components/ui/ExperienceList'
-import SectionTitle from '@/components/ui/SectionTitle'
+import SectionTitle from '@/components/ui/common/SectionTitle'
 
 const Biography: React.FC = async () => {
   const userData = await fetchUserData();

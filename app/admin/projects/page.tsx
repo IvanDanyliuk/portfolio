@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import ProjectsTable from '@/components/ui/ProjectsTable';
+import ProjectsTable from '@/components/ui/projects/ProjectsTable';
 import { fetchProjects } from '@/lib/actions/project.actions'
-import SectionTitle from '@/components/ui/SectionTitle';
+import SectionTitle from '@/components/ui/common/SectionTitle';
 
 const Projects = async () => {
   const availablePojects = await fetchProjects();

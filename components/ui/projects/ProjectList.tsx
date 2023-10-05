@@ -6,8 +6,9 @@ import { faAngleRight, faLaptop } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { v4 as uuid } from 'uuid';
 import { Credential, Feature } from '@/common.types';
-import Chip from './Chip';
-import IconButton from './IconButton';
+import Chip from '../common/Chip';
+import IconButton from '../common/IconButton';
+import NoDataMessage from '../common/NoDataMessage';
 
 interface ProjectListProps {
   projects: {
@@ -33,6 +34,12 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
     router.push(`${pathname}/${projectId}`);
   }
 
+  if(projects.length === 0) {
+    return <div className='w-full flex grow justify-center items-center'>
+      <NoDataMessage message='No projects found' />
+    </div>
+  }
+ 
   return (
     <div className='bg-white mx-auto max-w-2xl lg:max-w-7xl'>
       <div className=' grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8'>

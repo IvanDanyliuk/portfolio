@@ -2,9 +2,9 @@
 
 import { usePathname } from 'next/navigation';
 import { v4 as uuid } from 'uuid';
-import Chip from './Chip';
+import Chip from './common/Chip';
 import { deleteSkill } from '@/lib/actions/skills.actions';
-import NoDataMessage from './NoDataMessage';
+import NoDataMessage from './common/NoDataMessage';
 
 interface SkillsListProps {
   skills: {

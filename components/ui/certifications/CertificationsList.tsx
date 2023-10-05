@@ -26,13 +26,13 @@ const CertificationsList: React.FC<CertificationListProps> = ({ certifications }
   return (
     <div className='mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8'>
       {certifications.map(item => (
-        <div key={uuid()} className='group relative border border-slate-500'>
+        <div key={uuid()} className='group relative border border-slate-500 shadow-md'>
           <button onClick={() => handleCertificateDelete(item._id)} className='absolute top-3 right-4'>
             <FontAwesomeIcon icon={faXmark} />
           </button>
           <div>
             {item.verificationUrl ? (
-              <Link href={item.verificationUrl}>
+              <Link href={item.verificationUrl} target='_blank'>
                 <Image src={item.imageUrl} alt='certificate' width={500} height={300} />
               </Link>
             ) : (
