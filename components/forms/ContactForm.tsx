@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import Input from '../ui/Input';
 import Textarea from '../ui/Textarea';
 import Button from '../ui/Button';
+import { sendContactFormData } from '@/lib/actions/sendEmail.actions';
 
 interface ContactForm {
   name: string;
@@ -20,9 +21,8 @@ const ContactForm: React.FC = () => {
     reset 
   } = useForm<ContactForm>();
 
-  const handleFormSubmit = (data: any) => {
-    console.log(data)
-
+  const handleFormSubmit = async (data: any) => {
+    await sendContactFormData(data);
     reset();
   }
   

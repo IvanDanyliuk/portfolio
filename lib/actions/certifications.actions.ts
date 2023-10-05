@@ -1,6 +1,6 @@
 'use server'
 
-import { connectToDB } from "../mongoose";
+import { connectToDB } from "../services/mongoose";
 import { revalidatePath } from "next/cache";
 import Certification from "../models/certification.model";
 import { uploadImage } from "./common.actions";
