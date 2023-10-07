@@ -28,7 +28,7 @@ main {
   @apply relative inline-block font-medium tracking-wide;
 
   &:after {
-    @apply relative bottom-0 left-0 content-[''] block w-0 h-[2px] bg-black transition-[width] duration-300 ease-in-out;
+    @apply relative top-1 left-0 content-[''] block w-0 h-[2px] bg-black transition-[width] duration-300 ease-in-out;
   }
 
   &:hover:after {
@@ -40,7 +40,7 @@ main {
   @apply relative inline-block font-medium tracking-wide;
 
   &:after {
-    @apply relative bottom-0 left-0 content-[''] block w-full h-[2px] bg-black;
+    @apply relative top-1 left-0 content-[''] block w-full h-[2px] bg-black;
   }
 }
 
@@ -141,7 +141,7 @@ main {
 
 
 .cta-link {
-  @apply w-56 px-6 py-2 border-2 border-black rounded-3xl hover:bg-black text-center hover:text-white transition shadow-xl;
+  @apply w-56 px-6 py-2 border-2 border-black rounded-3xl text-lg hover:bg-black text-center hover:text-white transition shadow-xl;
 }
 
 

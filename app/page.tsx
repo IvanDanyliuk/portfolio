@@ -6,11 +6,11 @@ import SocialMediaList from '@/components/ui/common/SocialMediaList';
 export default function Home() {
   return (
     <div className='relative w-full h-full flex flex-col md:flex-row grow justify-around md:justify-center items-center gap-6'>
-      <div className='relative w-full md:w-2/3 flex flex-col justify-center items-center'>
+      <div className='relative w-full md:w-9/12 flex flex-col justify-center items-center'>
         <div className='relative w-full h-60 md:h-72 overflow-hidden border-b-4 border-gray-900'>
           <div className='py-5 absolute top-block'>
-            <h1 className='text-5xl md:text-7xl'>Hi! I am <strong className='font-bold'>Ivan Danyliuk</strong>.</h1>
-            <h2 className='mt-5 text-xl md:text-3xl text-gray-400'>I am a creative frontend developer based in Ukraine</h2>
+            <h1 className='text-5xl md:text-7xl drop-shadow-xl'>Hello, I am <strong className='font-bold'>Ivan Danyliuk</strong>.</h1>
+            <h2 className='mt-5 text-xl md:text-3xl text-gray-400 drop-shadow-xl'>I am a creative frontend developer based in Ukraine</h2>
           </div>
         </div>
         <div className='relative w-full h-24 md:h-72 lg:h-56 overflow-hidden'>
@@ -22,7 +22,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className='md:h-full flex md:flex-1 flex-col justify-center items-center gap-6'>
+      <div className='md:h-full flex md:flex-1 flex-col justify-center items-center gap-8'>
         <Link 
           href='/projects' 
           className='cta-link'

@@ -7,6 +7,7 @@ import { v4 as uuid } from 'uuid';
 import { Project } from '@/common.types';
 import Chip from '@/components/ui/common/Chip';
 import { fetchProject } from '@/lib/actions/project.actions';
+import FeatureImage from '@/components/ui/projects/FeatureImage';
 
 const Project = async ({ params }: { params: { id: string } }) => {
   const project: Project = await fetchProject(params.id);
@@ -110,14 +111,7 @@ const Project = async ({ params }: { params: { id: string } }) => {
           <ul className='grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-10'>
             {project.features.map((feature, i) => (
               <li key={uuid()} className='relative group overflow-hidden drop-shadow-lg'>
-                <Image 
-                  src={feature.featureImageUrl} 
-                  alt={feature.title} 
-                  width={0}
-                  height={0}
-                  sizes='100vw'
-                  className='w-full h-auto'
-                />
+                <FeatureImage imageUrl={feature.featureImageUrl} altText={feature.title} />
                 <div className='pt-3'>
                   <h5 className='text-base font-bold text-gray-700'>
                     {`${i + 1}. ${feature.title}`}
