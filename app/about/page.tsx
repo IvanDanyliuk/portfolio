@@ -61,7 +61,7 @@ const About = async () => {
         </table>
       </section>
       <section className='relative w-full py-10 md:py-14 flex flex-col md:flex-row justify-between gap-6 border-b-[1px]'>
-        <div className='w-1/3'>
+        <div className='w-full lg:w-1/3'>
           <h3 className='mb-6 text-xl md:text-3xl text-center md:text-start font-semibold'>Technical Skills</h3>
           <ul className='flex flex-wrap gap-3'>
             {technicalSkills.map((skill: Skill) => (
@@ -71,7 +71,7 @@ const About = async () => {
             ))}
           </ul>
         </div>
-        <div className='w-1/3'>
+        <div className='w-full lg:w-1/3'>
           <h3 className='mb-6 text-xl md:text-3xl text-center md:text-start font-semibold'>Additional Skills</h3>
           <ul className='flex flex-wrap gap-3'>
             {additionalSkills.map((skill: Skill) => (
@@ -81,7 +81,7 @@ const About = async () => {
             ))}
           </ul>
         </div>
-        <div className='w-1/3'>
+        <div className='w-full lg:w-1/3'>
           <h3 className='mb-6 text-xl md:text-3xl text-center md:text-start font-semibold'>Education</h3>
           <table>
             <tbody>
