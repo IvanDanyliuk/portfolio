@@ -25,12 +25,13 @@ const Textarea = ({
 }: TextareaProps) => {
   return (
     <div className='field'>
-      <label htmlFor={name}>
+      <label htmlFor={name} className={error ? 'text-red-400' : 'text-black'}>
         {error ? error.message : label}
       </label>
       <textarea 
         id={name}
         rows={rows} 
+        className={error ? 'border-red-400' : 'border-gray-100'}
         {...props} 
         {...register(name, registerOptions)} 
       />

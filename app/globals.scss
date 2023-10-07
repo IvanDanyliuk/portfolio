@@ -72,11 +72,11 @@ main {
   @apply w-full flex flex-col;
 
   label {
-    @apply mb-2 text-text-primary font-medium text-base;
+    @apply mb-2 font-medium text-base;
   }
 
   input, textarea {
-    @apply px-3 py-2 border-2 border-gray-100 rounded-md;
+    @apply px-3 py-2 border-2 rounded-md outline-none;
   }
 
   select {
