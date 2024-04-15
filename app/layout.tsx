@@ -1,11 +1,11 @@
 import './globals.scss'
 import type { Metadata } from 'next'
-import { ClerkProvider } from '@clerk/nextjs'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import Logo from '@/components/ui/common/Logo'
 
 import Navbar from '@/components/navigation/Navbar'
+import { NextAuthProvider } from '@/components/ContextProvider'
 
 config.autoAddCss = false;
 
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
 
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body>
+    <html lang="en">
+      <body>
+        <NextAuthProvider>
           <header className='flex justify-between'>
             <Logo />
             <Navbar />
@@ -30,10 +30,10 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
           <main>
             {children}
           </main>
-        </body>
-      </html>
-    </ClerkProvider>
-  )
-}
+        </NextAuthProvider>
+      </body>
+    </html>
+  );
+};
 
-export default RootLayout
+export default RootLayout;
