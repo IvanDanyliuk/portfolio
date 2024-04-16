@@ -8,10 +8,8 @@ import Navbar from '@/components/navigation/Navbar';
 const Header: React.FC = () => {
   const pathname = usePathname();
 
-  console.log('HOMEPAGE PATHNAME', pathname)
-
   return (
-    <header className={pathname === '/' ? 'homepage' : 'bg-white'}>
+    <header className={`sticky top-0 ${pathname === '/' ? 'homepage' : 'bg-white'} backdrop-filter backdrop-blur-md bg-opacity-80 z-30`}>
       <div className='container mx-auto flex justify-between items-center'>
         <Logo />
         <Navbar />

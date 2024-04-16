@@ -7,10 +7,10 @@ export default function Home() {
   return (
     <div className='grow flex justify-center items-center homepage'>
       <div className='relative w-full h-full container mx-auto flex flex-col md:flex-row justify-around md:justify-center items-center gap-6 homepage'>
-        <div className='relative w-full md:w-9/12 flex flex-col justify-center items-center'>
+        <div className='relative w-full md:w-10/12 flex flex-col justify-center items-center'>
           <div className='relative w-full h-60 md:h-72 overflow-hidden border-b-4 border-gray-900'>
             <div className='py-5 absolute top-block'>
-              <h1 className='text-5xl md:text-7xl drop-shadow-xl'>Hello, I am <strong className='font-bold'>Ivan Danyliuk</strong>.</h1>
+              <h1 className='text-5xl md:text-7xl lg:text-8xl drop-shadow-xl'>Hello, I am <strong className='font-bold'>Ivan Danyliuk</strong>.</h1>
               <h2 className='mt-5 text-xl md:text-3xl text-gray-400 drop-shadow-xl'>I am a creative frontend developer based in Ukraine</h2>
             </div>
           </div>
