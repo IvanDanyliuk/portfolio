@@ -1,7 +1,6 @@
 'use client'
 
-import { redirect } from 'next/navigation'
-import AdminNavbar from '@/components/navigation/AdminNavbar'
+import AdminNavbar from '@/components/navigation/AdminNavbar';
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -9,13 +8,13 @@ interface AdminLayoutProps {
 
 const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
   return (
-    <div className='py-3 flex flex-col md:flex-row grow gap-7'>
+    <div className='container mx-auto py-3 flex flex-col md:flex-row grow gap-7'>
       <AdminNavbar />
       <div className='flex-1 pb-10'>
         {children}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AdminLayout
+export default AdminLayout;

@@ -1,12 +1,12 @@
-import Image from 'next/image'
-import { v4 as uuid } from 'uuid'
-import SocialMediaList from '@/components/ui/common/SocialMediaList'
-import { fetchUserData } from '@/lib/actions/user.actions'
-import userPhoto from '@/public/assets/photo.png'
-import { formatDate } from '@/lib/helpers/heplers'
-import { fetchCertifications } from '@/lib/actions/certifications.actions'
-import CertificateModal from '@/components/ui/certifications/CertificateModal'
-import { Skill } from '@/common.types'
+import Image from 'next/image';
+import { v4 as uuid } from 'uuid';
+import SocialMediaList from '@/components/ui/common/SocialMediaList';
+import { fetchUserData } from '@/lib/actions/user.actions';
+import userPhoto from '@/public/assets/photo.png';
+import { formatDate } from '@/lib/helpers/heplers';
+import { fetchCertifications } from '@/lib/actions/certifications.actions';
+import CertificateModal from '@/components/ui/certifications/CertificateModal';
+import { Skill } from '@/common.types';
 
 const About = async () => {
   const userInfo = await fetchUserData();
@@ -15,7 +15,7 @@ const About = async () => {
   const additionalSkills = userInfo.skills.filter(skill => skill.isAdditional && JSON.parse(JSON.stringify(skill)));
 
   return (
-    <div>
+    <div className='container mx-auto'>
       <section className='relative pt-3 w-full flex flex-col md:flex-row items-end gap-6 border-b-[1px] border-gray-100'>
         <div className='w-full md:w-2/3 lg:w-3/4'>
           <h2 className='mb-7 text-4xl'>Hi! My name is <strong className='font-bold'>Ivan Danyliuk</strong></h2>
@@ -119,7 +119,7 @@ const About = async () => {
         </ul>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;

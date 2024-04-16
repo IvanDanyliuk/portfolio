@@ -1,9 +1,9 @@
-import './globals.scss'
-import type { Metadata } from 'next'
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
-import { NextAuthProvider } from '@/components/ContextProvider'
-import Header from '@/components/ui/common/Header'
+import './globals.scss';
+import type { Metadata } from 'next';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { NextAuthProvider } from '@/components/ContextProvider';
+import Header from '@/components/ui/common/Header';
 
 config.autoAddCss = false;
 
