@@ -18,7 +18,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <Disclosure as='nav' className='bg-white'>
+    <Disclosure as='nav'>
       {({ open }) => (
         <>
           <div className='relative h-20 flex items-center justify-between'>

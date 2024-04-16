@@ -2,10 +2,8 @@ import './globals.scss'
 import type { Metadata } from 'next'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import Logo from '@/components/ui/common/Logo'
-
-import Navbar from '@/components/navigation/Navbar'
 import { NextAuthProvider } from '@/components/ContextProvider'
+import Header from '@/components/ui/common/Header'
 
 config.autoAddCss = false;
 
@@ -23,10 +21,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
     <html lang="en">
       <body>
         <NextAuthProvider>
-          <header className='flex justify-between'>
-            <Logo />
-            <Navbar />
-          </header>
+          <Header />
           <main>
             {children}
           </main>
