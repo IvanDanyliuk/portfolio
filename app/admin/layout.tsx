@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import AdminNavbar from '@/components/navigation/AdminNavbar';
 

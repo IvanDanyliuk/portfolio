@@ -54,7 +54,7 @@ export default function Header() {
             className='sm:hidden absolute top-0 left-0 w-full h-full z-10 bg-white'
           >
             <Disclosure.Panel static>
-              <div className='px-2'>
+              <div className='px-2 bg-white'>
                 <div className='w-full h-20 flex justify-end items-center'>
                   <Disclosure.Button className='text-2xl p-2'>
                     <FontAwesomeIcon icon={faXmark} />
@@ -77,9 +77,9 @@ export default function Header() {
                     </li>
                   ))}
                 </ul>
-                <div className='px-7 py-5 w-full absolute left-0 bottom-3'>
+                {/* <div className='px-7 py-5 w-full absolute left-0 bottom-3'>
                   <SocialMediaList orientation='horizontal' />
-                </div>
+                </div> */}
               </div>
             </Disclosure.Panel>
           </Transition>

@@ -44,6 +44,10 @@ main {
   background: linear-gradient(90deg, rgba(233,240,239,1) 0%, rgba(230,237,242,1) 100%, rgba(248,239,247,1) 100%, rgba(152,221,235,1) 100%);
 }
 
+.social-media-container {
+  @apply relative p-3 h-fit flex flex-col items-center before:h-52 before:w-[2px] before:mb-8 before:bg-black after:h-52 after:w-[2px] after:mt-8 after:bg-black;
+}
+
 .admin-nav-link {
   @apply p-3 block bg-gray-200;
 }
