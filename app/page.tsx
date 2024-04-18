@@ -45,6 +45,23 @@ export default function Home() {
         <div className='flex-1'>
           <h1 className='text-5xl md:text-7xl lg:text-8xl drop-shadow-xl'>Hello, I am <strong className='font-bold'>Ivan Danyliuk</strong>.</h1>
           <h2 className='mt-5 text-xl md:text-4xl text-gray-400 drop-shadow-xl'>I am a creative frontend developer based in Ukraine</h2>
+          <div className='mt-6 flex flex-col md:flex-row gap-6'>
+            <Link 
+              href='/projects' 
+              className='cta-link'
+            >
+              See my projects
+            </Link>
+            <Link 
+              href='/assets/Ivan_Danyliuk_CV.pdf' 
+              download='Ivan_Danyliuk_CV.pdf'
+              target='_blank'
+              rel='noreferrer'
+              className='cta-link'
+            >
+              Download CV
+            </Link>
+          </div>
         </div>
         <div className='relative flex justify-center'>
           <div className='social-media-container'>

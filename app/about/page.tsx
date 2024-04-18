@@ -15,7 +15,7 @@ const About = async () => {
   const additionalSkills = userInfo.skills.filter(skill => skill.isAdditional && JSON.parse(JSON.stringify(skill)));
 
   return (
-    <div className='container mx-auto'>
+    <div className='container mx-auto px-3 md:px-0'>
       <section className='relative pt-3 w-full flex flex-col md:flex-row items-end gap-6 border-b-[1px] border-gray-100'>
         <div className='w-full md:w-2/3 lg:w-3/4'>
           <h2 className='mb-7 text-4xl'>Hi! My name is <strong className='font-bold'>Ivan Danyliuk</strong></h2>

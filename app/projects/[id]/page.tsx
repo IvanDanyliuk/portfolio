@@ -13,7 +13,7 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
   const project: Project = await fetchProject(params.id);
 
   return (
-    <div className='relative container mx-auto pb-3 w-full flex flex-auto flex-col-reverse lg:flex-row gap-x-10 md:gap-x-6'>
+    <div className='relative container mx-auto px-3 md:px-0 pb-3 w-full flex flex-auto flex-col-reverse lg:flex-row gap-x-10 md:gap-x-6'>
       <div className='md:pr-5 w-full lg:w-1/5 flex flex-col gap-7 lg:border-r md:border-gray-100'>
         <section className='pb-6 flex justify-between items-center border-b border-gray-100'>  
           <h3 className='text-lg font-semibold text-gray-400'>Category</h3>
