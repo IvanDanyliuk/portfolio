@@ -104,7 +104,7 @@ const NavbarMenu: React.FC = () => {
                             ))}
                           </ul>
                           <div className='px-6'>
-                            <div className='mb-6 w-full h-[2px] bg-gray-300' />
+                            <div className='mb-10 w-full h-[2px] bg-gray-300' />
                             <SocialMediaList orientation='horizontal' />
                           </div>
                         </div>

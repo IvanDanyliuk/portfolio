@@ -16,10 +16,10 @@ export default function Home() {
               animate='visible'
               variants={{
                 invisible: {
-                  y: 'var(--y-from)'
+                  y: 'var(--y-from, 0px)'
                 },
                 visible: {
-                  y: 'var(--y-to)'
+                  y: 'var(--y-to, 0px)'
                 }
               }}
               transition={{
@@ -56,10 +56,10 @@ export default function Home() {
               animate='visible'
               variants={{
                 invisible: {
-                  y: 'var(--y-from)'
+                  y: 'var(--y-from, 0px)'
                 },
                 visible: {
-                  y: 'var(--y-to)'
+                  y: 'var(--y-to, 0px)'
                 }
               }}
               transition={{
