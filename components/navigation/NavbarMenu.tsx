@@ -1,20 +1,27 @@
 'use client';
 
+import { Fragment, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Dialog, Transition } from '@headlessui/react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { v4 as uuid } from 'uuid'
 import { navLinks } from '@/constants';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import { Fragment, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import SocialMediaList from '../ui/common/SocialMediaList';
 
 
 const NavbarMenu: React.FC = () => {
   const pathname = usePathname();
-  const [open, setOpen] = useState<boolean>(true)
+  const [open, setOpen] = useState<boolean>(false)
   const { width } = useWindowSize();
+
+  useEffect(() => {
+    if(open) {
+      setOpen(false);
+    }
+  }, [pathname]);
 
   return (
     <>
@@ -35,7 +42,7 @@ const NavbarMenu: React.FC = () => {
       ) : (
         <>
           <button onClick={() => setOpen(true)}>
-            <FontAwesomeIcon icon={faBars} />
+            <FontAwesomeIcon icon={faBars} className='text-3xl' />
           </button>
           <Transition.Root show={open} as={Fragment}>
             <Dialog as='div' className='relative z-50' onClose={setOpen}>
@@ -81,20 +88,27 @@ const NavbarMenu: React.FC = () => {
                             >
                               <span className='absolute -inset-2.5' />
                               <span className='sr-only'>Close panel</span>
-                              <FontAwesomeIcon icon={faXmark} />
+                              <FontAwesomeIcon icon={faXmark} className='text-3xl text-black' />
                             </button>
                           </div>
                         </Transition.Child>
-                        <div className='px-3 py-16 flex h-full flex-col overflow-y-scroll bg-white shadow-xl'>
-                          <ul className='space-y-5 px-2 pb-3 pt-2'>
+                        <div className='px-3 py-16 flex h-full flex-col justify-between overflow-y-scroll bg-white shadow-xl'>
+                          <ul className='space-y-8 px-2 pb-3 pt-2'>
                             {navLinks.map((item) => (
-                              <li key={uuid()}>
-                                <Link href={item.link}>
+                              <li key={uuid()} className='text-2xl'>
+                                <Link 
+                                  href={item.link} 
+                                  className={`${pathname === item.link ? 'text-gray-800 main-bg font-semibold' : 'text-black bg-white'} block w-full px-5 py-3`}
+                                >
                                   {item.label}
                                 </Link>
                               </li>
                             ))}
                           </ul>
+                          <div className='px-6'>
+                            <div className='mb-6 w-full h-[2px] bg-gray-300' />
+                            <SocialMediaList orientation='horizontal' />
+                          </div>
                         </div>
                       </Dialog.Panel>
                     </Transition.Child>
