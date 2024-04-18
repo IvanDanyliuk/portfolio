@@ -69,3 +69,17 @@ export interface Credential {
   title: string;
   description: string;
 }
+
+export interface IProject {
+  _id: string;
+  name: string;
+  summary: string;
+  category: string;
+  imageUrl: string;
+  technologies: string[];
+  features: Feature[];
+  credentials: Credential[];
+  previewUrl?: string;
+  repoFrontend?: string;
+  repoBackend?: string;
+}
