@@ -20,10 +20,7 @@ export const generateEmailBody = (data: any) => {
 };
 
 export const transporter = nodemailer.createTransport({
-  service: 'Gmail',
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: false,
+  service: 'gmail',
   auth: {
     user: email,
     pass: password,
