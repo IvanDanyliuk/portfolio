@@ -1,14 +1,16 @@
-'use client'
+'use client';
 
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faLaptop } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { v4 as uuid } from 'uuid';
 import { Credential, Feature } from '@/common.types';
+import NoDataMessage from '../common/NoDataMessage';
+import ListItemWrapper from '../common/ListItemWrapper';
 import Chip from '../common/Chip';
 import IconButton from '../common/IconButton';
-import NoDataMessage from '../common/NoDataMessage';
+
 
 interface ProjectListProps {
   projects: {
@@ -26,6 +28,7 @@ interface ProjectListProps {
   }[];
 }
 
+
 const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
   const router = useRouter();
   const pathname = usePathname();
@@ -42,10 +45,10 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
  
   return (
     <div className='bg-white mx-auto max-w-2xl lg:max-w-7xl'>
-      <div className=' grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8'>
-        {projects.map((project) => (
-          <div key={uuid()} className='group relative flex flex-col justify-between overflow-hidden rounded-md border cursor-pointer shadow-lg'>
-            <div className='w-full' onClick={() => handleNavigate(project._id)}>
+      <ul className='grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8'>
+        {projects.map((project, i) => (
+          <ListItemWrapper key={uuid()} index={i}>
+            <div className='w-full cursor-pointer' onClick={() => handleNavigate(project._id)}>
               <div className='aspect-h-1 aspect-w-1 w-full overflow-hidden bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80 border-b border-gray-100'>
                 <img
                   src={project.imageUrl}
@@ -85,11 +88,11 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
                 </IconButton>
               )}
             </div>
-          </div>
+          </ListItemWrapper>
         ))}
-      </div>
+      </ul>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectList
+export default ProjectList;

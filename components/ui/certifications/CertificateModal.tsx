@@ -23,7 +23,9 @@ const CertificateModal: React.FC<CertificationMoalProps> = ({ imageUrl, verifica
     <>
       <div className='certificate-list-item' onClick={handleModalOpen}>
         <div className='backdrop'>
-          <FontAwesomeIcon icon={faSearch} />
+          <div className='w-24 h-24 flex justify-center items-center text-black bg-gray-400 rounded-full backdrop-filter backdrop-blur-md bg-opacity-80'>
+            <FontAwesomeIcon icon={faSearch} />
+          </div>
         </div>
         <Image src={imageUrl} alt='certificate' width={490} height={300} />
       </div>

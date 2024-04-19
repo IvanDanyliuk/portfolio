@@ -22,14 +22,14 @@ const Projects = async ({ searchParams: { categories, technologies } }: Props) =
   const technologiesData = await fetchTechnologies();
 
   return (
-    <div className='py-3 relative w-full flex grow gap-10'>
+    <div className='container mx-auto px-3 md:px-0 py-3 relative w-full flex grow gap-10'>
       <ProjectFilters 
         categories={projectCategories} 
         technologies={technologiesData} 
       />
       <ProjectList projects={projects} />
     </div>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;

@@ -1,5 +1,3 @@
-
-
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { v4 as uuid } from 'uuid';
@@ -7,10 +5,12 @@ import { socialMediaLinks } from '@/constants';
 
 type ListOrientation = 'horizontal' | 'vertical';
 
+
 interface SocialMediaListProps {
   orientation: ListOrientation;
-  [x: string]: any
+  [props: string]: any
 }
+
 
 const SocialMediaList = ({ orientation, ...props }: SocialMediaListProps) => {
   return (
@@ -23,7 +23,7 @@ const SocialMediaList = ({ orientation, ...props }: SocialMediaListProps) => {
         </li>
       ))}
     </ul>
-  )
-}
+  );
+};
 
-export default SocialMediaList
+export default SocialMediaList;

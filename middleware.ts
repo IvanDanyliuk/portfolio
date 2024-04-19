@@ -1,14 +1,20 @@
-import { authMiddleware } from "@clerk/nextjs";
- 
-// This example protects all routes including api/trpc routes
-// Please edit this to allow other routes to be public as needed.
-// See https://clerk.com/docs/references/nextjs/auth-middleware for more information about configuring your middleware
-export default authMiddleware({
-  publicRoutes: ['/', '/api/webhook/clerk', '/api/upload', '/about', '/projects', '/projects/:id', '/contact'],
-  ignoredRoutes: ['/api/webhook/clerk', '/api/upload', '/api/nodemailer'],
-});
- 
+import { withAuth } from 'next-auth/middleware'
+import { NextResponse } from 'next/server'
+
+export default withAuth(
+  function middleware(req) {
+    if(req.nextUrl.pathname.startsWith('/admin') && req.nextauth.token?.email !== process.env.CREDENTIALS_EMAIL!) {
+      return NextResponse.rewrite(new URL('/', req.url));
+    }
+  },
+  {
+    callbacks: {
+      authorized: ({ token }) => token?.email === process.env.CREDENTIALS_EMAIL!,
+    },
+    secret: process.env.GITHUB_CLIENT_SECRET!
+  }
+);
+
 export const config = {
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: ['/admin', '/admin/:path*']
 };
- 

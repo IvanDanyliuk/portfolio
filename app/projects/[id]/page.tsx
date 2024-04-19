@@ -8,12 +8,15 @@ import { Project } from '@/common.types';
 import Chip from '@/components/ui/common/Chip';
 import { fetchProject } from '@/lib/actions/project.actions';
 import FeatureImage from '@/components/ui/projects/FeatureImage';
+import ListItemWrapper from '@/components/ui/common/ListItemWrapper';
+import SectionWrapper from '@/components/ui/SectionWrapper';
 
-const Project = async ({ params }: { params: { id: string } }) => {
+
+const ProjectPage = async ({ params }: { params: { id: string } }) => {
   const project: Project = await fetchProject(params.id);
 
   return (
-    <div className='relative pb-3 w-full flex flex-auto flex-col-reverse lg:flex-row gap-x-10 md:gap-x-6'>
+    <div className='relative container mx-auto px-3 md:px-0 pb-3 w-full flex flex-auto flex-col-reverse lg:flex-row gap-x-10 md:gap-x-6'>
       <div className='md:pr-5 w-full lg:w-1/5 flex flex-col gap-7 lg:border-r md:border-gray-100'>
         <section className='pb-6 flex justify-between items-center border-b border-gray-100'>  
           <h3 className='text-lg font-semibold text-gray-400'>Category</h3>
@@ -99,18 +102,18 @@ const Project = async ({ params }: { params: { id: string } }) => {
             <span className='ml-3'>Go back</span>
           </Link>
         </div>
-        <section className='flex flex-col md:flex-row md:justify-between lg:gap-10'>
+        <SectionWrapper className='flex flex-col md:flex-row md:justify-between lg:gap-10'>
           <div className='mb-6 md:mb-0'>
             <h4 className='mb-3 text-xl font-semibold '>Common Information</h4>
             <p>{project.summary}</p>
           </div>
           <Image src={project.imageUrl} alt={project.name} width={400} height={300} />
-        </section>
-        <section className='mt-6'>
+        </SectionWrapper>
+        <SectionWrapper className='mt-6 mb-10'>
           <h4 className='mb-3 text-xl font-semibold '>Key Features</h4>
           <ul className='grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-10'>
             {project.features.map((feature, i) => (
-              <li key={uuid()} className='relative group overflow-hidden drop-shadow-lg'>
+              <ListItemWrapper key={uuid()} index={i} className='relative group overflow-hidden drop-shadow-lg'>
                 <FeatureImage imageUrl={feature.featureImageUrl} altText={feature.title} />
                 <div className='pt-3'>
                   <h5 className='text-base font-bold text-gray-700'>
@@ -118,13 +121,13 @@ const Project = async ({ params }: { params: { id: string } }) => {
                   </h5>
                   <p className='text-sm text-gray-400'>{feature.description}</p>
                 </div>
-              </li>
+              </ListItemWrapper>
             ))}
           </ul>
-        </section>
+        </SectionWrapper>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Project
+export default ProjectPage;

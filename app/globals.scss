@@ -10,16 +10,12 @@ body {
   @apply flex flex-col min-h-screen;
 }
 
-header, main {
-  @apply container mx-auto px-2 lg:px-0 bg-white;
-}
-
 header {
   @apply flex justify-between items-center;
 }
 
 main {
-  @apply relative pb-6 flex min-h-full flex-auto flex-col text-sm md:text-base;
+  @apply relative flex min-h-full flex-auto flex-col text-sm md:text-base;
 }
 
 
@@ -42,6 +38,14 @@ main {
   &:after {
     @apply relative top-1 left-0 content-[''] block w-full h-[2px] bg-black;
   }
+}
+
+.main-bg {
+  background: linear-gradient(90deg, rgba(233,240,239,1) 0%, rgba(230,237,242,1) 100%, rgba(248,239,247,1) 100%, rgba(152,221,235,1) 100%);
+}
+
+.social-media-container {
+  @apply relative p-3 h-fit flex flex-col items-center before:h-52 before:w-[2px] before:mb-8 before:bg-black after:h-52 after:w-[2px] after:mt-8 after:bg-black;
 }
 
 .admin-nav-link {
