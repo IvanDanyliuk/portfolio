@@ -9,7 +9,7 @@ type ListOrientation = 'horizontal' | 'vertical';
 
 interface SocialMediaListProps {
   orientation: ListOrientation;
-  [x: string]: any
+  [props: string]: any
 }
 
 const SocialMediaList = ({ orientation, ...props }: SocialMediaListProps) => {
