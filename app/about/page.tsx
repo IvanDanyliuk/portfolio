@@ -2,12 +2,13 @@ import Image from 'next/image';
 import { v4 as uuid } from 'uuid';
 import SocialMediaList from '@/components/ui/common/SocialMediaList';
 import { fetchUserData } from '@/lib/actions/user.actions';
-import userPhoto from '@/public/assets/photo.png';
 import { formatDate } from '@/lib/helpers/heplers';
 import { fetchCertifications } from '@/lib/actions/certifications.actions';
 import CertificateModal from '@/components/ui/certifications/CertificateModal';
 import { Skill } from '@/common.types';
 import SectionWrapper from '@/components/ui/SectionWrapper';
+import ListItemWrapper from '@/components/ui/common/ListItemWrapper';
+import userPhoto from '@/public/assets/photo.png';
 
 
 const About = async () => {
@@ -110,13 +111,17 @@ const About = async () => {
         <h3 className='mb-6 text-2xl md:text-4xl text-center font-semibold'>Courses & Certifications</h3>
         <p className='px-10 md:px-24 lg:px-52 text-xs md:text-base text-center'>From the first day when I first got into front-end development until now, I have completed plenty of courses and learning programs. I gained a solid understanding of web development standards and principles.</p>
         <ul className='py-6 md:py-12 grid grid-cols-1 md:grid-cols-3 gap-5'>
-          {certifications.reverse().map(certificate => (
-            <li key={uuid()} className='relative border border-gray-100 rounded-lg overflow-hidden shadow-md'>
+          {certifications.reverse().map((certificate, i) => (
+            <ListItemWrapper 
+              key={uuid()} 
+              index={i} 
+              className='relative md:h-[22rem] flex items-center border border-gray-100 rounded-lg overflow-hidden shadow-md'
+            >
               <CertificateModal 
                 imageUrl={certificate.imageUrl} 
                 verificationUrl={certificate.verificationUrl} 
               />
-            </li>
+            </ListItemWrapper>
           ))}
         </ul>
       </SectionWrapper>
