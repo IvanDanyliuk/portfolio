@@ -8,6 +8,9 @@ import { Project } from '@/common.types';
 import Chip from '@/components/ui/common/Chip';
 import { fetchProject } from '@/lib/actions/project.actions';
 import FeatureImage from '@/components/ui/projects/FeatureImage';
+import ListItemWrapper from '@/components/ui/common/ListItemWrapper';
+import SectionWrapper from '@/components/ui/SectionWrapper';
+
 
 const ProjectPage = async ({ params }: { params: { id: string } }) => {
   const project: Project = await fetchProject(params.id);
@@ -99,18 +102,18 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
             <span className='ml-3'>Go back</span>
           </Link>
         </div>
-        <section className='flex flex-col md:flex-row md:justify-between lg:gap-10'>
+        <SectionWrapper className='flex flex-col md:flex-row md:justify-between lg:gap-10'>
           <div className='mb-6 md:mb-0'>
             <h4 className='mb-3 text-xl font-semibold '>Common Information</h4>
             <p>{project.summary}</p>
           </div>
           <Image src={project.imageUrl} alt={project.name} width={400} height={300} />
-        </section>
-        <section className='mt-6'>
+        </SectionWrapper>
+        <SectionWrapper className='mt-6 mb-10'>
           <h4 className='mb-3 text-xl font-semibold '>Key Features</h4>
           <ul className='grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-10'>
             {project.features.map((feature, i) => (
-              <li key={uuid()} className='relative group overflow-hidden drop-shadow-lg'>
+              <ListItemWrapper key={uuid()} index={i} className='relative group overflow-hidden drop-shadow-lg'>
                 <FeatureImage imageUrl={feature.featureImageUrl} altText={feature.title} />
                 <div className='pt-3'>
                   <h5 className='text-base font-bold text-gray-700'>
@@ -118,10 +121,10 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
                   </h5>
                   <p className='text-sm text-gray-400'>{feature.description}</p>
                 </div>
-              </li>
+              </ListItemWrapper>
             ))}
           </ul>
-        </section>
+        </SectionWrapper>
       </div>
     </div>
   );

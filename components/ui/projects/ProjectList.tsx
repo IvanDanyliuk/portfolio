@@ -48,7 +48,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
       <ul className='grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8'>
         {projects.map((project, i) => (
           <ListItemWrapper key={uuid()} index={i}>
-            <div className='w-full' onClick={() => handleNavigate(project._id)}>
+            <div className='w-full cursor-pointer' onClick={() => handleNavigate(project._id)}>
               <div className='aspect-h-1 aspect-w-1 w-full overflow-hidden bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80 border-b border-gray-100'>
                 <img
                   src={project.imageUrl}
