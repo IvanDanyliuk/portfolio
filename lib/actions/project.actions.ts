@@ -2,9 +2,11 @@
 
 import { connectToDB } from '../services/mongoose';
 import ProjectModel from '../models/project.model';
-import { revalidatePath } from 'next/cache';
+import { revalidatePath, revalidateTag } from 'next/cache';
+import { v2 as cloudinary } from 'cloudinary';
 import { uploadImage } from './common.actions';
 import { Project } from '@/common.types';
+import { getFilenameFromUrl } from '../helpers/heplers';
 
 interface CreateProjectQuery {
   name: string;
@@ -108,7 +110,30 @@ export const createProject = async ({
 export const updateProject = async ({ id, data, pathname }: { id: string, data: Project, pathname: string }) => {
   try {
     connectToDB();
-    await ProjectModel.findByIdAndUpdate(id, data);
+
+    const projectToUpdate = await ProjectModel.findById(id);
+
+    const projectImageUrl = data.imageUrl ? await uploadImage(data.imageUrl, pathname) : projectToUpdate.imageUrl;
+    if(data.imageUrl) {
+      const currentImage = getFilenameFromUrl(projectToUpdate.imageUrl);
+      await cloudinary.uploader.destroy(currentImage!, function(error, response) {
+        console.log(response, error)
+      });
+    }
+
+    // const modifiedFeatures = await Promise.all(data.features.map(async (feature) => {
+    //   const uploadedImageUrl = await uploadImage(feature.featureImageUrl, pathname);
+    //   return {
+    //     ...feature,
+    //     featureImageUrl: uploadedImageUrl.url
+    //   };
+    // }));
+
+    await ProjectModel.findByIdAndUpdate(id, {
+      ...data,
+      imageUrl: projectImageUrl
+    });
+
     revalidatePath(pathname);
   } catch (error: any) {
     throw new Error(`Cannot update a project with id ${id}: ${error.message}`);
@@ -118,6 +143,16 @@ export const updateProject = async ({ id, data, pathname }: { id: string, data: 
 export const deleteProject = async ({ id, pathname }: { id: string, pathname: string }) => {
   try {
     connectToDB();
+    const projectToDelete = await ProjectModel.findById(id);
+
+    const mainImage = getFilenameFromUrl(projectToDelete.imageUrl);
+    const featuresImages = projectToDelete.features.map((feature: any) => getFilenameFromUrl(feature.featureImageUrl));
+    const images = [mainImage, null, undefined, ...featuresImages].filter(item => !!item);
+
+    await cloudinary.api.delete_resources(images, function(error, response) {
+      console.log(response, error)
+    });
+
     await ProjectModel.findByIdAndDelete(id);
 
     if(pathname === '/admin/projects') {

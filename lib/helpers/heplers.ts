@@ -17,3 +17,12 @@ export const formatDate = (date: string, format?: Format) => {
       return `${day < 10 ? '0' + day : day}.${month < 10 ? '0' + month : month}.${year}`;
   }
 };
+
+export const getFilenameFromUrl = (url: string) => {
+  const parsedFilename = new URL(url).pathname.split('/').pop();
+  if(parsedFilename) {
+    return parsedFilename.split('.')[0];
+  }
+
+  return null;
+};
