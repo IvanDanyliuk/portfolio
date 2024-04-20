@@ -1,5 +1,7 @@
 'use server'
 
+import { Resend } from 'resend';
+
 const isProduction = process.env.NODE_ENV === 'production';
 const serverUrl = isProduction ? process.env.NEXT_PUBLIC_SERVER_URL : 'http://localhost:3000';
 
@@ -20,23 +22,20 @@ export const uploadImage = async (imageUrl: string, pathname: string) => {
   } catch (error: any) {
     throw new Error(`Uploading image error: ${error.message}`);
   }
-}
+};
 
+export const sendEmail = async (formData: FormData) => {
+  const resend = new Resend(process.env.RESEND_API_KEY!)
 
+  const data = await resend.emails.send({
+    from: 'onboarding@resend.dev',
+    to: ['ivandaniliuk@gmail.com'],
+    subject: 'example',
+    text: 'This is a message!'
+  });
 
-export const sendContactFormData = async ({ name, subject, email, message }: { name: string, subject: string, email: string, message: string }) => {
-  try {
-    await fetch(`${serverUrl}/api/nodemailer`, {
-      method: 'POST',
-      body: JSON.stringify({
-        name,
-        subject, 
-        email, 
-        message
-      }),
-      cache: 'no-store'
-    });
-  } catch (error: any) {
-    throw new Error(`Cannot send a message: ${error.message}`);
+  return {
+    success: true,
+    data
   }
-}
+};

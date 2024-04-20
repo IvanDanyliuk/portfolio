@@ -4,8 +4,7 @@ import { useForm } from 'react-hook-form'
 import Input from '../ui/common/Input';
 import Textarea from '../ui/common/Textarea';
 import Button from '../ui/common/Button';
-import { sendContactFormData } from '@/lib/actions/common.actions';
-import { sendEmail } from '@/lib/actions/email.actions';
+import { sendEmail } from '@/lib/actions/common.actions';
 
 interface ContactForm {
   name: string;
@@ -23,14 +22,16 @@ const ContactForm: React.FC = () => {
   } = useForm<ContactForm>();
 
   const handleFormSubmit = async (data: any) => {
-    await sendContactFormData(data);
-    reset();
-  }
+    const response = await sendEmail(data)
+    
+    if(response?.success) {
+      console.log('SUBMITTED!')
+      reset();
+    }
+  };
   
   return (
-    <form action={async (formData) => {
-      await sendEmail(formData)
-    }} className='w-full flex flex-col items-center gap-3 form'>
+    <form onSubmit={handleSubmit(handleFormSubmit)} className='w-full flex flex-col items-center gap-3 form'>
       <Input 
         name='name' 
         label='Name' 
