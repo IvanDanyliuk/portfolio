@@ -2,7 +2,7 @@
 
 import { connectToDB } from '../services/mongoose';
 import ProjectModel from '../models/project.model';
-import { revalidatePath, revalidateTag } from 'next/cache';
+import { revalidatePath } from 'next/cache';
 import { v2 as cloudinary } from 'cloudinary';
 import { uploadImage } from './common.actions';
 import { Project } from '@/common.types';
@@ -113,7 +113,7 @@ export const updateProject = async ({ id, data, pathname }: { id: string, data: 
 
     const projectToUpdate = await ProjectModel.findById(id);
 
-    const projectImageUrl = data.imageUrl ? await uploadImage(data.imageUrl, pathname) : projectToUpdate.imageUrl;
+    const projectImageUrl = data.imageUrl ? (await uploadImage(data.imageUrl, pathname)).url : projectToUpdate.imageUrl;
     if(data.imageUrl) {
       const currentImage = getFilenameFromUrl(projectToUpdate.imageUrl);
       await cloudinary.uploader.destroy(currentImage!, function(error, response) {
@@ -121,17 +121,34 @@ export const updateProject = async ({ id, data, pathname }: { id: string, data: 
       });
     }
 
-    // const modifiedFeatures = await Promise.all(data.features.map(async (feature) => {
-    //   const uploadedImageUrl = await uploadImage(feature.featureImageUrl, pathname);
-    //   return {
-    //     ...feature,
-    //     featureImageUrl: uploadedImageUrl.url
-    //   };
-    // }));
+    const dataFeaturesTitles = data.features.map(feature => feature.title);
+
+    const featuresToDelete = projectToUpdate.features.filter((feature: any) => !dataFeaturesTitles.includes(feature.title));
+    if(featuresToDelete.length > 0) {
+      await Promise.all(featuresToDelete.map(async (feature: any) => {
+        const currentImage = getFilenameFromUrl(feature.featureImageUrl);
+        await cloudinary.uploader.destroy(currentImage!, function(error, response) {
+          console.log(response, error)
+        });
+      }))
+    };
+
+    const currentFeaturesTitles = projectToUpdate.features.map((feature: any) => feature.title);
+    const featuresToCreate = data.features.filter((feature: any) => !currentFeaturesTitles.includes(feature.title));
+    const modifiedFeatures = featuresToCreate.length > 0 
+      ? await Promise.all(data.features.map(async (feature) => {
+          const uploadedImageUrl = await uploadImage(feature.featureImageUrl, pathname);
+          return {
+            ...feature,
+            featureImageUrl: uploadedImageUrl.url
+          };
+        })) 
+      : data.features;
 
     await ProjectModel.findByIdAndUpdate(id, {
       ...data,
-      imageUrl: projectImageUrl
+      imageUrl: projectImageUrl,
+      features: modifiedFeatures
     });
 
     revalidatePath(pathname);
