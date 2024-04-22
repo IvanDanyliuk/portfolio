@@ -1,9 +1,11 @@
-'use server'
+'use server';
 
 import { connectToDB } from '../services/mongoose';
 import { revalidatePath } from 'next/cache';
+import { v2 as cloudinary } from 'cloudinary';
 import Certification from '../models/certification.model';
 import { uploadImage } from './common.actions';
+import { getFilenameFromUrl } from '../helpers/heplers';
 
 export const addCertification = async ({ imageUrl, verificationUrl, pathname }: { imageUrl: string, verificationUrl?: string, pathname: string }) => {
   try {
@@ -36,6 +38,12 @@ export const fetchCertifications = async () => {
 export const deleteCertification = async ({ id, pathname }: { id: string, pathname: string }) => {
   try {
     connectToDB();
+
+    const currentCertification = await Certification.findById(id);
+    const certifcateImage = getFilenameFromUrl(currentCertification.imageUrl);
+    await cloudinary.uploader.destroy(certifcateImage!, function(error, response) {
+      console.log(response, error);
+    });
 
     await Certification.findByIdAndDelete(id);
 

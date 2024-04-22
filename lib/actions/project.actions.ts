@@ -1,4 +1,4 @@
-'use server'
+'use server';
 
 import { connectToDB } from '../services/mongoose';
 import ProjectModel from '../models/project.model';
@@ -117,7 +117,7 @@ export const updateProject = async ({ id, data, pathname }: { id: string, data: 
     if(data.imageUrl) {
       const currentImage = getFilenameFromUrl(projectToUpdate.imageUrl);
       await cloudinary.uploader.destroy(currentImage!, function(error, response) {
-        console.log(response, error)
+        console.log(response, error);
       });
     }
 
@@ -128,7 +128,7 @@ export const updateProject = async ({ id, data, pathname }: { id: string, data: 
       await Promise.all(featuresToDelete.map(async (feature: any) => {
         const currentImage = getFilenameFromUrl(feature.featureImageUrl);
         await cloudinary.uploader.destroy(currentImage!, function(error, response) {
-          console.log(response, error)
+          console.log(response, error);
         });
       }))
     };
@@ -167,7 +167,7 @@ export const deleteProject = async ({ id, pathname }: { id: string, pathname: st
     const images = [mainImage, null, undefined, ...featuresImages].filter(item => !!item);
 
     await cloudinary.api.delete_resources(images, function(error, response) {
-      console.log(response, error)
+      console.log(response, error);
     });
 
     await ProjectModel.findByIdAndDelete(id);
