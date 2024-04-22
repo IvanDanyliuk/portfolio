@@ -1,15 +1,16 @@
-'use client'
+'use client';
 
-import { Fragment, useState } from 'react'
-import { usePathname } from 'next/navigation'
-import { Dialog, Transition } from '@headlessui/react'
-import { useForm } from 'react-hook-form'
+import { Fragment, useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { Dialog, Transition } from '@headlessui/react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import Button from '../ui/common/Button';
 import Input from '../ui/common/Input';
-import { ExperienceItem } from '@/common.types'
-import { addExperienceItem } from '@/lib/actions/experience.actions'
-import DatePicker from '../ui/common/DatePicker'
-import Editor from '../ui/common/Editor'
+import { ExperienceItem } from '@/common.types';
+import { addExperienceItem } from '@/lib/actions/experience.actions';
+import DatePicker from '../ui/common/DatePicker';
+import Editor from '../ui/common/Editor';
 
 const ExperienceFormModal: React.FC = () => {
   const pathname = usePathname();
@@ -18,7 +19,7 @@ const ExperienceFormModal: React.FC = () => {
     register, 
     control,
     handleSubmit, 
-    formState: { errors }, 
+    formState: { errors, isSubmitSuccessful }, 
     reset 
   } = useForm<ExperienceItem>();
 
@@ -33,6 +34,12 @@ const ExperienceFormModal: React.FC = () => {
       setIsOpen(false);
     }
   }
+
+  useEffect(() => {
+    if(isSubmitSuccessful) {
+      toast.success('Done!');
+    }
+  }, [isSubmitSuccessful]);
 
   return (
     <>

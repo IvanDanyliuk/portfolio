@@ -1,14 +1,15 @@
-'use client'
+'use client';
 
-import { Fragment, useState } from 'react'
-import { usePathname } from 'next/navigation'
-import { Dialog, Transition } from '@headlessui/react'
-import { useForm } from 'react-hook-form'
+import { Fragment, useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { Dialog, Transition } from '@headlessui/react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import Button from '../ui/common/Button';
 import Input from '../ui/common/Input';
-import { addEducationItem } from '@/lib/actions/education.actions'
-import { EducationItem } from '@/common.types'
-import DatePicker from '../ui/common/DatePicker'
+import { addEducationItem } from '@/lib/actions/education.actions';
+import { EducationItem } from '@/common.types';
+import DatePicker from '../ui/common/DatePicker';
 
 const EducationFormModal: React.FC = () => {
   const pathname = usePathname();
@@ -17,7 +18,7 @@ const EducationFormModal: React.FC = () => {
     control, 
     register, 
     handleSubmit, 
-    formState: { errors }, 
+    formState: { errors, isSubmitSuccessful }, 
     reset 
   } = useForm<EducationItem>();
 
@@ -32,6 +33,12 @@ const EducationFormModal: React.FC = () => {
       setIsOpen(false);
     }
   }
+
+  useEffect(() => {
+    if(isSubmitSuccessful) {
+      toast.success('Done!');
+    }
+  }, [isSubmitSuccessful]);
 
   return (
     <>

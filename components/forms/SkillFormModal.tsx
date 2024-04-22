@@ -1,13 +1,14 @@
-'use client'
+'use client';
 
-import { Fragment, useState } from 'react'
-import { usePathname } from 'next/navigation'
-import { Dialog, Transition } from '@headlessui/react'
-import { useForm } from 'react-hook-form'
+import { Fragment, useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { Dialog, Transition } from '@headlessui/react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import Button from '@/components/ui/common/Button';
 import Input from '@/components/ui/common/Input';
 import { Skill } from '@/common.types';
-import { addSkill } from '@/lib/actions/skills.actions'
+import { addSkill } from '@/lib/actions/skills.actions';
 
 const SkillFormModal: React.FC = () => {
   const pathname = usePathname();
@@ -15,7 +16,7 @@ const SkillFormModal: React.FC = () => {
   const { 
     register, 
     handleSubmit, 
-    formState: { errors }, 
+    formState: { errors, isSubmitSuccessful }, 
     reset 
   } = useForm<Skill>();
 
@@ -34,6 +35,12 @@ const SkillFormModal: React.FC = () => {
       setIsOpen(false);
     }
   }
+
+  useEffect(() => {
+    if(isSubmitSuccessful) {
+      toast.success('New Skills has been added!');
+    }
+  }, [isSubmitSuccessful]);
 
   return (
     <>
