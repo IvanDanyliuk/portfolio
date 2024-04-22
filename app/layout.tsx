@@ -4,6 +4,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { NextAuthProvider } from '@/components/ContextProvider';
 import Header from '@/components/ui/common/Header';
+import NotificatonWrapper from '@/components/ui/NotificatonWrapper';
 
 config.autoAddCss = false;
 
@@ -25,6 +26,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
           <main>
             {children}
           </main>
+          <NotificatonWrapper />
         </NextAuthProvider>
       </body>
     </html>

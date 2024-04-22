@@ -1,13 +1,14 @@
-'use client'
+'use client';
 
-import { Fragment, useState } from 'react'
-import { usePathname } from 'next/navigation'
-import { Dialog, Transition } from '@headlessui/react'
-import { useForm } from 'react-hook-form'
+import { Fragment, useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { Dialog, Transition } from '@headlessui/react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import Button from '../ui/common/Button';
 import Input from '../ui/common/Input';
-import { addCertification } from '@/lib/actions/certifications.actions'
-import FileUploadField from '../ui/common/FileUploadField'
+import { addCertification } from '@/lib/actions/certifications.actions';
+import FileUploadField from '../ui/common/FileUploadField';
 
 interface CertificationFormData {
   imageUrl: string;
@@ -21,6 +22,7 @@ const CertificationFormModal: React.FC = () => {
     register,
     handleSubmit, 
     control,
+    formState: { errors, isSubmitSuccessful },
     setError,
     setValue,
     reset 
@@ -41,6 +43,12 @@ const CertificationFormModal: React.FC = () => {
     reset();
     handleModalOpen();
   }
+
+  useEffect(() => {
+    if(isSubmitSuccessful) {
+      toast.success('Cartificate has been added!');
+    }
+  }, [isSubmitSuccessful]);
 
   return (
     <>

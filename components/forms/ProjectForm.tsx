@@ -1,8 +1,9 @@
-'use client'
+'use client';
 
 import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { v4 as uuid } from 'uuid';
 import { projectCategories } from '@/constants';
 import Input from '../ui/common/Input';
@@ -73,6 +74,7 @@ interface Credential {
 }
 
 const ProjectForm: React.FC<ProjectFormProps> = ({ technologies, projectToUpdate }) => {
+  const router = useRouter();
   const pathname = usePathname();
 
   const technologiesList = technologies.map(tech => ({ label: tech.title, value: tech.title }));
@@ -84,7 +86,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ technologies, projectToUpdate
     setError, 
     getValues, 
     control, 
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful, isSubmitting },
     reset 
   } = useForm<ProjectForm>();
 
@@ -167,6 +169,13 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ technologies, projectToUpdate
       setCredentials(projectToUpdate.credentials);
     }
   }, []);
+
+  useEffect(() => {
+    if(isSubmitSuccessful) {
+      toast.success('Done!');
+      router.push('/admin/projects');
+    }
+  }, [isSubmitSuccessful])
 
   return (
     <div className='relative w-full flex justify-between gap-6'>
@@ -259,7 +268,7 @@ const ProjectForm: React.FC<ProjectFormProps> = ({ technologies, projectToUpdate
             )}
           </div>
         </fieldset>
-        <Button type='submit' title={projectToUpdate ? 'Update' : 'Create'} />
+        <Button type='submit' title={isSubmitting ? 'Loading...' : projectToUpdate ? 'Update' : 'Create'} />
       </form>
       <div className='py-3 flex flex-col gap-3'>
         <FeatureForm setFeatures={handleAddFeature} />

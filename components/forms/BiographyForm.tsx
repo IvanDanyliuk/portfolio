@@ -1,11 +1,12 @@
-'use client'
+'use client';
 
-import { useEffect } from 'react'
-import { usePathname } from 'next/navigation'
-import { useForm } from 'react-hook-form'
-import Editor from '@/components/ui/common/Editor'
-import Button from '@/components/ui/common/Button'
-import { updateGeneralData } from '@/lib/actions/user.actions'
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
+import Editor from '@/components/ui/common/Editor';
+import Button from '@/components/ui/common/Button';
+import { updateGeneralData } from '@/lib/actions/user.actions';
 
 interface BiographyFormProps {
   data: {
@@ -24,7 +25,7 @@ const BiographyForm: React.FC<BiographyFormProps> = ({ data }) => {
   const { 
     register,
     control, 
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
     handleSubmit,
     reset
   } = useForm<FormState>();
@@ -44,6 +45,12 @@ const BiographyForm: React.FC<BiographyFormProps> = ({ data }) => {
       biography: data ? data.biography : ''
     })
   }, []);
+
+  useEffect(() => {
+    if(isSubmitSuccessful) {
+      toast.success('Biography has been updated!');
+    }
+  }, [isSubmitSuccessful]);
 
   return (
     <form 
