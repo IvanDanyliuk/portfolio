@@ -1,8 +1,8 @@
-import { AlignJustify } from 'lucide-react';
+import { AlignJustify, ArrowDownToLine } from 'lucide-react';
 import { Drawer, DrawerContent, DrawerTrigger } from '../ui/drawer';
 import Link from 'next/link';
 import { MENU_LINKS } from '@/lib/constants';
-import { DownloadCV } from './donwload-cv';
+import { ActionLink } from './action-link';
 
 
 export const NavMenuMobile: React.FC = () => {
@@ -22,7 +22,13 @@ export const NavMenuMobile: React.FC = () => {
             </Link>
           ))}
         </div>
-        <DownloadCV />
+        <ActionLink 
+          href='/Ivan_Danyliuk_CV.pdf' 
+          download 
+          label='Download CV'
+        >
+          <ArrowDownToLine />
+        </ActionLink>
       </DrawerContent>
     </Drawer>
   );
