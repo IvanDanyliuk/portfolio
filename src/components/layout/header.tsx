@@ -1,23 +1,30 @@
 'use client';
 
+import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MENU_LINKS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
+import { MENU_LINKS } from '@/lib/constants';
 
 
 export const Header: React.FC = () => {
   const pathname = usePathname();
+  const [activeLink, setActiveLink] = useState('/');
 
   const handleScroll = (id: string) => {
     const section = document.getElementById(id);
+
     if (section) {
       const yOffset = -80;
       const y = section.getBoundingClientRect().top + window.scrollY + yOffset;
-
-      window.scrollTo({ top: y, behavior: "smooth" });
+      window.scrollTo({ 
+        top: y, 
+        behavior: 'smooth' 
+      });
     }
+
+    setActiveLink(`/${id}`);
   };
 
   return (
@@ -38,8 +45,8 @@ export const Header: React.FC = () => {
                 <button 
                   onClick={() => handleScroll(link.href.slice(1))} 
                   className={cn(
-                    pathname === link.href ? 'before:w-full' : 'before:w-0 hover:before:w-full',
-                    'relative before:absolute before:bottom-0 before:left-0 before:h-0.5 before:bg-blue-500 before:transition-all before:duration-300 text-primary font-medium'
+                    activeLink === link.href ? 'before:w-full' : 'before:w-0 hover:before:w-full',
+                    'relative before:absolute before:bottom-0 before:left-0 before:h-0.5 before:bg-primary before:transition-all before:duration-300 text-primary font-medium'
                   )}
                 >
                   {link.label}
@@ -49,7 +56,7 @@ export const Header: React.FC = () => {
                   href={link.href}
                   className={cn(
                     pathname === link.href ? 'before:w-full' : 'before:w-0 hover:before:w-full',
-                    'relative before:absolute before:bottom-0 before:left-0 before:h-0.5 before:bg-blue-500 before:transition-all before:duration-300 text-primary font-medium'
+                    'relative before:absolute before:bottom-0 before:left-0 before:h-0.5 before:bg-primary before:transition-all before:duration-300 text-primary font-medium'
                   )}
                 >
                   {link.label}
