@@ -6,8 +6,11 @@ body {
   font-family: Montserrat;
 }
 
-/* @layer base {
+@layer base {
   :root {
-    --radius: 0.5rem;
+    /* --radius: 0.5rem; */
+    --primary: #222222;
+    --secondary: #7B7B7B;
+    --tertiary: #F8F8F8;
   }
-} */
+}

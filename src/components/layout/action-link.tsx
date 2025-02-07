@@ -17,7 +17,7 @@ export const ActionLink: React.FC<IActionLink> = ({
   children 
 }) => {
   return (
-    <Link href={href} download={download}>
+    <Link href={href} download={download} className='text-secondary'>
       <span>
         {label}
       </span>

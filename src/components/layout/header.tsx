@@ -1,11 +1,10 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MENU_LINKS } from '@/lib/constants';
-import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
-
 
 
 export const Header: React.FC = () => {
@@ -14,7 +13,7 @@ export const Header: React.FC = () => {
   const handleScroll = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
-      const yOffset = -80; // Adjust offset if needed (e.g., fixed navbar height)
+      const yOffset = -80;
       const y = section.getBoundingClientRect().top + window.scrollY + yOffset;
 
       window.scrollTo({ top: y, behavior: "smooth" });
@@ -40,7 +39,7 @@ export const Header: React.FC = () => {
                   onClick={() => handleScroll(link.href.slice(1))} 
                   className={cn(
                     pathname === link.href ? 'before:w-full' : 'before:w-0 hover:before:w-full',
-                    'relative before:absolute before:bottom-0 before:left-0 before:h-0.5 before:bg-blue-500 before:transition-all before:duration-300 font-medium'
+                    'relative before:absolute before:bottom-0 before:left-0 before:h-0.5 before:bg-blue-500 before:transition-all before:duration-300 text-primary font-medium'
                   )}
                 >
                   {link.label}
@@ -50,7 +49,7 @@ export const Header: React.FC = () => {
                   href={link.href}
                   className={cn(
                     pathname === link.href ? 'before:w-full' : 'before:w-0 hover:before:w-full',
-                    'relative before:absolute before:bottom-0 before:left-0 before:h-0.5 before:bg-blue-500 before:transition-all before:duration-300 font-medium'
+                    'relative before:absolute before:bottom-0 before:left-0 before:h-0.5 before:bg-blue-500 before:transition-all before:duration-300 text-primary font-medium'
                   )}
                 >
                   {link.label}
