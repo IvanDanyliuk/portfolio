@@ -1,11 +1,11 @@
 import { ActionLink } from './action-link';
 import { Header } from './header';
-import { NavMenuMobile } from './nav-menu-mobile';
+import { NavMenu } from './nav-menu';
 import { PageSection } from './page-section';
 
 export { 
   ActionLink, 
   Header, 
-  NavMenuMobile, 
+  NavMenu, 
   PageSection
 };
