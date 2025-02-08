@@ -21,7 +21,7 @@ import { MENU_LINKS } from '@/lib/constants';
 export const NavMenu: React.FC = () => {
   const pathname = usePathname();
   const [activeLink, setActiveLink] = useState('/');
-  const isMobile = useMediaQuery('(max-width: 768px')
+  const isMobile = useMediaQuery('(max-width: 768px');
 
   const handleScroll = (id: string) => {
     const section = document.getElementById(id);
@@ -31,7 +31,7 @@ export const NavMenu: React.FC = () => {
       const y = section.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ 
         top: y, 
-        behavior: 'smooth' 
+        behavior: 'smooth',
       });
     }
 

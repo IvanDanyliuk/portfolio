@@ -5,7 +5,7 @@ import { NavMenu } from './nav-menu';
 
 export const Header: React.FC = () => {
   return (
-    <header className='w-full'>
+    <header className='fixed w-full bg-white z-10'>
       <nav className='mx-auto px-3 md:px-0 h-24 container flex justify-between items-center'>
         <Link href='/'>
           <Image 

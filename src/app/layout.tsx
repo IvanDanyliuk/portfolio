@@ -24,7 +24,9 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Header />
-        {children}
+        <main className='pt-24 min-h-screen flex flex-col'>
+          {children}
+        </main>
       </body>
     </html>
   );
