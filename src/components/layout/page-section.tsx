@@ -19,7 +19,7 @@ export const PageSection: React.FC<IPageSection> = ({
   return (
     <motion.section
       id={id}
-      className={`w-full ${className || ''}`}
+      className={`${className || ''}`}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
