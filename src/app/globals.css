@@ -17,5 +17,5 @@ body {
 }
 
 .main-page-heading {
-  @apply py-4 md:py-10 w-full text-center text-6xl md:text-[5rem] text-primary leading-[8rem];
+  @apply py-8 md:py-16 w-full text-center text-6xl md:text-[5rem] text-primary leading-[5rem];
 }

@@ -15,20 +15,26 @@ import {
 } from '@/components/ui/table';
 import { ActionLink, Chip, ScrollToTopButton, PageSection } from '@/components/layout';
 import { Separator } from '@/components/ui/separator';
-import { ADDITIONAL_SKILLS, EXPERIENCE, MENU_LINKS, SKILLS } from '@/lib/constants';
+import { Button } from '@/components/ui/button';
+import { getProjects } from '@/lib/projects';
+import { splitStringWithRestItems } from '@/lib/utils';
+import { 
+  ADDITIONAL_SKILLS, 
+  EXPERIENCE, 
+  MENU_LINKS, 
+  SKILLS 
+} from '@/lib/constants';
 import Portrait from '../../public/portrait.png';
 import LinkedIn from '../../public/social-media-icons/icons8-linked-in.svg';
 import Github from '../../public/social-media-icons/icons8-github.svg';
 import Instagram from '../../public/social-media-icons/icons8-instagram.svg';
 import Facebook from '../../public/social-media-icons/icons8-facebook.svg';
-import { getProjects } from '@/lib/projects';
+
 
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
-
   const projects = getProjects();
-  console.log('PROJECTS', projects)
 
   return (
     <>
@@ -74,7 +80,10 @@ export default function Home() {
                 I am Ivan Danyliuk.
               </h2>
             </div>
-            <Link href='#about' className='hidden md:flex items-center gap-2 text-base text-secondary font-semibold'>
+            <Link 
+              href='#about' 
+              className='hidden md:flex items-center gap-2 text-base text-secondary font-semibold'
+            >
               <span>
                 Scroll down
               </span>
@@ -82,7 +91,13 @@ export default function Home() {
             </Link>
           </div>
           <div className='relative md:min-h-[calc(100vh-96px)] flex flex-row-reverse md:flex-row justify-between md:justify-end items-end gap-10'>
-            <Image src={Portrait} alt='portrait' width={0} height={0} className='w-auto max-w-full h-full md:h-[80vh] object-contain' />
+            <Image 
+              src={Portrait} 
+              alt='portrait' 
+              width={0} 
+              height={0} 
+              className='w-auto max-w-full h-full md:h-[80vh] object-contain' 
+            />
             <ul className='p-6 flex flex-col gap-10'>
               <li>
                 <Link href='https://www.linkedin.com/in/ivan-danyliuk/'>
@@ -166,7 +181,7 @@ export default function Home() {
           cupiditate odio sed quaerat exercitationem, libero officia, consequatur fugiat at cumque fugit. Sapiente et aperiam quaerat 
           veritatis quidem voluptatum aliquid facilis, error, iure voluptatem asperiores voluptates!
         </p>
-        <div className='mx-auto px-3 md:px-0 container flex flex-wrap gap-10 md:gap-0'>
+        <div className='mx-auto px-3 md:px-0 py-6 container flex flex-wrap gap-10 md:gap-0'>
           <div className='md:p-10 w-full md:w-1/2'>
             <h3 className='mb-6 text-4xl text-primary'>
               My skills
@@ -229,15 +244,54 @@ export default function Home() {
           </div>
         </div>
       </PageSection>
-      <PageSection id='projects' className='w-full bg-tertiary'>
+      <PageSection 
+        id='projects' 
+        className='w-full bg-tertiary'
+      >
         <div className='relative mx-auto container'>
           <h2 className='main-page-heading'>
             My latest projects
           </h2>
-          <ul>
-            Project will be here soon...
+          <ul className='px-3 relative w-full grid grid-cols-1 md:grid-cols-3 gap-6'>
+            {projects.slice(0, 3).map((project) => (
+              <li 
+                key={crypto.randomUUID()} 
+                className='relative col-span-1 group bg-white rounded-xl overflow-hidden'
+              >
+                <Link 
+                  href={`/projects/${project.slug}`} 
+                  className='block'
+                >
+                  <div className='relative w-full h-72 overflow-hidden'>
+                    <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 hover:opacity-100 group-hover:opacity-100 z-10'>
+                      <Button className='w-16 h-16 text-white bg-primary rounded-full'>
+                        <ArrowUpRight />
+                      </Button>
+                      <p className='absolute bottom-3 left-3 px-4 py-2 bg-primary text-xs text-white rounded-full'>
+                        {project.type}
+                      </p>
+                      <p className='absolute bottom-3 right-3 px-4 py-2 bg-primary text-xs text-white rounded-full'>
+                        {splitStringWithRestItems(project.stack)}
+                      </p>
+                    </div>
+                    <Image 
+                      src={project.titleImage} 
+                      alt={project.slug} 
+                      fill 
+                      objectFit='cover' 
+                    />
+                  </div>
+                  <p className='px-3 py-6 text-lg font-semibold'>
+                    {project.title}
+                  </p>
+                </Link>
+              </li>
+            ))}
           </ul>
-          <Link href='/projects' className='mx-auto my-10 w-fit flex items-center'>
+          <Link 
+            href='/projects' 
+            className='mx-auto my-10 w-fit flex items-center'
+          >
             Check out more 
             <MoveRight className='ml-5 mr-2' />
             <span className='font-semibold'>
@@ -250,7 +304,7 @@ export default function Home() {
         <h2 className='main-page-heading'>
           Let&apos;s talk
         </h2>
-        <p className='text-xl text-center text-secondary'>
+        <p className='text-base md:text-xl text-center text-secondary text-balance'>
           I’m always excited to collaborate on new and innovative projects.
         </p>
         <Link href='/contact' className='mx-auto my-24 w-fit flex items-center gap-2'>
@@ -261,8 +315,8 @@ export default function Home() {
         </Link>
       </PageSection>
       <PageSection className='w-full bg-primary'>
-        <footer className='mx-auto my-24 container flex justify-between items-center'>
-          <ul className='flex items-center gap-x-16'>
+        <footer className='mx-auto py-16 md:py-24 container flex flex-col md:flex-row justify-between items-center gap-10'>
+          <ul className='flex flex-col md:flex-row items-center gap-6 md:gap-16'>
             {MENU_LINKS.map(link => (
               <li key={crypto.randomUUID()}>
                 <Link 

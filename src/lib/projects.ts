@@ -3,6 +3,17 @@ import path from 'path';
 import matter from 'gray-matter';
 
 
+interface IProject {
+  title: string;
+  type: string;
+  stack: string;
+  createdAt: string;
+  titleImage: string;
+  repoLink: string;
+  deploymentLink: string;
+};
+
+
 const projectsDirectory = path.join(process.cwd(), 'src/projects');
 
 export const getProjects = () => {
@@ -16,8 +27,9 @@ export const getProjects = () => {
 
     return {
       slug,
-      ...data,
+      ...data as IProject,
+      createdAt: new Date(data.createdAt).getTime(),
       content,
     };
-  });
+  }).sort((a, b) => b.createdAt - a.createdAt);
 };
