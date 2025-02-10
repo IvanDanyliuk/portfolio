@@ -4,7 +4,8 @@ import {
   ArrowDown, 
   ArrowDownToLine, 
   ArrowRight, 
-  ArrowUpRight 
+  ArrowUpRight, 
+  MoveRight
 } from 'lucide-react';
 import {
   Table,
@@ -12,9 +13,9 @@ import {
   TableCell,
   TableRow,
 } from '@/components/ui/table';
-import { ActionLink, Chip, PageSection } from '@/components/layout';
+import { ActionLink, Chip, ScrollToTopButton, PageSection } from '@/components/layout';
 import { Separator } from '@/components/ui/separator';
-import { ADDITIONAL_SKILLS, EXPERIENCE, SKILLS } from '@/lib/constants';
+import { ADDITIONAL_SKILLS, EXPERIENCE, MENU_LINKS, SKILLS } from '@/lib/constants';
 import Portrait from '../../public/portrait.png';
 import LinkedIn from '../../public/social-media-icons/icons8-linked-in.svg';
 import Github from '../../public/social-media-icons/icons8-github.svg';
@@ -125,7 +126,7 @@ export default function Home() {
         </div>
       </PageSection>
       <PageSection id='about'>
-        <h2 className='py-4 md:py-10 w-full text-center text-6xl md:text-[6rem] text-primary leading-[8rem] bg-tertiary'>
+        <h2 className='main-page-heading bg-tertiary'>
           About me
         </h2>
         <p className='mx-auto px-3 py-6 container text-center text-secondary'>
@@ -224,12 +225,57 @@ export default function Home() {
           </div>
         </div>
       </PageSection>
-      <PageSection id='projects'>
-        Projects me section
+      <PageSection id='projects' className='w-full bg-tertiary'>
+        <div className='relative mx-auto container'>
+          <h2 className='main-page-heading'>
+            My latest projects
+          </h2>
+          <ul>
+            Project will be here soon...
+          </ul>
+          <Link href='/projects' className='mx-auto my-10 w-fit flex items-center'>
+            Check out more 
+            <MoveRight className='ml-5 mr-2' />
+            <span className='font-semibold'>
+              See more  
+            </span> 
+          </Link>
+        </div>
       </PageSection>
-      <PageSection id='contact'>
-        Contact section
+      <PageSection id='contact' className='w-full bg-white'>
+        <h2 className='main-page-heading'>
+          Let&apos;s talk
+        </h2>
+        <p className='text-xl text-center text-secondary'>
+          I’m always excited to collaborate on new and innovative projects.
+        </p>
+        <Link href='/contact' className='mx-auto my-24 w-fit flex items-center gap-2'>
+          <span className='relative py-1 after:absolute after:w-full after:h-[2px] after:bottom-1 after:left-0 after:bg-primary'>
+            Contact me
+          </span>
+          <ArrowUpRight className='w-5 h-5' />
+        </Link>
       </PageSection>
+      <PageSection className='w-full bg-primary'>
+        <footer className='mx-auto my-24 container flex justify-between items-center'>
+          <ul className='flex items-center gap-x-16'>
+            {MENU_LINKS.map(link => (
+              <li key={crypto.randomUUID()}>
+                <Link 
+                  href={link.href}
+                  className='relative text-white font-medium'
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className='text-white text-sm tracking-widest'>
+            {`Ivan Danyliuk. ${2025}`}
+          </p>
+        </footer>
+      </PageSection>
+      <ScrollToTopButton />
     </>
   );
 };

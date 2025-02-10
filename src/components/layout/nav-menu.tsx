@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { AlignJustify, ArrowDownToLine } from 'lucide-react';
@@ -37,6 +37,32 @@ export const NavMenu: React.FC = () => {
 
     setActiveLink(`/${id}`);
   };
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.4,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if(entry.isIntersecting) {
+          setActiveLink(`/${entry.target.id}`);
+        } else {
+          setActiveLink('/')
+        }
+      });
+    }, observerOptions);
+
+    MENU_LINKS.forEach((link) => {
+      const id = link.href.slice(1);
+      const section = document.getElementById(id);
+      if(section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
   
   return (
     <>

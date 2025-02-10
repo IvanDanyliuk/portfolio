@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 
 interface IPageSection { 
-  id: string; 
+  id?: string; 
   className?: string;
   children: ReactNode; 
 };

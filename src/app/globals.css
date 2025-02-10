@@ -15,3 +15,7 @@ body {
     --tertiary: #F8F8F8;
   }
 }
+
+.main-page-heading {
+  @apply py-4 md:py-10 w-full text-center text-6xl md:text-[5rem] text-primary leading-[8rem];
+}
