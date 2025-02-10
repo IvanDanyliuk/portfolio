@@ -21,10 +21,14 @@ import LinkedIn from '../../public/social-media-icons/icons8-linked-in.svg';
 import Github from '../../public/social-media-icons/icons8-github.svg';
 import Instagram from '../../public/social-media-icons/icons8-instagram.svg';
 import Facebook from '../../public/social-media-icons/icons8-facebook.svg';
+import { getProjects } from '@/lib/projects';
 
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
+
+  const projects = getProjects();
+  console.log('PROJECTS', projects)
 
   return (
     <>
@@ -271,7 +275,7 @@ export default function Home() {
             ))}
           </ul>
           <p className='text-white text-sm tracking-widest'>
-            {`Ivan Danyliuk. ${2025}`}
+            {`Ivan Danyliuk. ${currentYear}`}
           </p>
         </footer>
       </PageSection>
