@@ -42,21 +42,19 @@ export const NavMenu: React.FC = () => {
     const observerOptions = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.4,
+      threshold: 0.5,
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if(entry.isIntersecting) {
-          setActiveLink(`/${entry.target.id}`);
-        } else {
-          setActiveLink('/')
+          setActiveLink(`/${entry.target.id !== 'home' ? entry.target.id : ''}`);
         }
       });
     }, observerOptions);
 
     MENU_LINKS.forEach((link) => {
-      const id = link.href.slice(1);
+      const id = link.href === '/' ? 'home' : link.href.slice(1);
       const section = document.getElementById(id);
       if(section) observer.observe(section);
     });
@@ -106,7 +104,7 @@ export const NavMenu: React.FC = () => {
               <li key={crypto.randomUUID()}>
                 {pathname === '/' ? (
                   <button 
-                    onClick={() => handleScroll(link.href.slice(1))} 
+                    onClick={() => handleScroll(link.href === '/' ? 'home' : link.href.slice(1))} 
                     className={cn(
                       activeLink === link.href ? 'before:w-full' : 'before:w-0 hover:before:w-full',
                       'relative before:absolute before:bottom-0 before:left-0 before:h-0.5 before:bg-primary before:transition-all before:duration-300 text-primary font-medium'

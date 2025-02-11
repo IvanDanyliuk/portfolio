@@ -38,7 +38,7 @@ export default function Home() {
 
   return (
     <>
-      <PageSection id='' className='relative mx-auto container flex flex-col flex-1'>
+      <PageSection id='home' className='relative mx-auto container flex flex-col flex-1'>
         <div className='relative min-h-[calc(100vh-96px)] flex flex-1 gap-3'>
         <div className='pb-3 w-[46px] min-h-full hidden md:flex flex-col justify-between items-center gap-y-3 text-secondary'>
           <p className='[writing-mode:vertical-lr] text-xs'>
@@ -248,11 +248,11 @@ export default function Home() {
         id='projects' 
         className='w-full bg-tertiary'
       >
-        <div className='relative mx-auto container'>
+        <div className='relative mx-auto min-h-full h-full container flex flex-col justify-between'>
           <h2 className='main-page-heading'>
             My latest projects
           </h2>
-          <ul className='px-3 relative w-full grid grid-cols-1 md:grid-cols-3 gap-6'>
+          <ul className='px-3 relative w-full grid grid-cols-1 md:grid-cols-3 grow gap-6'>
             {projects.slice(0, 3).map((project) => (
               <li 
                 key={crypto.randomUUID()} 
@@ -300,7 +300,7 @@ export default function Home() {
           </Link>
         </div>
       </PageSection>
-      <PageSection id='contact' className='w-full bg-white'>
+      <PageSection id='contact' className='w-full flex flex-col justify-center items-center bg-white'>
         <h2 className='main-page-heading'>
           Let&apos;s talk
         </h2>
