@@ -96,3 +96,61 @@ export const ADDITIONAL_SKILLS = [
   'English (B1)',
   'Figma',
 ];
+
+export const PROJECT_TYPES = [
+  {
+    value: 'fullstack',
+    label: 'Fullstack'
+  },
+  {
+    value: 'frontend',
+    label: 'Front-end'
+  },
+  {
+    value: 'backend',
+    label: 'Backend'
+  },
+];
+
+export const TECHNOLOGIES = [
+  {
+    value: 'html',
+    label: 'HTML',
+  },
+  {
+    value: 'css',
+    label: 'CSS',
+  },
+  {
+    value: 'javascript',
+    label: 'JavaScript',
+  },
+  {
+    value: 'typescript',
+    label: 'TypeScript',
+  },
+  {
+    value: 'react',
+    label: 'React',
+  },
+  {
+    value: 'redux',
+    label: 'Redux',
+  },
+  {
+    value: 'nextjs',
+    label: 'Next.js',
+  },
+  {
+    value: 'tailwindscss',
+    label: 'Tailwind CSS',
+  },
+  {
+    value: 'mongodb',
+    label: 'MongoDB',
+  },
+  {
+    value: 'prisma',
+    label: 'Prisma',
+  },
+];
