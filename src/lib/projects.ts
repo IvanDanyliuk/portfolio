@@ -1,19 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-
-
-interface IProject {
-  title: string;
-  type: string;
-  stack: string[];
-  createdAt: string;
-  titleImage: string;
-  images: string[];
-  repoLink: string;
-  deploymentLink: string;
-  intro: string;
-};
+import { IProject } from './types';
 
 
 const projectsDirectory = path.join(process.cwd(), 'src/projects');

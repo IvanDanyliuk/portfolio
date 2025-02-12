@@ -8,7 +8,7 @@ import { getProjects } from '@/lib/projects';
 import { SKILLS } from '@/lib/constants';
 
 
-export default async function ProjectPage({ 
+export default function ProjectPage({ 
   params 
 }: { 
   params: {
@@ -69,11 +69,19 @@ export default async function ProjectPage({
                 ))}
               </ul>
             </div>
-            <Link href={project.deploymentLink} className='project-link'>
+            <Link 
+              href={project.deploymentLink} 
+              target='_blank' 
+              className='project-link'
+            >
               Watch this project live
               <MoveRight className='inline ml-2' />
             </Link>
-            <Link href={project.repoLink} className='project-link'>
+            <Link 
+              href={project.repoLink} 
+              target='_blank' 
+              className='project-link'
+            >
               See the code
               <MoveRight className='inline ml-2' />
             </Link>
