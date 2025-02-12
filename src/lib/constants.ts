@@ -150,6 +150,10 @@ export const TECHNOLOGIES = [
     label: 'MongoDB',
   },
   {
+    value: 'mongoose',
+    label: 'Mongoose',
+  },
+  {
     value: 'prisma',
     label: 'Prisma',
   },

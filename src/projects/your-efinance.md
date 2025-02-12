@@ -1,7 +1,7 @@
 ---
 title: "Your eFinance"
-type: "Fullstack"
-stack: "Next.js, Prisma, MongoDB, TailwindCSS, ShadcnUI"
+type: "fullstack"
+stack: "nextjs, prisma, mongodb, tailwindcss, shadcnui"
 createdAt: "2025-01-31"
 titleImage: "/projects/your-efinance-main.png"
 repoLink: "https://github.com/IvanDanyliuk/personal-finance-app"

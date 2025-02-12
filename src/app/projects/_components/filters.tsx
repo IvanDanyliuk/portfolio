@@ -35,7 +35,7 @@ export const Filters: React.FC = () => {
           </SheetContent>
         </Sheet>
       ) : (
-        <div className='max-w-72 space-y-6'>
+        <div className='w-72 min-h-full h-full space-y-6'>
           <h4 className='text-lg font-medium'>
             Filters
           </h4>
