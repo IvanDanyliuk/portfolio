@@ -13,7 +13,7 @@ import {
 import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Button } from '@/components/ui/button';
-import { PROJECT_TYPES, TECHNOLOGIES } from '@/lib/constants';
+import { PROJECT_TYPES, SKILLS } from '@/lib/constants';
 
 
 type FiltersData = {
@@ -121,7 +121,7 @@ export const FilterForm: React.FC = () => {
               Tech stack
             </AccordionTrigger>
             <AccordionContent className='space-y-5 md:space-y-3'>
-              {TECHNOLOGIES.map(technology => (
+              {SKILLS.map(technology => (
                 <div 
                   key={crypto.randomUUID()} 
                   className='flex items-center space-x-2'

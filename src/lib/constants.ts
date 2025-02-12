@@ -8,7 +8,8 @@ import NextJS from '../../public/skill-icons/nextjs.svg';
 import NodeJS from '../../public/skill-icons/node-js.svg';
 import TailwindCSS from '../../public/skill-icons/tailwindcss.svg';
 import RESTAPI from '../../public/skill-icons/rest-api.svg';
-import Git from '../../public/skill-icons/git.svg';
+import MongoDB from '../../public/skill-icons/mongodb.svg';
+import Prisma from '../../public/skill-icons/prisma.svg';
 
 
 export const MENU_LINKS = [
@@ -34,46 +35,67 @@ export const SKILLS = [
   {
     icon: HTML,
     label: 'HTML',
+    value: 'html'
   },
   {
     icon: CSS,
     label: 'CSS',
+    value: 'css'
   },
   {
     icon: JS,
     label: 'JavaScript',
+    value: 'javascript'
   },
   {
     icon: TS,
     label: 'TypeScript',
+    value: 'typescript'
   },
   {
     icon: React,
     label: 'React',
+    value: 'react'
   },
   {
     icon: Redux,
     label: 'Redux',
+    value: 'redux'
   },
   {
     icon: NextJS,
     label: 'Next.js',
+    value: 'nextjs'
   },
   {
     icon: NodeJS,
     label: 'Node.js',
+    value: 'nodejs'
   },
   {
     icon: TailwindCSS,
     label: 'Tailwind CSS',
+    value: 'tailwindcss'
   },
   {
     icon: RESTAPI,
     label: 'REST API',
+    value: 'restapi'
   },
   {
-    icon: Git,
-    label: 'Git',
+    icon: MongoDB,
+    label: 'MongoDB',
+    value: 'mongodb'
+  },
+  {
+    icon: Prisma,
+    label: 'Prisma',
+    value: 'prisma'
+  },
+  {
+    icon: RESTAPI,
+    label: 'Mongoose',
+    value: 'mongoose'
   },
 ];
 
@@ -94,6 +116,7 @@ export const EXPERIENCE = [
 
 export const ADDITIONAL_SKILLS = [
   'English (B1)',
+  'Git',
   'Figma',
 ];
 
@@ -109,52 +132,5 @@ export const PROJECT_TYPES = [
   {
     value: 'backend',
     label: 'Backend'
-  },
-];
-
-export const TECHNOLOGIES = [
-  {
-    value: 'html',
-    label: 'HTML',
-  },
-  {
-    value: 'css',
-    label: 'CSS',
-  },
-  {
-    value: 'javascript',
-    label: 'JavaScript',
-  },
-  {
-    value: 'typescript',
-    label: 'TypeScript',
-  },
-  {
-    value: 'react',
-    label: 'React',
-  },
-  {
-    value: 'redux',
-    label: 'Redux',
-  },
-  {
-    value: 'nextjs',
-    label: 'Next.js',
-  },
-  {
-    value: 'tailwindscss',
-    label: 'Tailwind CSS',
-  },
-  {
-    value: 'mongodb',
-    label: 'MongoDB',
-  },
-  {
-    value: 'mongoose',
-    label: 'Mongoose',
-  },
-  {
-    value: 'prisma',
-    label: 'Prisma',
   },
 ];

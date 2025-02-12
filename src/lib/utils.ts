@@ -5,8 +5,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 };
 
-export const splitStringWithRestItems = (str: string) => {
-  const splittedData = str.split(', ');
-  const restNum = splittedData.length - 1;
-  return `${splittedData[0]} + ${restNum} other${restNum > 0 ? 's' : ''}`;
+export const splitStringWithRestItems = (data: string[]) => {
+  return `${data[0]} + ${data.length - 1} other${data.length > 0 ? 's' : ''}`;
 };

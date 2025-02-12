@@ -13,7 +13,7 @@ import {
   TableCell,
   TableRow,
 } from '@/components/ui/table';
-import { ActionLink, Chip, ScrollToTopButton, PageSection } from '@/components/layout';
+import { ActionLink, ScrollToTopButton, SkillItem, PageSection, Chip } from '@/components/layout';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { getProjects } from '@/lib/projects';
@@ -189,7 +189,7 @@ export default function Home() {
             <ul className='flex flex-wrap gap-3'>
               {SKILLS.map(skill => (
                 <li key={crypto.randomUUID()} >
-                  <Chip 
+                  <SkillItem 
                     icon={skill.icon} 
                     label={skill.label} 
                   />
@@ -267,12 +267,14 @@ export default function Home() {
                       <Button className='w-16 h-16 text-white bg-primary rounded-full'>
                         <ArrowUpRight />
                       </Button>
-                      <p className='absolute bottom-3 left-3 px-4 py-2 bg-primary text-xs text-white rounded-full'>
-                        {project.type}
-                      </p>
-                      <p className='absolute bottom-3 right-3 px-4 py-2 bg-primary text-xs text-white rounded-full'>
-                        {splitStringWithRestItems(project.stack)}
-                      </p>
+                      <Chip 
+                        value={project.type} 
+                        className='absolute bottom-3 left-3' 
+                      />
+                      <Chip 
+                        value={splitStringWithRestItems(project.stack)} 
+                        className='absolute bottom-3 right-3' 
+                      />
                     </div>
                     <Image 
                       src={project.titleImage} 

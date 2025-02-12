@@ -6,11 +6,13 @@ import matter from 'gray-matter';
 interface IProject {
   title: string;
   type: string;
-  stack: string;
+  stack: string[];
   createdAt: string;
   titleImage: string;
+  images: string[];
   repoLink: string;
   deploymentLink: string;
+  intro: string;
 };
 
 

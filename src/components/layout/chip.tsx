@@ -1,28 +1,18 @@
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
-import Image from 'next/image';
-
+import { cn } from "@/lib/utils";
 
 interface IChip {
-  icon: StaticImport | string;
-  label: string;
+  value: string;
+  className?: string;
 };
 
 
-export const Chip: React.FC<IChip> = ({ 
-  icon, 
-  label 
-}) => {
+export const Chip: React.FC<IChip> = ({ value, className }) => {
   return (
-    <div className='px-4 py-2 flex items-center gap-2 border border-secondary rounded-full'>
-      <Image 
-        src={icon} 
-        alt={`Icon for ${label}`} 
-        width={30} 
-        height={30} 
-      />
-      <span className='text-sm text-secondary'>
-        {label}
-      </span>
-    </div>
+    <p className={cn(
+      className, 
+      'px-4 py-2 w-fit bg-primary text-xs text-white rounded-full'
+    )}>
+      {value}
+    </p>
   );
 };
