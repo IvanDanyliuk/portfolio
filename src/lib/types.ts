@@ -14,4 +14,3 @@ export interface IProject {
   deploymentLink: string;
   intro: string;
 };
-
