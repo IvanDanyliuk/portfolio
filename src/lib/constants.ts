@@ -1,3 +1,7 @@
+import LinkedIn from '../../public/social-media-icons/icons8-linked-in.svg';
+import Github from '../../public/social-media-icons/icons8-github.svg';
+import Instagram from '../../public/social-media-icons/icons8-instagram.svg';
+import Facebook from '../../public/social-media-icons/icons8-facebook.svg';
 import HTML from '../../public/skill-icons/html.svg';
 import CSS from '../../public/skill-icons/css.svg';
 import JS from '../../public/skill-icons/javascript.svg';
@@ -28,6 +32,29 @@ export const MENU_LINKS = [
   {
     href: '/contact',
     label: 'Contact',
+  },
+];
+
+export const SOCIAL_MEDIA_LINKS = [
+  {
+    href: 'https://www.linkedin.com/in/ivan-danyliuk/',
+    label: 'Linked In',
+    icon: LinkedIn,
+  },
+  {
+    href: 'https://github.com/IvanDanyliuk',
+    label: 'Github',
+    icon: Github,
+  },
+  {
+    href: 'https://www.instagram.com/daniliuk.ivan/',
+    label: 'Instagram',
+    icon: Instagram,
+  },
+  {
+    href: 'https://www.facebook.com/ivan.a.danyliuk',
+    label: 'Facebook',
+    icon: Facebook,
   },
 ];
 

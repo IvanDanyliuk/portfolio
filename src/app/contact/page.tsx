@@ -1,3 +1,4 @@
+import { SocialMediaLinks } from "@/components/layout";
 import { ContactForm } from "./_components/contact-form";
 
 export default function ContactPage() {
@@ -11,6 +12,7 @@ export default function ContactPage() {
           I’m always excited to collaborate on new and innovative projects.
         </p>
         <ContactForm />
+        <SocialMediaLinks orientation='horizontal' />
       </div>
     </div>
   );

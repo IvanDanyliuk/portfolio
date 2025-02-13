@@ -13,7 +13,14 @@ import {
   TableCell,
   TableRow,
 } from '@/components/ui/table';
-import { ActionLink, ScrollToTopButton, SkillItem, PageSection, Chip } from '@/components/layout';
+import { 
+  ActionLink, 
+  ScrollToTopButton, 
+  SkillItem, 
+  PageSection, 
+  Chip, 
+  SocialMediaLinks 
+} from '@/components/layout';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { getProjects } from '@/lib/projects';
@@ -25,11 +32,6 @@ import {
   SKILLS 
 } from '@/lib/constants';
 import Portrait from '../../public/portrait.png';
-import LinkedIn from '../../public/social-media-icons/icons8-linked-in.svg';
-import Github from '../../public/social-media-icons/icons8-github.svg';
-import Instagram from '../../public/social-media-icons/icons8-instagram.svg';
-import Facebook from '../../public/social-media-icons/icons8-facebook.svg';
-
 
 
 export default function Home() {
@@ -98,48 +100,7 @@ export default function Home() {
               height={0} 
               className='w-auto max-w-full h-full md:h-[80vh] object-contain' 
             />
-            <ul className='p-6 flex flex-col gap-10'>
-              <li>
-                <Link href='https://www.linkedin.com/in/ivan-danyliuk/'>
-                  <Image 
-                    src={LinkedIn} 
-                    alt='Linked In' 
-                    width={40} 
-                    height={40} 
-                  />
-                </Link>
-              </li>
-              <li>
-                <Link href='https://github.com/IvanDanyliuk'>
-                  <Image 
-                    src={Github} 
-                    alt='Github' 
-                    width={40} 
-                    height={40} 
-                  />
-                </Link>
-              </li>
-              <li>
-                <Link href='https://github.com/IvanDanyliuk'>
-                  <Image 
-                    src={Instagram} 
-                    alt='Instagram' 
-                    width={40} 
-                    height={40} 
-                  />
-                </Link>
-              </li>
-              <li>
-                <Link href='https://www.facebook.com/ivan.a.danyliuk'>
-                  <Image 
-                    src={Facebook} 
-                    alt='Facebook' 
-                    width={40} 
-                    height={40} 
-                  />
-                </Link>
-              </li>
-            </ul>
+            <SocialMediaLinks />
           </div>
         </div>
         </div>
