@@ -9,7 +9,9 @@ interface ISocialMediaList {
 };
 
 
-export const SocialMediaLinks: React.FC<ISocialMediaList> = ({ orientation = 'vertical' }) => {
+export const SocialMediaLinks: React.FC<ISocialMediaList> = ({ 
+  orientation = 'vertical' 
+}) => {
   return (
     <ul className={cn(
       orientation === 'vertical' ? 'flex-col' : 'flex-row   ', 

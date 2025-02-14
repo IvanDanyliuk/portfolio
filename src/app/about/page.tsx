@@ -7,12 +7,12 @@ import { ArrowDownToLine, ArrowRight, ArrowUpRight } from 'lucide-react';
 export default function AboutPage() {
   return (
     <div className='w-full min-h-[calc(100vh-6rem)]'>
-      <div className='relative mx-auto container'>
+      <div className='relative mx-auto px-3 md:px-0 container '>
         <h1 className='py-6 text-6xl text-primary '>
           About me
         </h1>
-        <div className='w-full flex gap-10'>
-          <p className='mx-auto px-3 py-6 container text-secondary'>
+        <div className='w-full flex flex-col md:flex-row gap-10'>
+          <p className='mx-auto py-6 max-w-1/2 w-fit text-secondary'>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, eius dolorem. Itaque placeat hic est nam aliquam beatae 
             culpa libero minus in dolore at vero voluptatibus, repudiandae iusto mollitia consequuntur excepturi dolorem iste eligendi? 
             Temporibus mollitia error repellat aliquam perspiciatis repudiandae, corporis doloribus consequatur cumque nesciunt porro? 
@@ -45,7 +45,7 @@ export default function AboutPage() {
             cupiditate odio sed quaerat exercitationem, libero officia, consequatur fugiat at cumque fugit. Sapiente et aperiam quaerat 
             veritatis quidem voluptatum aliquid facilis, error, iure voluptatem asperiores voluptates!
           </p>
-          <div className='relative w-fit'>
+          <div className='relative w-fit space-y-10'>
             <div className='md:p-6 w-full'>
               <h3 className='mb-6 text-4xl text-primary'>
                 My skills
