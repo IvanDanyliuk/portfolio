@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useRef, useEffect, ReactNode } from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 
 interface IAnimatedLink {
