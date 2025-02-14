@@ -11,7 +11,7 @@ import {
 import { Separator } from '@/components/ui/separator';
 import { Filters } from './_components';
 import { getProjects } from '@/lib/projects';
-import { Chip } from '@/components/layout';
+import { Chip, PageSection } from '@/components/layout';
 import { SKILLS } from '@/lib/constants';
 
 
@@ -35,7 +35,7 @@ export default function ProjectsPage({
       <div className='mx-auto px-3 md:px-0 py-6 w-fit container flex flex-1 gap-6'>
         <Filters />
         <Separator orientation='vertical' className='hidden md:block' />
-        <div className='flex-1 space-y-6'>
+        <PageSection className='flex-1 space-y-6'>
           <h1 className='text-4xl text-primary font-medium'>
             My projects
           </h1>
@@ -90,7 +90,7 @@ export default function ProjectsPage({
               ))
             }
           </Accordion>
-        </div>
+        </PageSection>
       </div>
     </div>
   );
