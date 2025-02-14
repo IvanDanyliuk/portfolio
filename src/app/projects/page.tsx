@@ -15,18 +15,16 @@ import { Chip, PageSection } from '@/components/layout';
 import { SKILLS } from '@/lib/constants';
 
 
-export default function ProjectsPage({ 
-  searchParams: { 
-    types, 
-    stack 
-  } 
+export default async function ProjectsPage({ 
+  searchParams 
 }: { 
-  searchParams: { 
+  searchParams: Promise<{ 
     types: string; 
     stack: string 
-  } 
+  }> 
 }) {
   const projects = getProjects();
+  const { types, stack } = await searchParams;
   const selectedTypes = types ? types.split(';') : [];
   const selectedStack = stack ? stack.split(';') : [];
 
