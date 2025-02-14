@@ -20,12 +20,28 @@ body {
   @apply py-8 md:py-16 w-full text-center text-6xl md:text-[5rem] text-primary leading-[5rem];
 }
 
+.project-content h1 {
+  @apply text-3xl text-primary font-semibold;
+}
+
+.project-content h2 {
+  @apply mt-6 text-2xl text-primary font-medium;
+}
+
 .project-content h3 {
-  @apply text-2xl text-primary font-medium;
+  @apply mt-3 text-xl text-primary font-medium;
 }
 
 .project-content p {
-  @apply py-2 mb-8 text-sm text-secondary;
+  @apply py-3 text-secondary;
+}
+
+.project-content ul {
+  @apply pl-10 text-secondary;
+}
+
+.project-content li {
+  @apply list-disc;
 }
 
 .project-link {

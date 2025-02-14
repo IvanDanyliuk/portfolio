@@ -27,14 +27,14 @@ export default async function ProjectPage({
 
   return (
     <div className='w-full'>
-      <div className='mx-auto py-3 container'>
+      <div className='mx-auto px-3 md:px-0 py-3 container'>
         <h1 className='text-3xl font-medium text-primary'>
           {project.title}
         </h1>
         <p className='mb-8 text-sm text-secondary'>
           {format(project.createdAt, 'dd.MM.yyyy')}
         </p>
-        <div className='px-3 md:px-0 flex flex-col-reverse md:flex-row gap-10'>
+        <div className='px-3 md:px-0 flex flex-col-reverse md:flex-row gap-10 md:gap-16'>
           <div className='space-y-6'>
             {project.images.map((path, i) => (
               <div 
