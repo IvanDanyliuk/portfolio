@@ -8,14 +8,12 @@ import { getProjects } from '@/lib/projects';
 import { SKILLS } from '@/lib/constants';
 
 
-export default function ProjectPage({ 
+export default async function ProjectPage({ 
   params 
 }: { 
-  params: {
-    slug: string;
-  } 
+  params: Promise<{ slug: string; }> 
 }) {
-  const { slug } = params;
+  const { slug } = await params;
   const md = new Markdown()
 
   if(!slug) notFound();
