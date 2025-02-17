@@ -130,7 +130,7 @@ export const EXPERIENCE = [
   {
     company: 'SoftServe',
     country: 'Ukraine',
-    period: 'September 2021 - February 2024',
+    period: 'September 2021 - February 2022',
     position: 'Internship - WebUI Software Engineer',
     reponsibilities: [
       'Implementing robust solutions using React.js',
