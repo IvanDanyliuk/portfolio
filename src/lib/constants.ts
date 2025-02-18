@@ -14,6 +14,7 @@ import TailwindCSS from '../../public/skill-icons/tailwindcss.svg';
 import RESTAPI from '../../public/skill-icons/rest-api.svg';
 import MongoDB from '../../public/skill-icons/mongodb.svg';
 import Prisma from '../../public/skill-icons/prisma.svg';
+import GraphQL from '../../public/skill-icons/graphql.svg';
 
 
 export const MENU_LINKS = [
@@ -124,6 +125,11 @@ export const SKILLS = [
     label: 'Mongoose',
     value: 'mongoose'
   },
+  {
+    icon: GraphQL,
+    label: 'GraphQL',
+    value: 'graphql'
+  }
 ];
 
 export const EXPERIENCE = [
