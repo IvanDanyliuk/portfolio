@@ -19,11 +19,12 @@ import {
   SkillItem, 
   PageSection, 
   Chip, 
-  SocialMediaLinks 
+  SocialMediaLinks, 
+  CertificateList
 } from '@/components/layout';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-import { getProjects } from '@/lib/projects';
+import { getProjects } from '@/lib/queries/projects';
 import { splitStringWithRestItems } from '@/lib/utils';
 import { 
   ADDITIONAL_SKILLS, 
@@ -32,11 +33,13 @@ import {
   SKILLS 
 } from '@/lib/constants';
 import Portrait from '../../public/portrait.png';
+import { getCertificates } from '@/lib/queries/certificates';
 
 
 export default function Home() {
   const currentYear = new Date().getFullYear();
   const projects = getProjects();
+  const certificates = getCertificates();
 
   return (
     <>
@@ -180,6 +183,12 @@ export default function Home() {
                 </li>
               ))}
             </ul>
+          </div>
+          <div className='md:p-10 w-full md:w-1/2'>
+            <h3 className='mb-6 text-4xl text-primary'>
+              Certificates
+            </h3>
+            <CertificateList certificates={certificates} />
           </div>
         </div>
       </PageSection>

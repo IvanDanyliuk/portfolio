@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/accordion';
 import { Separator } from '@/components/ui/separator';
 import { Filters } from './_components';
-import { getProjects } from '@/lib/projects';
+import { getProjects } from '@/lib/queries/projects';
 import { Chip, PageSection } from '@/components/layout';
 import { SKILLS } from '@/lib/constants';
 

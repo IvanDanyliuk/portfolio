@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Markdown from 'markdown-it';
 import { format } from 'date-fns';
 import { MoveRight } from 'lucide-react';
-import { getProjects } from '@/lib/projects';
+import { getProjects } from '@/lib/queries/projects';
 import { SKILLS } from '@/lib/constants';
 
 

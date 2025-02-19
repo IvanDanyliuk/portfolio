@@ -1,10 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { IProject } from './types';
+import { IProject } from '../types';
 
 
-const projectsDirectory = path.join(process.cwd(), 'src/projects');
+const projectsDirectory = path.join(process.cwd(), 'src/content/projects');
 
 export const getProjects = () => {
   const filenames = fs.readdirSync(projectsDirectory);

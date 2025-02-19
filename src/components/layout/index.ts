@@ -1,5 +1,6 @@
 import { ActionLink } from './action-link';
 import { AnimatedLink } from './animated-link';
+import { CertificateList } from './certificate-list';
 import { Chip } from './chip';
 import { Header } from './header';
 import { NavMenu } from './nav-menu';
@@ -10,7 +11,8 @@ import { SocialMediaLinks } from './social-media-links';
 
 export { 
   ActionLink,
-  AnimatedLink,  
+  AnimatedLink, 
+  CertificateList, 
   Chip, 
   Header, 
   NavMenu, 

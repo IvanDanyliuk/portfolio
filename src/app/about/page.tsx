@@ -1,10 +1,13 @@
 import { ArrowDownToLine, ArrowRight, ArrowUpRight } from 'lucide-react';
-import { AnimatedLink, PageSection, SkillItem } from '@/components/layout';
+import { AnimatedLink, CertificateList, PageSection, SkillItem } from '@/components/layout';
 import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table';
 import { ADDITIONAL_SKILLS, EXPERIENCE, SKILLS } from '@/lib/constants';
+import { getCertificates } from '@/lib/queries/certificates';
 
 
 export default function AboutPage() {
+  const certificates = getCertificates();
+
   return (
     <div className='w-full min-h-[calc(100vh-6rem)]'>
       <div className='relative mx-auto px-3 md:px-0 pb-10 container '>
@@ -12,30 +15,38 @@ export default function AboutPage() {
           About me
         </h1>
         <div className='w-full flex flex-col md:flex-row gap-10'>
-          <PageSection className='mx-auto py-6 max-w-1/2 w-fit space-y-10'>
-            <p className='text-secondary text-balance leading-7'>
-              Hi, my name is Ivan Danyliuk, and I am a Front-End Engineer with a strong passion for web development. 
-              Originally, I earned a Master’s degree in Management of Organizations, but I decided to switch 
-              careers and pursue my passion for programming.
-              I started learning front-end development on my own, then took courses on platforms like Udemy and Coursera. 
-              In 2021, I had the opportunity to study at the corporate university of one of Ukraine’s largest IT 
-              companies, followed by a six-month internship there.
-              I am constantly exploring new technologies and improving my coding skills to follow the best practices 
-              and industry standards. Front-end development excites me, and I enjoy working on projects that enhance 
-              user experience and performance.
-            </p>
-            <div className='w-full flex gap-3'>
-              <AnimatedLink href='/Ivan_Danyliuk_CV.pdf' text='Download CV' download>
-                <ArrowDownToLine className='w-5 h-5' />
-              </AnimatedLink>
-              <AnimatedLink href='/projects' text='See my projects'>
-                <ArrowRight className='w-5 h-5' />
-              </AnimatedLink>
-              <AnimatedLink href='/contact' text='Let&apos;s talk'>
-                <ArrowUpRight className='w-5 h-5' />
-              </AnimatedLink>
-            </div>
-          </PageSection>
+          <div className='relative w-fit space-y-10'>
+            <PageSection className='mx-auto py-6 max-w-1/2 w-fit space-y-10'>
+              <p className='text-secondary text-balance leading-7'>
+                Hi, my name is Ivan Danyliuk, and I am a Front-End Engineer with a strong passion for web development. 
+                Originally, I earned a Master’s degree in Management of Organizations, but I decided to switch 
+                careers and pursue my passion for programming.
+                I started learning front-end development on my own, then took courses on platforms like Udemy and Coursera. 
+                In 2021, I had the opportunity to study at the corporate university of one of Ukraine’s largest IT 
+                companies, followed by a six-month internship there.
+                I am constantly exploring new technologies and improving my coding skills to follow the best practices 
+                and industry standards. Front-end development excites me, and I enjoy working on projects that enhance 
+                user experience and performance.
+              </p>
+              <div className='w-full flex gap-3'>
+                <AnimatedLink href='/Ivan_Danyliuk_CV.pdf' text='Download CV' download>
+                  <ArrowDownToLine className='w-5 h-5' />
+                </AnimatedLink>
+                <AnimatedLink href='/projects' text='See my projects'>
+                  <ArrowRight className='w-5 h-5' />
+                </AnimatedLink>
+                <AnimatedLink href='/contact' text='Let&apos;s talk'>
+                  <ArrowUpRight className='w-5 h-5' />
+                </AnimatedLink>
+              </div>
+            </PageSection>
+            <PageSection className='py-6 w-full space-y-10'>
+              <h3 className='mb-3 text-4xl text-primary'>
+                Certifications
+              </h3>
+              <CertificateList certificates={certificates} />
+            </PageSection>
+          </div>
           <div className='relative w-fit space-y-10'>
             <PageSection className='md:p-6 w-full'>
               <h3 className='mb-6 text-4xl text-primary'>

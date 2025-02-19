@@ -6,16 +6,16 @@ stack:
   - mongoose
   - mongodb 
   - tailwindcss
-  - shadcnui"
+  - shadcnui
 createdAt: "2024-10-20"
-titleImage: "/projects/your-efinance-main.png"
+titleImage: "/projects/decor-house-main.png"
 images: 
-  - /projects/your-efinance-main.png
-  - /projects/your-efinance-1.png
-  - /projects/your-efinance-2.png
-  - /projects/your-efinance-3.png
-  - /projects/your-efinance-4.png
-  - /projects/your-efinance-5.png
+  - /projects/decor-house-main.png
+  - /projects/decor-house-1.png
+  - /projects/decor-house-2.png
+  - /projects/decor-house-3.png
+  - /projects/decor-house-4.png
+  - /projects/decor-house-5.png
 repoLink: "https://github.com/IvanDanyliuk/decor-house"
 deploymentLink: "https://decor-house.vercel.app/"
 intro: "Online Store"

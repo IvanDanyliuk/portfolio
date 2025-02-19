@@ -14,3 +14,9 @@ export interface IProject {
   deploymentLink: string;
   intro: string;
 };
+
+export interface ICertificate {
+  title: string;
+  thumbnail: string;
+  verificationLink: string;
+};
