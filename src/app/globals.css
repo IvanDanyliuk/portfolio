@@ -47,3 +47,7 @@ body {
 .project-link {
   @apply block text-lg text-primary font-medium;
 }
+
+.verification-link {
+  @apply px-6 py-2 w-fit bg-primary hover:bg-white text-sm text-white hover:text-primary border border-primary rounded-full transition-all delay-100 z-10;
+}
