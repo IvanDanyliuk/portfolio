@@ -46,7 +46,7 @@ export const CertificateList: React.FC<ICertificateList> = ({ certificates }) =>
                     className='object-contain' 
                   />
                 </div>
-                <Link href={certificate.verificationLink}>
+                <Link href={certificate.verificationLink} target='_blank' className='z-10'>
                   Verify
                 </Link>
               </DialogContent>
